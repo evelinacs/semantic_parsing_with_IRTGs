@@ -1,0 +1,61 @@
+interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
+interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra
+interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
+
+// IRTG for the phrase 'the very small cat'
+// input:
+// tree: NP2(DT(the), NP2(ADJP(RB(very), JJ(small)), NN(cat))
+// ud: (cat_NOUN / cat :amod (small_ADJ / small :advmod very_ADV / very) :det (the_DET / the) 
+
+// rules:
+
+S! -> _det(N_BAR, DET) // N_BAR is for avoiding rules with more than 2 inputs
+[tree] NP2(?2,?1)
+[ud] r_gov_root(f_dep(merge(merge("(g<gov> :det (d<dep>))", r_gov(?1)), r_dep(?2))))
+[fourlang] ?1
+
+N_BAR -> _amod(NOUN, ADJP)
+[tree] NP2(?2,?1)
+[ud] r_gov_root(f_dep(merge(merge("(g<gov> :amod (d<dep>))", r_gov(?1)), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge("(g<gov> :0 (d<dep>))", r_gov(?1)), r_dep(?2))))
+
+ADJP -> _advmod(ADJ, ADV)
+[tree] ADJP(?2,?1)
+[ud] r_gov_root(f_dep(merge(merge("(g<gov> :advmod (d<dep>))", r_gov(?1)), r_dep(?2))))
+[fourlang] r_gov_root(f_dep(merge(merge("(g<gov> :0 (d<dep>))", r_gov(?1)), r_dep(?2))))
+
+N_BAR -> _noun(NOUN)
+[tree] NP(?1)
+[ud] ?1
+[fourlang] ?1
+
+ADJP -> _adj(ADJ) // if ADJP consists of a single ADJ, there's no need to create an ADJP node
+[tree] ?1 
+[ud] ?1
+[fourlang] ?1
+
+// this is an NP-based case, that's why an NP-node is created in the start rule, and if the N_BAR rule consists of a single noun,
+// it should be merged into the already existing NP node
+// in this basic case there is no need to handle more complex ADJPs 
+
+// terminal nodes:
+
+DET -> the_DET
+[tree] DT(the)
+[ud] "(the<root> / the)"
+[fourlang] "(the<root> / the)"
+
+ADV -> very_ADV
+[tree] RB(very)
+[ud] "(very<root> / very)"
+[fourlang] "(very<root> / very)"
+
+ADJ -> small_ADJ
+[tree] JJ(small)
+[ud] "(small<root> / small)"
+[fourlang] "(small<root> / small)"
+
+NOUN -> cat_NOUN
+[tree] NN(cat)
+[ud] "(cat<root> / cat)"
+[fourlang] "(cat<root> / cat)"
