@@ -11,18 +11,18 @@ interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
 
 S! -> _det(N_BAR, DET) // N_BAR is for avoiding rules with more than 2 inputs
 [tree] NP2(?2,?1)
-[ud] r_gov_root(f_dep(merge(merge("(g<gov> :det (d<dep>))", r_gov(?1)), r_dep(?2))))
+[ud] f_dep(merge_root_dep(merge("(r<root> :det (d<dep>))", ?1), ?2))
 [fourlang] ?1
 
 N_BAR -> _amod(NOUN, ADJP)
 [tree] NP2(?2,?1)
-[ud] r_gov_root(f_dep(merge(merge("(g<gov> :amod (d<dep>))", r_gov(?1)), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge("(g<gov> :0 (d<dep>))", r_gov(?1)), r_dep(?2))))
+[ud] f_dep(merge_root_dep(merge("(r<root> :amod (d<dep>))", ?1), ?2))
+[fourlang] f_dep(merge_root_dep(merge("(r<root> :0 (d<dep>))", ?1), ?2))
 
 ADJP -> _advmod(ADJ, ADV)
 [tree] ADJP(?2,?1)
-[ud] r_gov_root(f_dep(merge(merge("(g<gov> :advmod (d<dep>))", r_gov(?1)), r_dep(?2))))
-[fourlang] r_gov_root(f_dep(merge(merge("(g<gov> :0 (d<dep>))", r_gov(?1)), r_dep(?2))))
+[ud] f_dep(merge_root_dep(merge("(r<root> :advmod (d<dep>))", ?1), ?2))
+[fourlang] f_dep(merge_root_dep(merge("(r<root> :0 (d<dep>))", ?1), ?2))
 
 N_BAR -> _noun(NOUN)
 [tree] NP(?1)
@@ -33,10 +33,6 @@ ADJP -> _adj(ADJ) // if ADJP consists of a single ADJ, there's no need to create
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
-
-// this is an NP-based case, that's why an NP-node is created in the start rule, and if the N_BAR rule consists of a single noun,
-// it should be merged into the already existing NP node
-// in this basic case there is no need to handle more complex ADJPs
 
 // terminal nodes:
 
