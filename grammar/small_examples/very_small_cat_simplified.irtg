@@ -5,7 +5,7 @@ interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
 // IRTG for the phrase 'the very small cat'
 // input:
 // tree: NP2(DT(the), NP2(ADJP(RB(very), JJ(small)), NN(cat)))
-// ud: (cat_NOUN / cat :amod (small_ADJ / small :advmod very_ADV / very) :det (the_DET / the)
+// ud: (cat_NOUN / cat :amod (small_ADJ / small :advmod very_ADV / very) :det (the_DET / the))
 
 // rules:
 
