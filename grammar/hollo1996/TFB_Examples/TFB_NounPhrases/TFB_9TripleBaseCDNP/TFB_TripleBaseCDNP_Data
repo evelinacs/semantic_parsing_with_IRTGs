@@ -1,0 +1,157 @@
+//Words
+//stuff
+W -> staff_Word
+[syntacticTree] W(stuff)
+[dependencyGraph] "(stuff<root> / stuff)"
+[fourlangGraph] "(stuff<root> / stuff)"
+
+//CardinalNumber+CardinalNumber+Noun
+(NP (CD DIGITS) (CD DIGITSBSLPERDIGITS) (NN PERCENT))
+//CardinalNumber+CardinalNumber+PluralNoun
+(NP (CD DIGITS) (CD million) (NNS shares))
+//CardinalNumber+Adverb+Period
+(NP (CD DIGITSCOLONDIGITS) (RB pPERIODm) (PERIOD PERIOD))
+//CardinalNumber+Adjective+PluralNoun
+(NP (CD DIGITSCOMMADIGITSCOMMADIGITS) (JJ common) (NNS shares))
+(NP (CD DIGITSCOMMADIGITS) (JJ common) (NNS shares))
+(NP (CD DIGITSCOMMADIGITS) (JJ metric) (NNS tons))
+(NP (CD DIGITSCOMMADIGITS) (JJ metric) (NNS tons))
+(NP (CD DIGITS) (JJ such) (NNS railcars))
+(NP (CD DIGITS) (JJ consecutive) (NNS quarters))
+(NP (CD DIGITS) (JJ different) (NNS corkscrews))
+(NP (CD DIGITS) (JJ other) (NNS countries))
+(NP (CD DIGITSPERIODDIGITS) (JJ Canadian) (NNS dollars))
+(NP (CD DIGITSPERIODDIGITS) (JJ Canadian) (NNS cents))
+(NP (CD DIGITSPERIODDIGITS) (JJ common) (NNS shares))
+(NP (CD five) (JJ major) (NNS banks))
+(NP (CD five) (JJ other) (NNS countries))
+(NP (CD five) (JJ small) (NNS fields))
+(NP (CD four) (JJ common) (NNS shares))
+(NP (CD four) (JJ straight) (NNS months))
+(NP (CD four) (JJ straight) (NNS years))
+(NP (CD three) (JJ key) (NNS points))
+(NP (CD three) (JJ previous) (NNS months))
+(NP (CD two) (JJ ancillary) (NNS companies))
+(NP (CD two) (JJ healthy) (NNS companies))
+(NP (CD two) (JJ homosexual) (NNS men))
+(NP (CD two) (JJ joint) (NNS ventures))
+(NP (CD two) (JJ key) (NNS advantages))
+(NP (CD two) (JJR more) (NNS hours))
+(NP (CD two) (JJ roundHYPHENtrip) (NNS tickets))
+(NP (CD Two) (JJ separate) (NNS markets))
+//CardinalNumber+Adjective+Noun
+(NP (CD One) (JJ big) (NN reason))
+(NP (CD one) (JJ botched) (NN job))
+(NP (CD one) (JJ brief) (NN passage))
+(NP (CD One) (JJ clear) (NN sign))
+(NP (CD one) (JJ common) (NN share))
+(NP (CD one) (JJ minor) (NN matter))
+(NP (CD One) (JJ official) (NN newspaper))
+(NP (CD One) (JJ such) (NN proposal))
+
+//CardinalNumber+Noun+Noun
+(NP (CD DIGITS) (NN pretax) (NN profit))
+(NP (CD one) (NN percentage) (NN point))
+(NP (CD One) (NN trial) (NN balloon))
+(NP (CD one) (NN woman) (NN ringer))
+//CardinalNumber+Noun+PluralNoun
+(NP (CD two) (NN company) (NNS officials))
+(NP (CD DIGITSCOMMADIGITS) (NN parking) (NNS spaces))
+(NP (CD DIGITS) (NN business) (NNS executives))
+(NP (CD DIGITS) (NN railcar) (NNS platforms))
+(NP (CD DIGITS) (NN basis) (NNS points))
+(NP (CD DIGITS) (NN branch) (NNS offices))
+(NP (CD DIGITS) (NN community) (NNS papers))
+(NP (CD DIGITS) (NN index) (NNS points))
+(NP (CD DIGITS) (NN working) (NNS days))
+(NP (CD seven) (NN customer) (NNS groups))
+(NP (CD three) (NN worker) (NNS fatalities))
+(NP (CD two) (NN copper) (NNS mines))
+(NP (CD two) (NN petition) (NNS drives))
+//CardinalNumber+ProperNoun+Noun
+(NP (CD one) (NNP UPERIODSPERIOD) (NN investor))
+//CardinalNumber+ProperNoun+ProperNoun
+(NP (CD DIGITS) (NNP Series) (NNP AHYPHEND))
+//CardinalNumber+ProperNoun+PluralNoun
+(NP (CD DIGITSCOMMADIGITS) (NNP UPERIODSPERIOD) (NNS households))
+(NP (CD DIGITS) (NNP UPERIODSPERIOD) (NNS subsidiaries))
+(NP (CD two) (NNP Pennsylvania) (NNS plants))
+(NP (CD two) (NNP Atlanta) (NNS engineers))
+//CardinalNumber+PluralNoun+Adjective
+(NP (CD DIGITS) (NNS years) (JJ old))
+//CardinalNumber+Noun+PossessiveEnding
+(NP (CD one) (NN month) (POS SQs))
+
+//CardinalNumber+PastParticleVerb+PluralNoun
+(NP (CD DIGITS) (VBN selected) (NNS issues))
+(NP (CD DIGITSCOMMADIGITS) (VBN enclosed) (NNS railcars))
+(NP (CD three) (VBN completed) (NNS efforts))
+(NP (CD three) (VBN expected) (NNS results))
+//CardinalNumber+CoordinatingConjunction+CardinalNumber
+(NP (CD DIGITS) (CC and) (CD DIGITS))
+(NP (CD DIGITSHYPHENDIGITS) (CC and) (CD DIGITSHYPHENDIGITS))
+
+
+//CardinalNumber
+CD
+DIGITS
+
+//Determiner
+DT
+all
+
+//IQIQ
+IQIQ
+
+//Adjective
+JJ
+common
+
+//Noun
+NN
+point
+
+//Proper Noun
+NNP
+Ark
+
+//Plural Noun
+NNS
+services
+
+//PERIOD
+PERIOD
+
+//Predeterminer
+PDT
+all
+
+//Possessive Ending
+POS
+SQs
+
+//Personal Pronoun
+PRP
+one
+
+//Possessive Pronoun
+PRP$
+her
+
+//Adverb
+RB
+little
+
+//Gerund|PresentParticiple Verb
+VBG
+trading
+
+//Past Verb
+VBD
+preferred
+
+//PastParticleVerb
+VBN
+
+//Wh-Pronoun
+WP What

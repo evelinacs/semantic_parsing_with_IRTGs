@@ -1,0 +1,552 @@
+
+//End of a NounPhrase out of a CardinalNumber (which is a numeric modifier) and a PluralNoun.
+//NP3( CD( _DIGITS_), CD( million), NNS( shares))
+//(NP (CD 18) (CD million) (NNS shares))
+NP_BAR -> nummod_CD_NNS_Tail(CD,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nummod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of a PluralNounand a PossessiveEnding (which is a case marking). 
+//NP3( DT( a), NNS( screenwriters), POS( _SQ_))
+//(NP (DT a) (NNS screenwriters) (POS '))
+NP_BAR -> case_NNS_POS_Tail(NNS,POS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :case (d<dep>))", r_dep(?1))),?2)
+[fourlang] f_dep1(merge(f_dep2(merge("(r<root> :1 d1<dep1> :2 (d2<dep2>))", r_dep2(?1))), r_dep1(?2)))
+
+//End of a NounPhrase out of a Adjective (which is a adjectival modifier) and a Noun.
+//NP3( CD( One), JJ( big), NN( reason))
+//(NP (CD One) (JJ big) (NN reason))
+NP_BAR -> amod_JJ_NN_Tail(JJbasic,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a PrepositionOrSubordinatingConjunction (which is a adjectival modifier) and a SingularProperNoun.
+//NP3( NNP( April), IN( through), NNP( June))
+//(NP (NNP April) (IN through) (NNP June))
+NP_BAR -> amod_IN_NNP_Tail(IN,NNP)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a PastParticipleVerb (which is a adjectival modifier) and a PluralNoun.
+//NP3( CD( _DIGITS_COMMA_DIGITS_), VBN( enclosed), NNS( railcars))
+//(NP (CD 1,000) (VBN enclosed) (NNS railcars))
+NP_BAR -> amod_VBN_NNS_Tail(VBN,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a SingularProperNoun (which is a compound) and a PluralProperNoun.
+//NP3( DT( the), NNP( National), NNPS( Institutes))
+//(NP (DT the) (NNP National) (NNPS Institutes))
+NP_BAR -> compound_NNP_NNPS_Tail(NNP,NNPS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of two SingularProperNoun-s.
+//NP3( NNP( Greenville), PUNCT( _COMMA_), NNP( N_PERIOD_C_PERIOD_))
+//(NP (NNP Greenville) (, ,) (NNP N.C.))
+NP -> undependent_PUNCT_NNP_Tail(PUNCT,NNP)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase out of a Determiner (which is a determiner) and a CardinalNumber.
+//NP3( RB( just), DT( another), CD( one))
+//(NP (RB just) (DT another) (CD one))
+NP_BAR -> det_DT_CD_Tail(DT,CD)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Punctuation-s.
+//NP3( DT( the), NNP( U_PERIOD_S_PERIOD_), PUNCT( _PERIOD_))
+//(NP (DT the) (NNP U.S.) (. .))
+NP -> undependent_NNP_PUNCT_Tail(NNP,PUNCT)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase out of a Adjective (which is a adjectival modifier) and a PluralNoun.
+//NP3( CD( _DIGITS_COMMA_DIGITS_COMMA_DIGITS_), JJ( common), NNS( shares))
+//(NP (CD 1,050,000) (JJ common) (NNS shares))
+NP_BAR -> amod_JJ_NNS_Tail(JJbasic,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a PluralProperNoun (which is a compound) and a SingularProperNoun.
+//NP3( DT( the), NNPS( Writers), NNP( Guild))
+//(NP (DT the) (NNPS Writers) (NNP Guild))
+NP_BAR -> compound_NNPS_NNP_Tail(NNPS,NNP)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Noun (which is a compound) and a Noun.
+//NP3( CD( _DIGITS_), NN( pretax), NN( profit))
+//(NP (CD 1988) (NN pretax) (NN profit))
+NP_BAR -> compound_NN_NN_Tail(NNbasic,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a CoordinatingConjunction (which is a coordinating conjunction) and a CardinalNumber.
+//NP3( CD( _DIGITS_), CC( and), CD( _DIGITS_))
+//(NP (CD 1985) (CC and) (CD 1986))
+NP_BAR -> cc_CC_CD_Tail(CC,CD)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :cc (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of two Adjective-s.
+//NP3( JJ( good), CC( and), JJ( evil))
+//(NP (JJ good) (CC and) (JJ evil))
+NP -> undependent_CC_JJ_Tail(CC,JJbasic)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Noun-s.
+//NP3( DT( a), PUNCT( _IQ_IQ_), NN( mirror))
+//(NP (DT a) (`` ``) (NN mirror))
+NP -> undependent_PUNCT_NN_Tail(PUNCT,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase out of a Determiner (which is a determiner) and a Adjective.
+//NP3( IN( about), DT( the), JJ( same))
+//(NP (IN about) (DT the) (JJ same))
+NP_BAR -> det_DT_JJ_Tail(DT,JJbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
+[fourlang] ?1
+
+//End of a NounPhrase out of a SingularProperNoun (which is a compound) and a Noun.
+//NP3( CD( one), NNP( U_PERIOD_S_PERIOD_), NN( investor))
+//(NP (CD one) (NNP U.S.) (NN investor))
+NP_BAR -> compound_NNP_NN_Tail(NNP,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Determiner (which is a determiner) and a PluralNoun.
+//NP3( PDT( all), DT( the), NNS( answers))
+//(NP (PDT all) (DT the) (NNS answers))
+NP_BAR -> det_DT_NNS_Tail(DT,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
+[fourlang] ?1
+
+//End of a NounPhrase out of a SingularProperNoun (which is a compound) and a PluralNoun.
+//NP3( CD( _DIGITS_COMMA_DIGITS_), NNP( U_PERIOD_S_PERIOD_), NNS( households))
+//(NP (CD 5,000) (NNP U.S.) (NNS households))
+NP_BAR -> compound_NNP_NNS_Tail(NNP,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Adverb (which is a adverbial modifier) and a PluralNoun.
+//NP3( NNP( LONDON), RB( LATE), NNS( EURODOLLARS))
+//(NP (NNP LONDON) (RB LATE) (NNS EURODOLLARS))
+NP_BAR -> advmod_RB_NNS_Tail(RBbasic,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of a Nounand a CardinalNumber (which is a numeric modifier). 
+//NP3( DT( the), NN( top), CD( _DIGITS_))
+//(NP (DT the) (NN top) (CD 10))
+NP_BAR -> nummod_NN_CD_Tail(NNbasic,CD)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nummod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase out of a ComparativeAdjective (which is a adjectival modifier) and a PluralNoun.
+//NP3( CD( _DIGITS_COMMA_DIGITS_), JJR( more), NNS( couples))
+//(NP (CD 6,000) (JJR more) (NNS couples))
+NP_BAR -> amod_JJR_NNS_Tail(JJR,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Determiner (which is a determiner) and a SingularProperNoun.
+//NP3( NNP( Marina), DT( del), NNP( Rey))
+//(NP (NNP Marina) (DT del) (NNP Rey))
+NP_BAR -> det_DT_NNP_Tail(DT,NNP)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
+[fourlang] ?1
+
+//End of a NounPhrase End out of a Nounand a Adjective (which is a adjectival modifier). 
+//NP3( DT( an), NN( intraday), JJ( low))
+//(NP (DT an) (NN intraday) (JJ low))
+NP_BAR -> amod_NN_JJ_Tail(NNbasic,JJbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase End out of a ComparativeAdjectiveand a CardinalNumber (which is a numeric modifier). 
+//NP3( DT( the), JJR( larger), CD( _DIGITS_))
+//(NP (DT the) (JJR larger) (CD 767))
+NP_BAR -> nummod_JJR_CD_Tail(JJR,CD)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nummod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase End out of two Punctuation-s.
+//NP3( JJ( long), NNS( delays), PUNCT( _SQ_SQ_))
+//(NP (JJ long) (NNS delays) ('' ''))
+NP -> undependent_NNS_PUNCT_Tail(NNS,PUNCT)
+[tree] NP3(*,?1,?2)
+[ud] ?2
+[fourlang] ?2
+
+//End of a NounPhrase out of a Adverb (which is a adverbial modifier) and a SuperlativeAdjective.
+//NP3( DT( the), RB( very), JJS( least))
+//(NP (DT the) (RB very) (JJS least))
+NP_BAR -> advmod_RB_JJS_Tail(RBbasic,JJS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of a SingularProperNounand a CardinalNumber (which is a numeric modifier). 
+//NP3( DT( the), NNP( Reagan), CD( _SQ_DIGITS_s))
+//(NP (DT the) (NNP Reagan) (CD '80s))
+NP_BAR -> nummod_NNP_CD_Tail(NNP,CD)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nummod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase out of a Noun (which is a unspecified dependency) and a ComparativeAdjective.
+//NP3( DT( a), NN( year), JJR( earlier))
+//(NP (DT a) (NN year) (JJR earlier))
+NP_BAR -> dep_NN_JJR_Tail(NNbasic,JJR)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of a Adjectiveand a Determiner (which is a unspecified dependency). 
+//NP3( DT( the), JJ( first), DT( half))
+//(NP (DT the) (JJ first) (DT half))
+NP_BAR -> dep_JJ_DT_Tail(JJbasic,DT)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase End out of a PluralNounand a Adverb (which is a adverbial modifier). 
+//NP3( DT( the), NNS( markets), RB( here))
+//(NP (DT the) (NNS markets) (RB here))
+NP_BAR -> advmod_NNS_RB_Tail(NNS,RBbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase out of a PossessivePronoun (which is a possessive nominal modifier) and a PluralNoun.
+//NP3( PDT( all), PRP_DOLLAR_( his), NNS( apples))
+//(NP (PDT all) (PRP$ his) (NNS apples))
+NP_BAR -> nmod_COLON_poss_PRP_DOLLAR__NNS_Tail(PRP_DOLLAR_,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nmod:poss (d<dep>))", r_dep(?2))),?1)
+[fourlang] f_dep1(merge(f_dep2(merge("(r<root>/HAS :1 d1<dep1> :2 (d2<dep2>))", r_dep2(?2))), r_dep1(?1)))
+
+//End of a NounPhrase End out of a Nounand a PossessiveEnding (which is a case marking). 
+//NP3( CD( one), NN( month), POS( _SQ_s))
+//(NP (CD one) (NN month) (POS 's))
+NP_BAR -> case_NN_POS_Tail(NNbasic,POS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :case (d<dep>))", r_dep(?1))),?2)
+[fourlang] f_dep1(merge(f_dep2(merge("(r<root> :1 d1<dep1> :2 (d2<dep2>))", r_dep2(?1))), r_dep1(?2)))
+
+//End of a NounPhrase out of a PluralNoun (which is a compound) and a PluralNoun.
+//NP3( DT( any), NNS( securities), NNS( activities))
+//(NP (DT any) (NNS securities) (NNS activities))
+NP_BAR -> compound_NNS_NNS_Tail(NNS,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of two SingularProperNoun-s.
+//NP3( NNP( Asia), CC( or), NNP( Europe))
+//(NP (NNP Asia) (CC or) (NNP Europe))
+NP -> undependent_CC_NNP_Tail(CC,NNP)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase out of a Gerund|PresentParticipleVerb (which is a adjectival modifier) and a PluralNoun.
+//NP3( DT( all), VBG( trading), NNS( nations))
+//(NP (DT all) (VBG trading) (NNS nations))
+NP_BAR -> amod_VBG_NNS_Tail(VBG,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of two Noun-s.
+//NP3( DT( all), CC( or), NN( part))
+//(NP (DT all) (CC or) (NN part))
+NP -> undependent_CC_NN_Tail(CC,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase out of a Adjective (which is a adjectival modifier) and a SingularProperNoun.
+//NP3( DT( a), JJ( mid_HYPHEN_size), NNP( Chevrolet))
+//(NP (DT a) (JJ mid-size) (NNP Chevrolet))
+NP_BAR -> amod_JJ_NNP_Tail(JJbasic,NNP)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of two PluralNoun-s.
+//NP3( NN( appreciation), CC( and), NNS( dividends))
+//(NP (NN appreciation) (CC and) (NNS dividends))
+NP -> undependent_CC_NNS_Tail(CC,NNS)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Punctuation-s.
+//NP3( JJ( imminent), NN( use), PUNCT( _SQ_SQ_))
+//(NP (JJ imminent) (NN use) ('' ''))
+NP -> undependent_NN_PUNCT_Tail(NNbasic,PUNCT)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase out of a PrepositionOrSubordinatingConjunction (which is a adjectival modifier) and a PluralNoun.
+//NP3( PRP_DOLLAR_( their), IN( down), NNS( payments))
+//(NP (PRP$ their) (IN down) (NNS payments))
+NP_BAR -> amod_IN_NNS_Tail(IN,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of two PluralNoun-s.
+//NP3( DT( all), PUNCT( _SQ_SQ_), NNS( students))
+//(NP (DT all) ('' '') (NNS students))
+NP -> undependent_PUNCT_NNS_Tail(PUNCT,NNS)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of a PluralNounand a Adjective (which is a adjectival modifier). 
+//NP3( CD( _DIGITS_), NNS( years), JJ( old))
+//(NP (CD 59) (NNS years) (JJ old))
+NP_BAR -> amod_NNS_JJ_Tail(NNS,JJbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase End out of a Adjectiveand a Gerund|PresentParticipleVerb (which is a adjectival modifier). 
+//NP3( DT( a), JJ( steady), VBG( ratcheting))
+//(NP (DT a) (JJ steady) (VBG ratcheting))
+NP_BAR -> amod_JJ_VBG_Tail(JJbasic,VBG)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase out of a Gerund|PresentParticipleVerb (which is a adjectival modifier) and a SingularProperNoun.
+//NP3( DT( the), VBG( leading), NNP( Sauternes))
+//(NP (DT the) (VBG leading) (NNP Sauternes))
+NP_BAR -> amod_VBG_NNP_Tail(VBG,NNP)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a ComparativeAdjective (which is a adjectival modifier) and a Noun.
+//NP3( DT( a), JJR( better), NN( record))
+//(NP (DT a) (JJR better) (NN record))
+NP_BAR -> amod_JJR_NN_Tail(JJR,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of a CardinalNumberand a PossessiveEnding (which is a case marking). 
+//NP3( JJ( fiscal), CD( _DIGITS_), POS( _SQ_s))
+//(NP (JJ fiscal) (CD 1989) (POS 's))
+NP_BAR -> case_CD_POS_Tail(CD,POS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :case (d<dep>))", r_dep(?1))),?2)
+[fourlang] f_dep1(merge(f_dep2(merge("(r<root> :1 d1<dep1> :2 (d2<dep2>))", r_dep2(?1))), r_dep1(?2)))
+
+//End of a NounPhrase out of a Adjective (which is a adjectival modifier) and a CardinalNumber.
+//NP3( DT( A), JJ( medium_HYPHEN_sized), CD( one))
+//(NP (DT A) (JJ medium-sized) (CD one))
+NP_BAR -> amod_JJ_CD_Tail(JJbasic,CD)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Adjective (which is a adjectival modifier) and a Adjective.
+//NP3( DT( a), JJ( distant), JJ( third))
+//(NP (DT a) (JJ distant) (JJ third))
+NP_BAR -> amod_JJ_JJ_Tail(JJbasic,JJbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Noun (which is a compound) and a PluralNoun.
+//NP3( CD( _DIGITS_COMMA_DIGITS_), NN( parking), NNS( spaces))
+//(NP (CD 10,000) (NN parking) (NNS spaces))
+NP_BAR -> compound_NN_NNS_Tail(NNbasic,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a SuperlativeAdjective (which is a adjectival modifier) and a PluralNoun.
+//NP3( DT( the), JJS( biggest), NNS( issuers))
+//(NP (DT the) (JJS biggest) (NNS issuers))
+NP_BAR -> amod_JJS_NNS_Tail(JJS,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of two Noun-s.
+//NP3( CD( _DIGITS_), CD( _DIGITS_BSL_PER_DIGITS_), NN( _PERCENT_))
+//(NP (CD 10) (CD 1\/2) (NN %))
+NP -> undependent_CD_NN_Tail(CD,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of a Nounand a 3rdPersonSingularPresentVerb (which is a unspecified dependency). 
+//NP3( DT( the), NN( crystal), VBZ( changes))
+//(NP (DT the) (NN crystal) (VBZ changes))
+NP_BAR -> dep_NN_VBZ_Tail(NNbasic,VBZ)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?1))),?2)
+
+//End of a NounPhrase out of a SuperlativeAdjective (which is a adjectival modifier) and a Adverb.
+//NP3( DT( the), JJS( largest), RB( newsweekly))
+//(NP (DT the) (JJS largest) (RB newsweekly))
+NP_BAR -> amod_JJS_RB_Tail(JJS,RBbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of a PluralProperNounand a PossessiveEnding (which is a case marking). 
+//NP3( NNP( Sea), NNPS( Containers), POS( _SQ_))
+//(NP (NNP Sea) (NNPS Containers) (POS '))
+NP_BAR -> case_NNPS_POS_Tail(NNPS,POS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :case (d<dep>))", r_dep(?1))),?2)
+[fourlang] f_dep1(merge(f_dep2(merge("(r<root> :1 d1<dep1> :2 (d2<dep2>))", r_dep2(?1))), r_dep1(?2)))
+
+//End of a NounPhrase End out of two Punctuation-s.
+//NP3( CD( _DIGITS_COLON_DIGITS_), RB( p_PERIOD_m), PUNCT( _PERIOD_))
+//(NP (CD 1:30) (RB p.m) (. .))
+NP -> undependent_RB_PUNCT_Tail(RBbasic,PUNCT)
+[tree] NP3(*,?1,?2)
+[ud] ?2
+[fourlang] ?2
+
+//End of a NounPhrase out of a CardinalNumber (which is a numeric modifier) and a CardinalNumber.
+//NP3( DT( Some), CD( _DIGITS_PERIOD_DIGITS_), CD( million))
+//(NP (DT Some) (CD 3.8) (CD million))
+NP_BAR -> nummod_CD_CD_Tail(CD,CD)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nummod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a SuperlativeAdjective (which is a adjectival modifier) and a Noun.
+//NP3( DT( the), JJS( best), NN( position))
+//(NP (DT the) (JJS best) (NN position))
+NP_BAR -> amod_JJS_NN_Tail(JJS,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase End out of two Determiner-s.
+//NP3( NN( part), CC( or), DT( all))
+//(NP (NN part) (CC or) (DT all))
+NP -> undependent_CC_DT_Tail(CC,DT)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase out of a CardinalNumber (which is a numeric modifier) and a SingularProperNoun.
+//NP3( PRP_DOLLAR_( its), CD( _DIGITS_), NNP( Corton_HYPHEN_Charlemagne))
+//(NP (PRP$ its) (CD 1987) (NNP Corton-Charlemagne))
+NP_BAR -> nummod_CD_NNP_Tail(CD,NNP)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :nummod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Gerund|PresentParticipleVerb (which is a adjectival modifier) and a Noun.
+//NP3( DT( an), VBG( underlying), NN( investment))
+//(NP (DT an) (VBG underlying) (NN investment))
+NP_BAR -> amod_VBG_NN_Tail(VBG,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a PastParticipleVerb (which is a adjectival modifier) and a CardinalNumber.
+//NP3( DT( a), VBN( revised), CD( _DIGITS_PERIOD_DIGITS_))
+//(NP (DT a) (VBN revised) (CD 116.3))
+NP_BAR -> amod_VBN_CD_Tail(VBN,CD)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a PastTenseVerb (which is a adjectival modifier) and a PluralNoun.
+//NP3( NN( interbank), VBD( offered), NNS( rates))
+//(NP (NN interbank) (VBD offered) (NNS rates))
+NP_BAR -> amod_VBD_NNS_Tail(VBD,NNS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Noun (which is a compound) and a SingularProperNoun.
+//NP3( DT( the), NN( fifth_HYPHEN_grade), NNP( CAT))
+//(NP (DT the) (NN fifth-grade) (NNP CAT))
+NP_BAR -> compound_NN_NNP_Tail(NNbasic,NNP)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a Determiner (which is a determiner) and a Noun.
+//NP3( DT( all), DT( the), NN( hoopla))
+//(NP (DT all) (DT the) (NN hoopla))
+NP_BAR -> det_DT_NN_Tail(DT,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
+[fourlang] ?1
+
+//End of a NounPhrase End out of a SingularProperNounand a PossessiveEnding (which is a case marking). 
+//NP3( DT( a), NNP( Moody), POS( _SQ_s))
+//(NP (DT a) (NNP Moody) (POS 's))
+NP_BAR -> case_NNP_POS_Tail(NNP,POS)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :case (d<dep>))", r_dep(?1))),?2)
+[fourlang] f_dep1(merge(f_dep2(merge("(r<root> :1 d1<dep1> :2 (d2<dep2>))", r_dep2(?1))), r_dep1(?2)))
+
+//End of a NounPhrase out of a SingularProperNoun (which is a compound) and a SingularProperNoun.
+//NP3( CD( _DIGITS_), NNP( Series), NNP( A_HYPHEN_D))
+//(NP (CD 1989) (NNP Series) (NNP A-D))
+NP_BAR -> compound_NNP_NNP_Tail(NNP,NNP)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a PluralNoun (which is a compound) and a Noun.
+//NP3( DT( an), NNS( appropriations), NN( bill))
+//(NP (DT an) (NNS appropriations) (NN bill))
+NP_BAR -> compound_NNS_NN_Tail(NNS,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//End of a NounPhrase out of a PastParticipleVerb (which is a adjectival modifier) and a Noun.
+//NP3( DT( an), VBN( accelerated), NN( investigation))
+//(NP (DT an) (VBN accelerated) (NN investigation))
+NP_BAR -> amod_VBN_NN_Tail(VBN,NNbasic)
+[tree] NP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
