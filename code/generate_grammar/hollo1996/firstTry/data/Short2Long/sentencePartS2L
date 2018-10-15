@@ -1,0 +1,184 @@
+CC
+CoorConj
+CoordinatingConjunction
+Coordinating Conjunction
+
+CD
+CardNumb
+CardinalNumber
+Cardinal Number
+
+DT
+Deter
+Determiner
+Determiner
+
+EX
+ExisThere
+ExistentialThere
+Existential There
+
+FW
+ForeWord
+ForeignWord
+Foreign Word
+
+IN
+PrepOrSuborConj
+PrepositionOrSubordinatingConjunction
+Preposition or Subordinating Conjunction
+
+JJbasic
+Adj
+Adjective
+Adjective
+
+JJR
+CompAdj
+ComparativeAdjective
+Comparative Adjective
+
+JJS
+SuperAdj
+SuperlativeAdjective
+Superlative Adjective
+
+LS
+ItemMark
+ListItemMarker
+List Item Marker
+
+MD
+Modal
+Modal
+Modal
+
+NNbasic
+Noun
+Noun
+Singular or Mass Noun
+
+NNS
+PlurNoun
+PluralNoun
+Plural Noun
+
+NNP
+SingPropNoun
+SingularProperNoun
+Singular Proper Noun
+
+NNPS
+PlurPropNoun
+PluralProperNoun
+Plural Proper noun
+
+PDT
+Predet
+PreDeterminer
+PreDeterminer
+
+POS
+PossEnd
+PossessiveEnding
+Possessive Ending
+
+PRP
+PersPron
+PersonalPronoun
+Personal Pronoun
+
+PRP_DOLLAR_
+PossPron
+PossessivePronoun
+Possessive Pronoun
+
+RBbasic
+Adv
+Adverb
+Adverb
+
+RBR
+CompAdv
+Comparative Adverb
+Comparative Adverb
+
+RBS
+SuperAdv
+SuperlativeAdverb
+Superlative Adverb
+
+RP
+Part
+Particle
+Particle
+
+SYM
+Sym
+Symbol
+Symbol
+
+TO
+to
+to
+to
+
+UH
+Inter
+Interjection
+Interjection
+
+VBbasic
+Verb
+Verb
+Base Form Verb
+
+VBD
+PasTenVerb
+PastTenseVerb
+Past Tense Verb
+
+VBG
+Ger|PresPartVerb
+Gerund|PresentParticipleVerb
+Gerund or Present Participle Verb
+
+VBN
+PastPartVerb
+PastParticipleVerb
+Past Participle Verb
+
+VBP
+SingPresVerb
+Non3rdPersonSingularPresentVerb
+Non 3rd Person Singular Present Verb
+
+VBZ
+3rdPersSingPresVerb
+3rdPersonSingularPresentVerb
+3rd Person Singular Present Verb
+
+WDT
+WhDet
+Wh-Determiner
+Wh-Determiner
+
+WP
+WhPron
+Wh-Pronoun
+Wh-Pronoun
+
+WP$
+PossWhPron
+PossessiveWh-Pronoun
+Possessive Wh-Pronoun
+
+WRB
+WhAdv
+Wh-Adverb
+Wh-Adverb
+
+PUNCT
+Punct
+Punctuation
+Punctuation
