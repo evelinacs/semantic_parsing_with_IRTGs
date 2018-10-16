@@ -10,6 +10,9 @@ from Fourlang import *
 5. legeneráljuk az adat kategóriájának megfelelő adatot.
 NP( VB( ), NN( ), NNS( ))
 """
+
+#This is the function that generates 3 wide, 1 high NP-s.
+
 def basicTernaryNPTail():
     reverse = False
     connected = False

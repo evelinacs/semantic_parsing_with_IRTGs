@@ -9,7 +9,8 @@ from Terminal import *
     //represents all data needed for
 """
 
-
+#This is the class I store the data for every irtg in.
+#Including the tree, the type of the dependency-s and the terminals
 class Data:
     def __init__(self, words, dependencies, tree):
         self.words = words

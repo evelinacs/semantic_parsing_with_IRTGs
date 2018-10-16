@@ -2,6 +2,7 @@ from Fourlang import Fourlang
 from Short2Long import *
 from Digiter import *
 
+#This is the class I store the possible dependency-s in.
 
 class Dependency:
     dependencyToFourlang = {}
