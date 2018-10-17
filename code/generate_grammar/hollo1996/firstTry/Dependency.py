@@ -23,7 +23,7 @@ class Dependency:
             Dependency.dependencyToFourlang["ccomp"] = Fourlang.TwoTo
             Dependency.dependencyToFourlang["obj"] = Fourlang.TwoTo
             Dependency.dependencyToFourlang["xcomp"] = Fourlang.TwoTo
-            Dependency.dependencyToFourlang["case"] = Fourlang.OneBack__TwoTo
+            Dependency.dependencyToFourlang["case"] = Fourlang.OneBack__TwoTo # "case" and its subtypes need to be reconsidered, in terms of UD-4lang correspondence
             Dependency.dependencyToFourlang["caseNmod"] = Fourlang.OneBack__TwoTo
             Dependency.dependencyToFourlang["caseNsubj"] = Fourlang.OneBack__TwoTo
             Dependency.dependencyToFourlang["caseNobl"] = Fourlang.OneBack__TwoTo
@@ -41,6 +41,10 @@ class Dependency:
             Dependency.dependencyToFourlang["conj:and"] = Fourlang.UnderTo
             Dependency.dependencyToFourlang["conj:v."] = Fourlang.UnderTo
             Dependency.dependencyToFourlang["conj:or"] = Fourlang.UnderTo
+            Dependency.dependencyToFourlang["obl"] = Fourlang.UnderTo # 3 more dependency types added
+            Dependency.dependencyToFourlang["cop"] = Fourlang._None
+            Dependency.dependencyToFourlang["mark"] = Fourlang._None
+
 
         self.depType = depType
         self.startWord = startWord
