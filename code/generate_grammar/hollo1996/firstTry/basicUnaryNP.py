@@ -25,6 +25,7 @@ def basicUnariNP():
         result+="//" + input.tree.stanford+"\n"
         result+="//" + input.tree.tagTree+"\n"
         result+="NP -> one_" + input.words[0].type.Shortest.replace("basic", "") + "(" + input.words[0].type.Shortest + ")\n"
+        result+="[string] ?1\n"
         result+="[tree] NP(?1)\n"
         result+="[ud] ?1\n"
         result+="[fourlang] ?1\n"
