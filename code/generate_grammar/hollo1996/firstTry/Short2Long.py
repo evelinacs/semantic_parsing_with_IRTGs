@@ -1,3 +1,5 @@
+#This is the class I store the shorter and longer forms of expressions in.
+#It can load data from file
 class Short2Long:
     sentencePart = {}
     dependency = {}

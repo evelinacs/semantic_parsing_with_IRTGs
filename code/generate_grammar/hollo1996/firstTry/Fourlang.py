@@ -1,4 +1,7 @@
 from enum import Enum
+
+#This is the Enum I store an enum for the types of the irtg-s the program can generate in.
+
 class idGenerator:
     id=-1
     @classmethod

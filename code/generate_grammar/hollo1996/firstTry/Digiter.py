@@ -1,3 +1,5 @@
+#This is the class that replaces problematic characters
+
 class Digiter:
     char2Name = {}
 

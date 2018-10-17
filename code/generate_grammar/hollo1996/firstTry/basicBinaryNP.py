@@ -11,6 +11,7 @@ from Fourlang import *
         [fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?1))),?2)
 """
 
+#This is the function that generates 1 wide, 1 high NP-s.
 
 def basicBinaryNP():
     reverse = False

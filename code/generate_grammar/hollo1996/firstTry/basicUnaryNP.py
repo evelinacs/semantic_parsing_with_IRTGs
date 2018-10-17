@@ -7,6 +7,9 @@ from Data import *
         [ud] ?1
         [fourlang] ?1
 """
+
+#This is the function that generates 2 wide, 1 high NP-s.
+
 def basicUnariNP():
     result=""
 

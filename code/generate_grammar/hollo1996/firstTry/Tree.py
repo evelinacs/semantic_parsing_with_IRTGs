@@ -1,6 +1,8 @@
 from Digiter import *
 
-
+#This is the class I store the different fromats of a tree in
+#It reads in a line containing a tree in the format of the stanford parser
+#and translates it into the form of ALTO's tagtree algebra.
 class Tree:
     def __init__(self, stanford, tagTree, wordLess, words):
         self.stanford = stanford

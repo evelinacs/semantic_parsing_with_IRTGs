@@ -1,7 +1,9 @@
 from Short2Long import *
 from Digiter import *
 
-
+#This is the class I store terminals in
+#It contains the word and its type
+#It can creat an instance from this format: [('word1', 'type1'), ('word2', 'type2')]
 class Terminal:
     def __init__(self, type, word):
         self.type = type
