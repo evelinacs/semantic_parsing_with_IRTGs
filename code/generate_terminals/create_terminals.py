@@ -4,7 +4,7 @@ from nltk.tree import Tree
 
 # Should be used on the output of code/generate_input_from_trees/extract_subtrees.py
 
-TEMPLATE = ('{0} -> {1}_{0}\n[tree] {0}({1})\n[ud] "({1}<root> / {1})"\n' +
+TEMPLATE = ('{0} -> {1}_{0}\n[string] {1}\n[tree] {0}({1})\n[ud] "({1}<root> / {1})"\n' +
 '[fourlang] "({1}<root> / {1})"\n')
 
 def get_terminals():
