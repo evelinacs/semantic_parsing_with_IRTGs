@@ -15,34 +15,37 @@ description: This is the folder for Holló-Szabó Ákos's irtgs made for NP-s. T
 includes:
 ###complete
 description:This folder contains the **demo ready IRTG grammars**
+
 ###under_test
 description:This folder contains the **IRTG grammars under test**
 includes:
-####
+####NP_1x1_test.irtg
 created:2018.10.17
-description:
-usage:
-####
+description:This is the grammer for the most simple Noun Phrases.
+usage:use for example NP(NN(cat)) as an input
+####NP_1x2_test.irtg
 created:2018.10.17
-description:
-usage:
-####
+description:This is the grammer for the most simple Noun Phrases.
+usage:use for example NP(JJ(big)NN(cat)) as an input
+####NP_1x3_test.irtg
 created:2018.10.17
-description:
-usage:
-####
-created:2018.10.17
-description:
-usage:
+description:This is the grammer for the most simple Noun Phrases.
+usage:use for example NP(CD(nine)JJ(big)NN(cat)) as an input
+####TFB_Cleric_Test.irtg
+created:2018 summer
+description:This is the grammer for our first example for syntactic ambiguaty.
+usage:not functioning yet
+
 ###templates
 description:This folder contains the **IRTG grammars templates**. They are needed to achive nicely formated uniform grammers, whitch we can merge any time easily.
 includes
-####
-created:
-description:
-####
-created:
-description:
+####main_Template.irtg
+created:2018 summer
+description:This is the file we can use to build a usual nicely functioning and looking grammer for whole sentences. 
+####NP_Template.irtg
+created:2018 summer
+description:This is the file we can use to build a nicely functioning and looking grammer for noun phrases.
+ 
 
 
 
