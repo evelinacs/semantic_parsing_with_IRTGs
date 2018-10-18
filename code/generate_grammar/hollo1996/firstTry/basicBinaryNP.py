@@ -63,6 +63,8 @@ def basicBinaryNP():
                    "(" + input.words[1].type.Shortest +
                    "," + input.words[0].type.Shortest + ")\n")
 
+
+        result+="[string] *(?1,?2)\n"
         result += "[tree] NP2(?1,?2)\n"
 
         reverse = input.words[1].word == input.dependencies[0].endWord
@@ -82,9 +84,9 @@ def basicBinaryNP():
         if connected:
             if input.dependencies[1].flangType == Fourlang._None:
                 if not reverse:
-                    result += ("[fourlang] ?1\n")
-                else:
                     result += ("[fourlang] ?2\n")
+                else:
+                    result += ("[fourlang] ?1\n")
             elif input.dependencies[1].flangType == Fourlang.OneBack_at_TwoTo:
                 if not reverse:
                     result += (

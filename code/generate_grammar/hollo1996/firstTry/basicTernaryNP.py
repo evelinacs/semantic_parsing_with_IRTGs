@@ -3,11 +3,11 @@ from Dependency import *
 from Fourlang import *
 
 """
-1. beolvassuk az adatokat
-2. a szavak nélküli fákat átalakítjuk
-3. leszűrjük a redundáns adatokat
-4.kategorizáljuk az adatot
-5. legeneráljuk az adat kategóriájának megfelelő adatot.
+1. Reading in the data
+2. format the wordless trees
+3. clean data from redundancy
+4. sort the data into categories
+5. generate the right text depending on the category
 NP( VB( ), NN( ), NNS( ))
 """
 
@@ -72,11 +72,12 @@ def basicTernaryNPTail():
                    "_Tail(" + input.words[1].type.Shortest +
                    "," + input.words[0].type.Shortest + ")\n")
         else:
-            result += ("NP -> undependent_" + input.words[1].type.Shortest.replace("basic", "") +
+            result += ("NP_BAR -> undependent_" + input.words[1].type.Shortest.replace("basic", "") +
                    "_" + input.words[0].type.Shortest.replace("basic", "") +
                    "_Tail(" + input.words[1].type.Shortest +
                    "," + input.words[0].type.Shortest + ")\n")
 
+        result+="[string] *(?1,?2)\n"
         result += "[tree] NP3(*,?1,?2)\n"
 
         if connected:
@@ -95,9 +96,9 @@ def basicTernaryNPTail():
         if connected:
             if input.dependencies[0].flangType == Fourlang._None:
                 if not reverse:
-                    result += ("[fourlang] ?1\n")
-                else:
                     result += ("[fourlang] ?2\n")
+                else:
+                    result += ("[fourlang] ?1\n")
             elif input.dependencies[0].flangType == Fourlang.OneBack_at_TwoTo:
                 if not reverse:
                     result += (
@@ -228,6 +229,7 @@ def basicTernaryNPComplete():
                    "_NPBAR(" + input.words[0].type.Shortest +
                    ", NP_BAR)\n")
 
+        result+="[string] *(?1,?2)\n"
         result += "[tree] @(?2,?1)\n"
 
         if connected:
@@ -246,9 +248,9 @@ def basicTernaryNPComplete():
         if connected:
             if input.dependencies[0].flangType == Fourlang._None:
                 if not reverse:
-                    result += ("[fourlang] ?1\n")
-                else:
                     result += ("[fourlang] ?2\n")
+                else:
+                    result += ("[fourlang] ?1\n")
             elif input.dependencies[0].flangType == Fourlang.OneBack_at_TwoTo:
                 if not reverse:
                     result += (
