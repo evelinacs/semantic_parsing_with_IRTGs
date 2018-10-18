@@ -2,7 +2,7 @@
 //End of a NounPhrase End out of two SingularProperNoun-s.
 //NP3( NNP( Asia), CC( or), NNP( Europe))
 //(NP (NNP Asia) (CC or) (NNP Europe))
-NP -> undependent_CC_NNP_Tail(CC,NNP)
+NP_BAR -> undependent_CC_NNP_Tail(CC,NNP)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -29,7 +29,7 @@ NP_BAR -> compound_NN_NNP_Tail(NNbasic,NNP)
 //End of a NounPhrase End out of two PluralNoun-s.
 //NP3( NN( appreciation), CC( and), NNS( dividends))
 //(NP (NN appreciation) (CC and) (NNS dividends))
-NP -> undependent_CC_NNS_Tail(CC,NNS)
+NP_BAR -> undependent_CC_NNS_Tail(CC,NNS)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -60,12 +60,12 @@ NP_BAR -> det_DT_NNP_Tail(DT,NNP)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
-[fourlang] ?1
+[fourlang] ?2
 
 //End of a NounPhrase End out of two Punctuation-s.
 //NP3( JJ( imminent), NN( use), PUNCT( _SQ_SQ_))
 //(NP (JJ imminent) (NN use) ('' ''))
-NP -> undependent_NN_PUNCT_Tail(NNbasic,PUNCT)
+NP_BAR -> undependent_NN_PUNCT_Tail(NNbasic,PUNCT)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -74,7 +74,7 @@ NP -> undependent_NN_PUNCT_Tail(NNbasic,PUNCT)
 //End of a NounPhrase End out of two Noun-s.
 //NP3( CD( _DIGITS_), CD( _DIGITS_BSL_PER_DIGITS_), NN( _PERCENT_))
 //(NP (CD 10) (CD 1\/2) (NN %))
-NP -> undependent_CD_NN_Tail(CD,NNbasic)
+NP_BAR -> undependent_CD_NN_Tail(CD,NNbasic)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -110,7 +110,7 @@ NP_BAR -> advmod_RB_NNS_Tail(RBbasic,NNS)
 //End of a NounPhrase End out of two Noun-s.
 //NP3( DT( all), CC( or), NN( part))
 //(NP (DT all) (CC or) (NN part))
-NP -> undependent_CC_NN_Tail(CC,NNbasic)
+NP_BAR -> undependent_CC_NN_Tail(CC,NNbasic)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -209,7 +209,7 @@ NP_BAR -> compound_NNP_NNS_Tail(NNP,NNS)
 //End of a NounPhrase End out of two SingularProperNoun-s.
 //NP3( NNP( Greenville), PUNCT( _COMMA_), NNP( N_PERIOD_C_PERIOD_))
 //(NP (NNP Greenville) (, ,) (NNP N.C.))
-NP -> undependent_PUNCT_NNP_Tail(PUNCT,NNP)
+NP_BAR -> undependent_PUNCT_NNP_Tail(PUNCT,NNP)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -222,7 +222,7 @@ NP_BAR -> det_DT_CD_Tail(DT,CD)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
-[fourlang] ?1
+[fourlang] ?2
 
 //End of a NounPhrase out of a Adjective (which is a adjectival modifier) and a Adjective.
 //NP3( DT( a), JJ( distant), JJ( third))
@@ -272,7 +272,7 @@ NP_BAR -> amod_VBG_NN_Tail(VBG,NNbasic)
 //End of a NounPhrase End out of two Punctuation-s.
 //NP3( DT( the), NNP( U_PERIOD_S_PERIOD_), PUNCT( _PERIOD_))
 //(NP (DT the) (NNP U.S.) (. .))
-NP -> undependent_NNP_PUNCT_Tail(NNP,PUNCT)
+NP_BAR -> undependent_NNP_PUNCT_Tail(NNP,PUNCT)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -294,12 +294,12 @@ NP_BAR -> det_DT_NNS_Tail(DT,NNS)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
-[fourlang] ?1
+[fourlang] ?2
 
 //End of a NounPhrase End out of two Adjective-s.
 //NP3( JJ( good), CC( and), JJ( evil))
 //(NP (JJ good) (CC and) (JJ evil))
-NP -> undependent_CC_JJ_Tail(CC,JJbasic)
+NP_BAR -> undependent_CC_JJ_Tail(CC,JJbasic)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -308,7 +308,7 @@ NP -> undependent_CC_JJ_Tail(CC,JJbasic)
 //End of a NounPhrase End out of two PluralNoun-s.
 //NP3( DT( all), PUNCT( _SQ_SQ_), NNS( students))
 //(NP (DT all) ('' '') (NNS students))
-NP -> undependent_PUNCT_NNS_Tail(PUNCT,NNS)
+NP_BAR -> undependent_PUNCT_NNS_Tail(PUNCT,NNS)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -353,7 +353,7 @@ NP_BAR -> amod_JJS_NN_Tail(JJS,NNbasic)
 //End of a NounPhrase End out of two Determiner-s.
 //NP3( NN( part), CC( or), DT( all))
 //(NP (NN part) (CC or) (DT all))
-NP -> undependent_CC_DT_Tail(CC,DT)
+NP_BAR -> undependent_CC_DT_Tail(CC,DT)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -389,7 +389,7 @@ NP_BAR -> amod_JJ_NNS_Tail(JJbasic,NNS)
 //End of a NounPhrase End out of two Punctuation-s.
 //NP3( CD( _DIGITS_COLON_DIGITS_), RB( p_PERIOD_m), PUNCT( _PERIOD_))
 //(NP (CD 1:30) (RB p.m) (. .))
-NP -> undependent_RB_PUNCT_Tail(RBbasic,PUNCT)
+NP_BAR -> undependent_RB_PUNCT_Tail(RBbasic,PUNCT)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -402,12 +402,12 @@ NP_BAR -> det_DT_NN_Tail(DT,NNbasic)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
-[fourlang] ?1
+[fourlang] ?2
 
 //End of a NounPhrase End out of two Noun-s.
 //NP3( DT( a), PUNCT( _IQ_IQ_), NN( mirror))
 //(NP (DT a) (`` ``) (NN mirror))
-NP -> undependent_PUNCT_NN_Tail(PUNCT,NNbasic)
+NP_BAR -> undependent_PUNCT_NN_Tail(PUNCT,NNbasic)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1
@@ -447,7 +447,7 @@ NP_BAR -> det_DT_JJ_Tail(DT,JJbasic)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
-[fourlang] ?1
+[fourlang] ?2
 
 //End of a NounPhrase End out of a Nounand a Adjective (which is a adjectival modifier). 
 //NP3( DT( an), NN( intraday), JJ( low))
@@ -569,7 +569,7 @@ NP_BAR -> amod_IN_NNP_Tail(IN,NNP)
 //End of a NounPhrase End out of two Punctuation-s.
 //NP3( JJ( long), NNS( delays), PUNCT( _SQ_SQ_))
 //(NP (JJ long) (NNS delays) ('' ''))
-NP -> undependent_NNS_PUNCT_Tail(NNS,PUNCT)
+NP_BAR -> undependent_NNS_PUNCT_Tail(NNS,PUNCT)
 [string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] ?1

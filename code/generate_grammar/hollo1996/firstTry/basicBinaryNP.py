@@ -84,9 +84,9 @@ def basicBinaryNP():
         if connected:
             if input.dependencies[1].flangType == Fourlang._None:
                 if not reverse:
-                    result += ("[fourlang] ?1\n")
-                else:
                     result += ("[fourlang] ?2\n")
+                else:
+                    result += ("[fourlang] ?1\n")
             elif input.dependencies[1].flangType == Fourlang.OneBack_at_TwoTo:
                 if not reverse:
                     result += (

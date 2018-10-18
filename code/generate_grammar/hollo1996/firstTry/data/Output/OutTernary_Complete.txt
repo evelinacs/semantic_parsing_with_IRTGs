@@ -24,7 +24,7 @@ NP -> det_COLON_predet_PDT_NPBAR_Tail(PDT, NP_BAR)
 [string] *(?1,?2)
 [tree] @(?2,?1)
 [ud] merge(f_dep(merge("(r<root> :det:predet (d<dep>))", r_dep(?1))),?2)
-[fourlang] ?2
+[fourlang] ?1
 
 //a long NounPhrase out of a  NounPhrase Bar and a PluralProperNoun (which is a compound). 
 //NP3( NNPS( GRAINS), NNP( AND), NNPS( SOYBEANS))
@@ -141,7 +141,7 @@ NP -> det_DT_NPBAR_Tail(DT, NP_BAR)
 [string] *(?1,?2)
 [tree] @(?2,?1)
 [ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?1))),?2)
-[fourlang] ?2
+[fourlang] ?1
 
 //a long NounPhrase out of a  NounPhrase Bar and a SingularProperNoun (which is a compound). 
 //NP3( NNP( A_PERIOD_C_PERIOD_), NNP( Nielsen), NNP( Co))

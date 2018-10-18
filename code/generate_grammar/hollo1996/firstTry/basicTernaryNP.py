@@ -72,7 +72,7 @@ def basicTernaryNPTail():
                    "_Tail(" + input.words[1].type.Shortest +
                    "," + input.words[0].type.Shortest + ")\n")
         else:
-            result += ("NP -> undependent_" + input.words[1].type.Shortest.replace("basic", "") +
+            result += ("NP_BAR -> undependent_" + input.words[1].type.Shortest.replace("basic", "") +
                    "_" + input.words[0].type.Shortest.replace("basic", "") +
                    "_Tail(" + input.words[1].type.Shortest +
                    "," + input.words[0].type.Shortest + ")\n")
@@ -96,9 +96,9 @@ def basicTernaryNPTail():
         if connected:
             if input.dependencies[0].flangType == Fourlang._None:
                 if not reverse:
-                    result += ("[fourlang] ?1\n")
-                else:
                     result += ("[fourlang] ?2\n")
+                else:
+                    result += ("[fourlang] ?1\n")
             elif input.dependencies[0].flangType == Fourlang.OneBack_at_TwoTo:
                 if not reverse:
                     result += (
@@ -248,9 +248,9 @@ def basicTernaryNPComplete():
         if connected:
             if input.dependencies[0].flangType == Fourlang._None:
                 if not reverse:
-                    result += ("[fourlang] ?1\n")
-                else:
                     result += ("[fourlang] ?2\n")
+                else:
+                    result += ("[fourlang] ?1\n")
             elif input.dependencies[0].flangType == Fourlang.OneBack_at_TwoTo:
                 if not reverse:
                     result += (
