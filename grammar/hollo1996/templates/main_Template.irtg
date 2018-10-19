@@ -1,3 +1,4 @@
+interpretation string: de.up.ling.irtg.algebra.StringAlgebra
 interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra
 interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra
 interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
@@ -7,6 +8,7 @@ interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra
 
 //entry point
 S! -> sentence(NP)
+[string]?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
@@ -39,7 +41,8 @@ S! -> sentence(NP)
 
 //NounPhrase out of one Word
 //NP(WD(stuff))
-NP -> one_WD(WD)
+NP -> stuff_WD(WD)
+[string] ?1
 [tree] NP(?1)
 [ud] ?1
 [fourlang] ?1
@@ -51,6 +54,7 @@ NP -> one_WD(WD)
 //NounPhrase out of a Word1 (whitch is a Modifier1) and a Word2.
 //(NP (WD1 stuff) (WD2 stuff))
 NP -> mod1_WD1_WD2(WD1,WD2)
+[string] *(?1,?2)
 [tree] NP2(?1,?2)
 [ud] merge(f_dep(merge("(r<root> :mod1 (d<dep>))",r_dep(?1))),?2)
 [fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))",r_dep(?1))),?2)
@@ -65,6 +69,7 @@ NP -> mod1_WD1_WD2(WD1,WD2)
 //NounPhrase starting with a Word (whitch is a Modifier).
 //NP (WD(stuff), WD1(stuff), WD2(stuff))
 NP -> mod_WD_NBAR(WD,N_BAR)
+[string] *(?1,?2)
 [tree] @(?2,?1)
 [ud] merge(f_dep(merge("(r<root> :mod (d<dep>))",r_dep(?1))),?2)
 [fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))",r_dep(?1))),?2)
@@ -75,6 +80,7 @@ NP -> mod_WD_NBAR(WD,N_BAR)
 //NounBar Out of a Word1 (whitch is a Modifier1) and a Word2.
 //(NP (WD1 stuff) (WD2 stuff))
 N_BAR -> mod1_WD1_WD2_Part(WD1,WD2)
+[string] *(?1,?2)
 [tree] NP3(*,?1,?2)
 [ud] merge(f_dep(merge("(r<root> :mod1 (d<dep>))",r_dep(?1))),?2)
 [fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))",r_dep(?1))),?2)
@@ -137,24 +143,28 @@ N_BAR -> mod1_WD1_WD2_Part(WD1,WD2)
 
 //basic
 NN -> NNbasic_2_NN(NNbasic)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //proper
 NN -> NNP_2_NN(NNP)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //plural
 NN -> NNS_2_NN(NNS)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //proper plural
 NN -> NNPS_2_NN(NNPS)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
@@ -165,18 +175,21 @@ NN -> NNPS_2_NN(NNPS)
 
 //basic
 JJ -> JJbasic_2_JJ(JJbasic)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //comparative
 JJ -> JJR_2_JJ(JJR)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //superlative
 JJ -> JJS_2_JJ(JJS)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
@@ -187,18 +200,21 @@ JJ -> JJS_2_JJ(JJS)
 
 //basic
 RB -> RBbasic_2_RB(RBbasic)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //comparative
 RB -> RBR_2_RB(RBR)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //superlative
 RB -> RBS_2_RB(RBS)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
@@ -209,36 +225,42 @@ RB -> RBS_2_RB(RBS)
 
 //basic
 VB -> VBbasic_2_VB(VBbasic)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //past tense
 VB -> VBD_2_VB(VBD)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //gerund or present participle
 VB -> VBG_2_VB(VBG)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //past participle
 VB -> VBN_2_VB(VBN)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //non-3rd person singular present
 VB -> VBP_2_VB(VBP)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
 
 //3rd person singular present
 VB -> VBZ_2_VB(VBZ)
+[string] ?1
 [tree] ?1
 [ud] ?1
 [fourlang] ?1
@@ -251,6 +273,7 @@ VB -> VBZ_2_VB(VBZ)
 //Word
 //struff
 WD -> stuff_WD
+[string] 'stuff'
 [tree] WD(stuff)
 [ud] "(stuff<root>/stuff)"
 [fourlang] "(stuff<root>/stuff)"
@@ -258,6 +281,7 @@ WD -> stuff_WD
 //Word1
 //struff
 WD1 -> stuff_WD1
+[string] 'stuff'
 [tree] WD1(stuff)
 [ud] "(stuff<root>/stuff)"
 [fourlang] "(stuff<root>/stuff)"
@@ -265,6 +289,7 @@ WD1 -> stuff_WD1
 //Word2
 //struff
 WD2 -> stuff_WD2
+[string] 'stuff'
 [tree] WD2(stuff)
 [ud] "(stuff<root>/stuff)"
 [fourlang] "(stuff<root>/stuff)"
