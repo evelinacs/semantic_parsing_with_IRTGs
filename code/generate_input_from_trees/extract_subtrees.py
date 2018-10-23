@@ -14,7 +14,7 @@ args = parser.parse_args()
 
 
 def sanitize_label(tree): #sanitize labels which contain hyphens (e.g.NP-SBJ)
-    tree.set_label(tree.label().replace("-", "_"))
+    tree.set_label(tree.label().replace("-", "_").replace("$", "DOLLAR"))
 
 def sanitize_pos(tree): #replace punctuation pos-tags
     tree_label = tree.label()
