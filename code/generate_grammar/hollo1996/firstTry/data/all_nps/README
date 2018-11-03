@@ -1,5 +1,0 @@
-nps_max3_width: minden, max. 3 szélességű np (tehát a nagyobb np-k rész-np-jei is) rendezve; átalakítatlan, ebből lett az alábbi kettő
-nps3_parsed: ennek a dependenciái, stanford parserrel kiszedve, sorrendben
-nps3_pos: szó-pos párok soronként, sorrendben
-
-nps_max3_width_sanitized: a max3_width alto-kompatibilisen
