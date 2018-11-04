@@ -1,0 +1,285 @@
+[amod(bribery-2, something-1), root(ROOT-0, bribery-2)]
+
+amod(bribery-2, something-1)
+root(ROOT-0, bribery-2)
+
+----------
+[amod(areas-2, something-1), root(ROOT-0, areas-2)]
+
+amod(areas-2, something-1)
+root(ROOT-0, areas-2)
+
+----------
+[amod(corners-2, something-1), root(ROOT-0, corners-2)]
+
+amod(corners-2, something-1)
+root(ROOT-0, corners-2)
+
+----------
+[amod(First-2, something-1), root(ROOT-0, First-2)]
+
+amod(First-2, something-1)
+root(ROOT-0, First-2)
+
+----------
+[amod(Alleghany-2, something-1), root(ROOT-0, Alleghany-2)]
+
+amod(Alleghany-2, something-1)
+root(ROOT-0, Alleghany-2)
+
+----------
+[amod(results-2, something-1), root(ROOT-0, results-2)]
+
+amod(results-2, something-1)
+root(ROOT-0, results-2)
+
+----------
+[det(something-2, The-1), root(ROOT-0, something-2)]
+
+det(something-2, The-1)
+root(ROOT-0, something-2)
+
+----------
+[amod(firms-3, something-1), compound(firms-3, UPERIODSPERIOD-2), root(ROOT-0, firms-3)]
+
+amod(firms-3, something-1)
+compound(firms-3, UPERIODSPERIOD-2)
+root(ROOT-0, firms-3)
+
+----------
+[amod(year-3, something-1), det(year-3, a-2), root(ROOT-0, year-3)]
+
+amod(year-3, something-1)
+det(year-3, a-2)
+root(ROOT-0, year-3)
+
+----------
+[amod(light-3, something-1), amod(light-3, colored-2), root(ROOT-0, light-3)]
+
+amod(light-3, something-1)
+amod(light-3, colored-2)
+root(ROOT-0, light-3)
+
+----------
+[amod(capacity-3, something-1), amod(capacity-3, currentHYPHENcarrying-2), root(ROOT-0, capacity-3)]
+
+amod(capacity-3, something-1)
+amod(capacity-3, currentHYPHENcarrying-2)
+root(ROOT-0, capacity-3)
+
+----------
+[amod(issues-3, something-1), compound(issues-3, ballot-2), root(ROOT-0, issues-3)]
+
+amod(issues-3, something-1)
+compound(issues-3, ballot-2)
+root(ROOT-0, issues-3)
+
+----------
+[amod(practice-3, something-1), amod(practice-3, private-2), root(ROOT-0, practice-3)]
+
+amod(practice-3, something-1)
+amod(practice-3, private-2)
+root(ROOT-0, practice-3)
+
+----------
+[amod(charges-3, something-1), compound(charges-3, energy-2), root(ROOT-0, charges-3)]
+
+amod(charges-3, something-1)
+compound(charges-3, energy-2)
+root(ROOT-0, charges-3)
+
+----------
+[det(bid-3, a-1), amod(bid-3, something-2), root(ROOT-0, bid-3)]
+
+det(bid-3, a-1)
+amod(bid-3, something-2)
+root(ROOT-0, bid-3)
+
+----------
+[det(day-3, a-1), amod(day-3, something-2), root(ROOT-0, day-3)]
+
+det(day-3, a-1)
+amod(day-3, something-2)
+root(ROOT-0, day-3)
+
+----------
+[det(attitude-3, a-1), amod(attitude-3, something-2), root(ROOT-0, attitude-3)]
+
+det(attitude-3, a-1)
+amod(attitude-3, something-2)
+root(ROOT-0, attitude-3)
+
+----------
+[det(consumer-3, a-1), amod(consumer-3, something-2), root(ROOT-0, consumer-3)]
+
+det(consumer-3, a-1)
+amod(consumer-3, something-2)
+root(ROOT-0, consumer-3)
+
+----------
+[det(novel-3, A-1), amod(novel-3, something-2), root(ROOT-0, novel-3)]
+
+det(novel-3, A-1)
+amod(novel-3, something-2)
+root(ROOT-0, novel-3)
+
+----------
+[det(shareholder-3, an-1), amod(shareholder-3, something-2), root(ROOT-0, shareholder-3)]
+
+det(shareholder-3, an-1)
+amod(shareholder-3, something-2)
+root(ROOT-0, shareholder-3)
+
+----------
+[det(bonds-3, The-1), amod(bonds-3, something-2), root(ROOT-0, bonds-3)]
+
+det(bonds-3, The-1)
+amod(bonds-3, something-2)
+root(ROOT-0, bonds-3)
+
+----------
+[det(notes-3, The-1), amod(notes-3, something-2), root(ROOT-0, notes-3)]
+
+det(notes-3, The-1)
+amod(notes-3, something-2)
+root(ROOT-0, notes-3)
+
+----------
+[det(range-3, the-1), amod(range-3, something-2), root(ROOT-0, range-3)]
+
+det(range-3, the-1)
+amod(range-3, something-2)
+root(ROOT-0, range-3)
+
+----------
+[det(company-3, The-1), amod(company-3, something-2), root(ROOT-0, company-3)]
+
+det(company-3, The-1)
+amod(company-3, something-2)
+root(ROOT-0, company-3)
+
+----------
+[det(maker-3, The-1), amod(maker-3, something-2), root(ROOT-0, maker-3)]
+
+det(maker-3, The-1)
+amod(maker-3, something-2)
+root(ROOT-0, maker-3)
+
+----------
+[det(chronicle-3, the-1), amod(chronicle-3, something-2), root(ROOT-0, chronicle-3)]
+
+det(chronicle-3, the-1)
+amod(chronicle-3, something-2)
+root(ROOT-0, chronicle-3)
+
+----------
+[det(firm-3, the-1), amod(firm-3, something-2), root(ROOT-0, firm-3)]
+
+det(firm-3, the-1)
+amod(firm-3, something-2)
+root(ROOT-0, firm-3)
+
+----------
+[det(one-3, the-1), amod(one-3, something-2), root(ROOT-0, one-3)]
+
+det(one-3, the-1)
+amod(one-3, something-2)
+root(ROOT-0, one-3)
+
+----------
+[det(report-3, the-1), amod(report-3, something-2), root(ROOT-0, report-3)]
+
+det(report-3, the-1)
+amod(report-3, something-2)
+root(ROOT-0, report-3)
+
+----------
+[det(combines-3, These-1), amod(combines-3, something-2), root(ROOT-0, combines-3)]
+
+det(combines-3, These-1)
+amod(combines-3, something-2)
+root(ROOT-0, combines-3)
+
+----------
+[det(stake-4, a-1), amod(stake-4, something-2), compound(stake-4, UAL-3), root(ROOT-0, stake-4)]
+
+det(stake-4, a-1)
+amod(stake-4, something-2)
+compound(stake-4, UAL-3)
+root(ROOT-0, stake-4)
+
+----------
+[det(concern-4, a-1), amod(concern-4, something-2), compound(concern-4, pharmaceuticals-3), root(ROOT-0, concern-4)]
+
+det(concern-4, a-1)
+amod(concern-4, something-2)
+compound(concern-4, pharmaceuticals-3)
+root(ROOT-0, concern-4)
+
+----------
+[det(firm-4, a-1), amod(firm-4, something-2), compound(firm-4, media-3), root(ROOT-0, firm-4)]
+
+det(firm-4, a-1)
+amod(firm-4, something-2)
+compound(firm-4, media-3)
+root(ROOT-0, firm-4)
+
+----------
+[det(environment-4, a-1), amod(environment-4, something-2), amod(environment-4, regulatory-3), root(ROOT-0, environment-4)]
+
+det(environment-4, a-1)
+amod(environment-4, something-2)
+amod(environment-4, regulatory-3)
+root(ROOT-0, environment-4)
+
+----------
+[det(premium-4, a-1), amod(premium-4, startling-2), amod(premium-4, something-3), root(ROOT-0, premium-4)]
+
+det(premium-4, a-1)
+amod(premium-4, startling-2)
+amod(premium-4, something-3)
+root(ROOT-0, premium-4)
+
+----------
+[det(bonds-4, The-1), amod(bonds-4, something-2), compound(bonds-4, term-3), root(ROOT-0, bonds-4)]
+
+det(bonds-4, The-1)
+amod(bonds-4, something-2)
+compound(bonds-4, term-3)
+root(ROOT-0, bonds-4)
+
+----------
+[det(bonds-4, The-1), amod(bonds-4, something-2), compound(bonds-4, term-3), root(ROOT-0, bonds-4)]
+
+det(bonds-4, The-1)
+amod(bonds-4, something-2)
+compound(bonds-4, term-3)
+root(ROOT-0, bonds-4)
+
+----------
+[advmod(return-4, Even-1), det(return-4, the-2), amod(return-4, something-3), root(ROOT-0, return-4)]
+
+advmod(return-4, Even-1)
+det(return-4, the-2)
+amod(return-4, something-3)
+root(ROOT-0, return-4)
+
+----------
+[nummod(payments-5, two-1), amod(payments-5, additional-2), amod(payments-5, something-3), compound(payments-5, distribution-4), root(ROOT-0, payments-5)]
+
+nummod(payments-5, two-1)
+amod(payments-5, additional-2)
+amod(payments-5, something-3)
+compound(payments-5, distribution-4)
+root(ROOT-0, payments-5)
+
+----------
+[det(something-3, a-1), dep(something-3, IQIQ-2), root(ROOT-0, something-3), dep(something-3, SQSQ-4), amod(something-3, rating-5)]
+
+det(something-3, a-1)
+dep(something-3, IQIQ-2)
+root(ROOT-0, something-3)
+dep(something-3, SQSQ-4)
+amod(something-3, rating-5)
+
+----------

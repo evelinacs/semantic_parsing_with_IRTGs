@@ -1,0 +1,234 @@
+
+//AdjectivePhrase out of a Noun (which is a compound) and a CardinalNumber.
+//ADJP2JP( CD( _DIGITS_PERIOD_DIGITS_), NN( _PERCENT_))
+//(ADJP (CD 0.1) (NN %))
+ADJP -> compound_CD_NN(CD,NNbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a PluralNoun (which is a compound) and a CardinalNumber.
+//ADJP2JP( CD( _DIGITS_PERIOD_DIGITS_), NNS( yen))
+//(ADJP (CD 150.00) (NNS yen))
+ADJP -> compound_CD_NNS(CD,NNS)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adjective (which is a compound) and a CardinalNumber.
+//ADJP2JP( CD( _DIGITS_), JJ( cents_HYPHEN_a_HYPHEN_unit))
+//(ADJP (CD 55) (JJ cents-a-unit))
+ADJP -> compound_CD_JJ(CD,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Noun (which is a unspecified dependency) and a PrepositionOrSubordinatingConjunction.
+//ADJP2JP( IN( near), NN( record))
+//(ADJP (IN near) (NN record))
+ADJP -> dep_IN_NN(IN,NNbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adjectiveand a Punctuation (which is a unspecified dependency). 
+//ADJP2JP( PUNCT( _DOLLAR_), JJ( _DIGITS_HYPHEN_a_HYPHEN_share))
+//(ADJP ($ $) (JJ 45-a-share))
+ADJP -> dep_PUNCT_JJ(PUNCT,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?1))),?2)
+
+//AdjectivePhrase out of a Adjective (which is a adjectival modifier) and a Adjective.
+//ADJP2JP( JJ( East), JJ( Anglian))
+//(ADJP (JJ East) (JJ Anglian))
+ADJP -> amod_JJ_JJ(JJbasic,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a ComparativeAdjectiveand a Adjective (which is a unspecified dependency). 
+//ADJP2JP( JJ( even), JJR( stronger))
+//(ADJP (JJ even) (JJR stronger))
+ADJP -> dep_JJ_JJR(JJbasic,JJR)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?1))),?2)
+
+//AdjectivePhrase out of a PastParticipleVerb (which is a unspecified dependency) and a Adjective.
+//ADJP2JP( JJ( old), VBN( fashioned))
+//(ADJP (JJ old) (VBN fashioned))
+ADJP -> dep_JJ_VBN(JJbasic,VBN)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a PastParticipleVerb (which is a unspecified dependency) and a ComparativeAdjective.
+//ADJP2JP( JJR( less), VBN( parched))
+//(ADJP (JJR less) (VBN parched))
+ADJP -> dep_JJR_VBN(JJR,VBN)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adjective (which is a unspecified dependency) and a ComparativeAdjective.
+//ADJP2JP( JJR( more), JJ( defensive))
+//(ADJP (JJR more) (JJ defensive))
+ADJP -> dep_JJR_JJ(JJR,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adverband a Adjective (which is a adverbial modifier). 
+//ADJP2JP( JJ( sexy), RB( enough))
+//(ADJP (JJ sexy) (RB enough))
+ADJP -> advmod_JJ_RB(JJbasic,RBbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//AdjectivePhrase out of a Adjective (which is a unspecified dependency) and a SuperlativeAdjective.
+//ADJP2JP( JJS( least), JJ( sophisticated))
+//(ADJP (JJS least) (JJ sophisticated))
+ADJP -> dep_JJS_JJ(JJS,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a SuperlativeAdjectiveand a Adjective (which is a unspecified dependency). 
+//ADJP2JP( JJ( third), JJS( largest))
+//(ADJP (JJ third) (JJS largest))
+ADJP -> dep_JJ_JJS(JJbasic,JJS)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?1))),?2)
+
+//AdjectivePhrase out of a Noun (which is a unspecified dependency) and a Noun.
+//ADJP2JP( NN( college_HYPHEN_bowl), NN( type))
+//(ADJP (NN college-bowl) (NN type))
+ADJP -> dep_NN_NN(NNbasic,NNbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a SingularProperNoun (which is a adjectival modifier) and a SingularProperNoun.
+//ADJP2JP( NNP( East), NNP( German))
+//(ADJP (NNP East) (NNP German))
+ADJP -> amod_NNP_NNP(NNP,NNP)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adjective (which is a adjectival modifier) and a SingularProperNoun.
+//ADJP2JP( NNP( New), JJ( London_HYPHEN_based))
+//(ADJP (NNP New) (JJ London-based))
+ADJP -> amod_NNP_JJ(NNP,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Determiner (which is a adverbial modifier) and a Adverb.
+//ADJP2JP( RB( almost), DT( all))
+//(ADJP (RB almost) (DT all))
+ADJP -> advmod_RB_DT(RBbasic,DT)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adjective (which is a adverbial modifier) and a Adverb.
+//ADJP2JP( RB( almost), JJ( single_HYPHEN_handed))
+//(ADJP (RB almost) (JJ single-handed))
+ADJP -> advmod_RB_JJ(RBbasic,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a PastParticipleVerb (which is a adverbial modifier) and a Adverb.
+//ADJP2JP( RB( badly), VBN( dressed))
+//(ADJP (RB badly) (VBN dressed))
+ADJP -> advmod_RB_VBN(RBbasic,VBN)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a ComparativeAdjective (which is a adverbial modifier) and a Adverb.
+//ADJP2JP( RB( even), JJR( higher))
+//(ADJP (RB even) (JJR higher))
+ADJP -> advmod_RB_JJR(RBbasic,JJR)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Gerund|PresentParticipleVerb (which is a adverbial modifier) and a Adverb.
+//ADJP2JP( RB( rapidly), VBG( falling))
+//(ADJP (RB rapidly) (VBG falling))
+ADJP -> advmod_RB_VBG(RBbasic,VBG)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adjective (which is a adverbial modifier) and a Comparative Adverb.
+//ADJP2JP( RBR( less), JJ( compelling))
+//(ADJP (RBR less) (JJ compelling))
+ADJP -> advmod_RBR_JJ(RBR,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adjective (which is a adverbial modifier) and a SuperlativeAdverb.
+//ADJP2JP( RBS( most), JJ( active))
+//(ADJP (RBS most) (JJ active))
+ADJP -> advmod_RBS_JJ(RBS,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a PastParticipleVerb (which is a adverbial modifier) and a SuperlativeAdverb.
+//ADJP2JP( RBS( most), VBN( respected))
+//(ADJP (RBS most) (VBN respected))
+ADJP -> advmod_RBS_VBN(RBS,VBN)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a Adverb (which is a adverbial modifier) and a Adverb.
+//ADJP2JP( RB( so), RB( far))
+//(ADJP (RB so) (RB far))
+ADJP -> advmod_RB_RB(RBbasic,RBbasic)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//AdjectivePhrase out of a ComparativeAdjective (which is a unspecified dependency) and a Verb.
+//ADJP2JP( VB( even), JJR( more))
+//(ADJP (VB even) (JJR more))
+ADJP -> dep_VB_JJR(VBbasic,JJR)
+[string] *(?1,?2)
+[tree] ADJP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)

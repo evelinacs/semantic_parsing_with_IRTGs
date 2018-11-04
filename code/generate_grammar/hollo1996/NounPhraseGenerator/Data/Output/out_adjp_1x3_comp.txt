@@ -1,0 +1,99 @@
+
+//a long AdjectivePhrase out of a Punctuation (which is a unspecified dependency) and a AdjectivePhrase Bar.
+//ADJP3JP( PUNCT( _DOLLAR_), CD( _DIGITS_), JJ( million_HYPHEN_a_HYPHEN_year))
+//(ADJP ($ $) (CD 300) (JJ million-a-year))
+ADJP -> dep_PUNCT_ADJPBAR_Tail(PUNCT, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//a long AdjectivePhrase out of a  AdjectivePhrase Bar and a CardinalNumber (which is a compound). 
+//ADJP3JP( CD( _DIGITS_), CD( _DIGITS_BSL_PER_DIGITS_), NN( _PERCENT_))
+//(ADJP (CD 6) (CD 1\/2) (NN %))
+ADJP -> compound_CD_ADJPBAR_Tail(CD, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :compound (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0_compound (d<dep>))", r_dep(?1))),?2)
+
+//a long AdjectivePhrase out of a Adjective (which is a adverbial modifier) and a AdjectivePhrase Bar.
+//ADJP3JP( JJ( adverse), CC( or), RB( otherwise))
+//(ADJP (JJ adverse) (CC or) (RB otherwise))
+ADJP -> advmod_JJ_ADJPBAR_Tail(JJbasic, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//a long AdjectivePhrase out of a ComparativeAdjective (which is a conjunct And) and a AdjectivePhrase Bar.
+//ADJP3JP( JJR( faster), CC( and), JJR( cleaner))
+//(ADJP (JJR faster) (CC and) (JJR cleaner))
+ADJP -> conj_COLON_and_JJR_ADJPBAR_Tail(JJR, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :conj:and (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//a long AdjectivePhrase out of a Noun (which is a conjunct And) and a AdjectivePhrase Bar.
+//ADJP3JP( NN( heavy_HYPHEN_truck), CC( and), NN( passenger_HYPHEN_car))
+//(ADJP (NN heavy-truck) (CC and) (NN passenger-car))
+ADJP -> conj_COLON_and_NN_ADJPBAR_Tail(NNbasic, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :conj:and (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//a long AdjectivePhrase out of a  AdjectivePhrase Bar and a SingularProperNoun (which is a adjectival modifier). 
+//ADJP3JP( NNP( Austin), PUNCT( _COMMA_), JJ( Texas_HYPHEN_based))
+//(ADJP (NNP Austin) (, ,) (JJ Texas-based))
+ADJP -> amod_NNP_ADJPBAR_Tail(NNP, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//a long AdjectivePhrase out of a PluralNoun (which is a conjunct And) and a AdjectivePhrase Bar.
+//ADJP3JP( NNS( investor_HYPHEN_relations), CC( and), NNS( marketing_HYPHEN_communications))
+//(ADJP (NNS investor-relations) (CC and) (NNS marketing-communications))
+ADJP -> conj_COLON_and_NNS_ADJPBAR_Tail(NNS, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :conj:and (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//a long AdjectivePhrase out of a  AdjectivePhrase Bar and a Adverb (which is a adverbial modifier). 
+//ADJP3JP( RB( much), RBR( more), JJ( sophisticated))
+//(ADJP (RB much) (RBR more) (JJ sophisticated))
+ADJP -> advmod_RB_ADJPBAR_Tail(RBbasic, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//a long AdjectivePhrase out of a  AdjectivePhrase Bar and a SuperlativeAdverb (which is a adverbial modifier). 
+//ADJP3JP( RBS( most), RB( widely), JJ( used))
+//(ADJP (RBS most) (RB widely) (JJ used))
+ADJP -> advmod_RBS_ADJPBAR_Tail(RBS, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//a long AdjectivePhrase out of a Gerund|PresentParticipleVerb (which is a conjunct And) and a AdjectivePhrase Bar.
+//ADJP3JP( VBG( increasing), CC( and), VBG( diversifying))
+//(ADJP (VBG increasing) (CC and) (VBG diversifying))
+ADJP -> conj_COLON_and_VBG_ADJPBAR_Tail(VBG, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :conj:and (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//a long AdjectivePhrase out of a PastParticipleVerb (which is a conjunct And) and a AdjectivePhrase Bar.
+//ADJP3JP( VBN( Estimated), CC( and), JJ( actual))
+//(ADJP (VBN Estimated) (CC and) (JJ actual))
+ADJP -> conj_COLON_and_VBN_ADJPBAR_Tail(VBN, ADJP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :conj:and (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)

@@ -1,0 +1,126 @@
+
+//End of a NounPhrase End out of two Adjective-s.
+//ADJP3JP( PUNCT( _DOLLAR_), CD( _DIGITS_), JJ( million_HYPHEN_a_HYPHEN_year))
+//(ADJP ($ $) (CD 300) (JJ million-a-year))
+ADJP_BAR -> undependent_CD_JJ_Tail(CD,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Noun-s.
+//ADJP3JP( CD( _DIGITS_), CD( _DIGITS_BSL_PER_DIGITS_), NN( _PERCENT_))
+//(ADJP (CD 6) (CD 1\/2) (NN %))
+ADJP_BAR -> undependent_CD_NN_Tail(CD,NNbasic)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Adverb-s.
+//ADJP3JP( JJ( adverse), CC( or), RB( otherwise))
+//(ADJP (JJ adverse) (CC or) (RB otherwise))
+ADJP_BAR -> undependent_CC_RB_Tail(CC,RBbasic)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Adjective-s.
+//ADJP3JP( JJ( aggressive), CC( and), JJ( persistent))
+//(ADJP (JJ aggressive) (CC and) (JJ persistent))
+ADJP_BAR -> undependent_CC_JJ_Tail(CC,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two SingularProperNoun-s.
+//ADJP3JP( JJ( Asian), CC( and), NNP( Pacific))
+//(ADJP (JJ Asian) (CC and) (NNP Pacific))
+ADJP_BAR -> undependent_CC_NNP_Tail(CC,NNP)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two ComparativeAdjective-s.
+//ADJP3JP( JJR( faster), CC( and), JJR( cleaner))
+//(ADJP (JJR faster) (CC and) (JJR cleaner))
+ADJP_BAR -> undependent_CC_JJR_Tail(CC,JJR)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Gerund|PresentParticipleVerb-s.
+//ADJP3JP( JJ( small), CC( but), VBG( growing))
+//(ADJP (JJ small) (CC but) (VBG growing))
+ADJP_BAR -> undependent_CC_VBG_Tail(CC,VBG)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Noun-s.
+//ADJP3JP( NN( heavy_HYPHEN_truck), CC( and), NN( passenger_HYPHEN_car))
+//(ADJP (NN heavy-truck) (CC and) (NN passenger-car))
+ADJP_BAR -> undependent_CC_NN_Tail(CC,NNbasic)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Adjective-s.
+//ADJP3JP( NNP( Austin), PUNCT( _COMMA_), JJ( Texas_HYPHEN_based))
+//(ADJP (NNP Austin) (, ,) (JJ Texas-based))
+ADJP_BAR -> undependent_PUNCT_JJ_Tail(PUNCT,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two PluralNoun-s.
+//ADJP3JP( NNS( investor_HYPHEN_relations), CC( and), NNS( marketing_HYPHEN_communications))
+//(ADJP (NNS investor-relations) (CC and) (NNS marketing-communications))
+ADJP_BAR -> undependent_CC_NNS_Tail(CC,NNS)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a AdjectivePhrase out of a Comparative Adverb (which is a adverbial modifier) and a Adjective.
+//ADJP3JP( RB( much), RBR( more), JJ( sophisticated))
+//(ADJP (RB much) (RBR more) (JJ sophisticated))
+ADJP_BAR -> advmod_RBR_JJ_Tail(RBR,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a AdjectivePhrase out of a ComparativeAdjective (which is a unspecified dependency) and a PrepositionOrSubordinatingConjunction.
+//ADJP3JP( RB( no), JJR( worse), IN( off))
+//(ADJP (RB no) (JJR worse) (IN off))
+ADJP_BAR -> dep_JJR_IN_Tail(JJR,IN)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :dep (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :_ (d<dep>))", r_dep(?2))),?1)
+
+//End of a AdjectivePhrase out of a Adverb (which is a adverbial modifier) and a Adjective.
+//ADJP3JP( RBS( most), RB( widely), JJ( used))
+//(ADJP (RBS most) (RB widely) (JJ used))
+ADJP_BAR -> advmod_RB_JJ_Tail(RBbasic,JJbasic)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//End of a AdjectivePhrase out of a Adverb (which is a adverbial modifier) and a PastParticipleVerb.
+//ADJP3JP( PUNCT( _IQ_IQ_), RB( well), VBN( qualified))
+//(ADJP (`` ``) (RB well) (VBN qualified))
+ADJP_BAR -> advmod_RB_VBN_Tail(RBbasic,VBN)
+[string] *(?1,?2)
+[tree] ADJP3(*,?1,?2)
+[ud] merge(f_dep(merge("(r<root> :advmod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)

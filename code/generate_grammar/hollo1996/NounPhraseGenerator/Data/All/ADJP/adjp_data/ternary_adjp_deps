@@ -1,0 +1,306 @@
+[root(ROOT-0, $-1), compound($-1, 300-2), dep($-1, million-a-year-3)]
+
+root(ROOT-0, $-1)
+compound($-1, 300-2)
+dep($-1, million-a-year-3)
+
+----------
+[compound(%-3, 6-1), compound(%-3, 1/2-2), root(ROOT-0, %-3)]
+
+compound(%-3, 6-1)
+compound(%-3, 1/2-2)
+root(ROOT-0, %-3)
+
+----------
+[compound(%-3, 7-1), compound(%-3, 3/8-2), root(ROOT-0, %-3)]
+
+compound(%-3, 7-1)
+compound(%-3, 3/8-2)
+root(ROOT-0, %-3)
+
+----------
+[compound(%-3, 7-1), compound(%-3, 5/8-2), root(ROOT-0, %-3)]
+
+compound(%-3, 7-1)
+compound(%-3, 5/8-2)
+root(ROOT-0, %-3)
+
+----------
+[compound(%-3, 8-1), compound(%-3, 1/8-2), root(ROOT-0, %-3)]
+
+compound(%-3, 8-1)
+compound(%-3, 1/8-2)
+root(ROOT-0, %-3)
+
+----------
+[compound(%-3, 8-1), compound(%-3, 3/8-2), root(ROOT-0, %-3)]
+
+compound(%-3, 8-1)
+compound(%-3, 3/8-2)
+root(ROOT-0, %-3)
+
+----------
+[root(ROOT-0, adverse-1), cc(adverse-1, or-2), advmod(adverse-1, otherwise-3)]
+
+root(ROOT-0, adverse-1)
+cc(adverse-1, or-2)
+advmod(adverse-1, otherwise-3)
+
+----------
+[root(ROOT-0, aggressive-1), cc(aggressive-1, and-2), conj:and(aggressive-1, persistent-3)]
+
+root(ROOT-0, aggressive-1)
+cc(aggressive-1, and-2)
+conj:and(aggressive-1, persistent-3)
+
+----------
+[root(ROOT-0, Asian-1), cc(Asian-1, and-2), conj:and(Asian-1, Pacific-3)]
+
+root(ROOT-0, Asian-1)
+cc(Asian-1, and-2)
+conj:and(Asian-1, Pacific-3)
+
+----------
+[root(ROOT-0, blue-collar-1), cc(blue-collar-1, and-2), conj:and(blue-collar-1, sports-oriented-3)]
+
+root(ROOT-0, blue-collar-1)
+cc(blue-collar-1, and-2)
+conj:and(blue-collar-1, sports-oriented-3)
+
+----------
+[root(ROOT-0, congressional-1), cc(congressional-1, and-2), conj:and(congressional-1, presidential-3)]
+
+root(ROOT-0, congressional-1)
+cc(congressional-1, and-2)
+conj:and(congressional-1, presidential-3)
+
+----------
+[root(ROOT-0, fast-1), cc(fast-1, and-2), conj:and(fast-1, easy-3)]
+
+root(ROOT-0, fast-1)
+cc(fast-1, and-2)
+conj:and(fast-1, easy-3)
+
+----------
+[root(ROOT-0, kind-1), cc(kind-1, and-2), conj:and(kind-1, gentle-3)]
+
+root(ROOT-0, kind-1)
+cc(kind-1, and-2)
+conj:and(kind-1, gentle-3)
+
+----------
+[dep(%-3, low-1), compound(%-3, 40-2), root(ROOT-0, %-3)]
+
+dep(%-3, low-1)
+compound(%-3, 40-2)
+root(ROOT-0, %-3)
+
+----------
+[root(ROOT-0, mean-1), cc(mean-1, and-2), conj:and(mean-1, dirty-3)]
+
+root(ROOT-0, mean-1)
+cc(mean-1, and-2)
+conj:and(mean-1, dirty-3)
+
+----------
+[root(ROOT-0, public-1), cc(public-1, and-2), conj:and(public-1, congressional-3)]
+
+root(ROOT-0, public-1)
+cc(public-1, and-2)
+conj:and(public-1, congressional-3)
+
+----------
+[root(ROOT-0, quick-1), cc(quick-1, and-2), conj:and(quick-1, certain-3)]
+
+root(ROOT-0, quick-1)
+cc(quick-1, and-2)
+conj:and(quick-1, certain-3)
+
+----------
+[root(ROOT-0, faster-1), cc(faster-1, and-2), conj:and(faster-1, cleaner-3)]
+
+root(ROOT-0, faster-1)
+cc(faster-1, and-2)
+conj:and(faster-1, cleaner-3)
+
+----------
+[root(ROOT-0, More-1), cc(More-1, and-2), conj:and(More-1, more-3)]
+
+root(ROOT-0, More-1)
+cc(More-1, and-2)
+conj:and(More-1, more-3)
+
+----------
+[root(ROOT-0, scientific-1), cc(scientific-1, and-2), conj:and(scientific-1, administrative-3)]
+
+root(ROOT-0, scientific-1)
+cc(scientific-1, and-2)
+conj:and(scientific-1, administrative-3)
+
+----------
+[root(ROOT-0, sharp-1), cc(sharp-1, and-2), conj:and(sharp-1, rapid-3)]
+
+root(ROOT-0, sharp-1)
+cc(sharp-1, and-2)
+conj:and(sharp-1, rapid-3)
+
+----------
+[root(ROOT-0, small-1), cc(small-1, and-2), conj:and(small-1, medium-sized-3)]
+
+root(ROOT-0, small-1)
+cc(small-1, and-2)
+conj:and(small-1, medium-sized-3)
+
+----------
+[root(ROOT-0, small-1), cc(small-1, but-2), conj:but(small-1, influential-3)]
+
+root(ROOT-0, small-1)
+cc(small-1, but-2)
+conj:but(small-1, influential-3)
+
+----------
+[root(ROOT-0, small-1), cc(small-1, but-2), conj:but(small-1, intriguing-3)]
+
+root(ROOT-0, small-1)
+cc(small-1, but-2)
+conj:but(small-1, intriguing-3)
+
+----------
+[root(ROOT-0, small-1), cc(small-1, but-2), conj:but(small-1, growing-3)]
+
+root(ROOT-0, small-1)
+cc(small-1, but-2)
+conj:but(small-1, growing-3)
+
+----------
+[root(ROOT-0, social-1), cc(social-1, and-2), conj:and(social-1, international-3)]
+
+root(ROOT-0, social-1)
+cc(social-1, and-2)
+conj:and(social-1, international-3)
+
+----------
+[root(ROOT-0, void-1), cc(void-1, and-2), conj:and(void-1, severable-3)]
+
+root(ROOT-0, void-1)
+cc(void-1, and-2)
+conj:and(void-1, severable-3)
+
+----------
+[root(ROOT-0, wealthy-1), cc(wealthy-1, and-2), conj:and(wealthy-1, well-connected-3)]
+
+root(ROOT-0, wealthy-1)
+cc(wealthy-1, and-2)
+conj:and(wealthy-1, well-connected-3)
+
+----------
+[root(ROOT-0, whimsical-1), cc(whimsical-1, or-2), conj:or(whimsical-1, enviable-3)]
+
+root(ROOT-0, whimsical-1)
+cc(whimsical-1, or-2)
+conj:or(whimsical-1, enviable-3)
+
+----------
+[root(ROOT-0, heavy-truck-1), cc(heavy-truck-1, and-2), conj:and(heavy-truck-1, passenger-car-3)]
+
+root(ROOT-0, heavy-truck-1)
+cc(heavy-truck-1, and-2)
+conj:and(heavy-truck-1, passenger-car-3)
+
+----------
+[amod(Texas-based-3, Austin-1), root(ROOT-0, Texas-based-3)]
+
+amod(Texas-based-3, Austin-1)
+root(ROOT-0, Texas-based-3)
+
+----------
+[amod(Ohio-based-3, Fairlawn-1), root(ROOT-0, Ohio-based-3)]
+
+amod(Ohio-based-3, Fairlawn-1)
+root(ROOT-0, Ohio-based-3)
+
+----------
+[amod(Bermuda-based-3, Hamilton-1), root(ROOT-0, Bermuda-based-3)]
+
+amod(Bermuda-based-3, Hamilton-1)
+root(ROOT-0, Bermuda-based-3)
+
+----------
+[amod(Calif.-based-3, Irvine-1), root(ROOT-0, Calif.-based-3)]
+
+amod(Calif.-based-3, Irvine-1)
+root(ROOT-0, Calif.-based-3)
+
+----------
+[amod(Mich.-based-3, Kalamazoo-1), root(ROOT-0, Mich.-based-3)]
+
+amod(Mich.-based-3, Kalamazoo-1)
+root(ROOT-0, Mich.-based-3)
+
+----------
+[amod(N.J.-based-3, Kearny-1), root(ROOT-0, N.J.-based-3)]
+
+amod(N.J.-based-3, Kearny-1)
+root(ROOT-0, N.J.-based-3)
+
+----------
+[amod(Conn.based-3, Stamford-1), root(ROOT-0, Conn.based-3)]
+
+amod(Conn.based-3, Stamford-1)
+root(ROOT-0, Conn.based-3)
+
+----------
+[amod(Ohio-based-3, Toledo-1), root(ROOT-0, Ohio-based-3)]
+
+amod(Ohio-based-3, Toledo-1)
+root(ROOT-0, Ohio-based-3)
+
+----------
+[root(ROOT-0, investor-relations-1), cc(investor-relations-1, and-2), conj:and(investor-relations-1, marketing-communications-3)]
+
+root(ROOT-0, investor-relations-1)
+cc(investor-relations-1, and-2)
+conj:and(investor-relations-1, marketing-communications-3)
+
+----------
+[advmod(sophisticated-3, much-1), advmod(sophisticated-3, more-2), root(ROOT-0, sophisticated-3)]
+
+advmod(sophisticated-3, much-1)
+advmod(sophisticated-3, more-2)
+root(ROOT-0, sophisticated-3)
+
+----------
+[neg(off-3, no-1), dep(off-3, worse-2), root(ROOT-0, off-3)]
+
+neg(off-3, no-1)
+dep(off-3, worse-2)
+root(ROOT-0, off-3)
+
+----------
+[advmod(used-3, most-1), advmod(used-3, widely-2), root(ROOT-0, used-3)]
+
+advmod(used-3, most-1)
+advmod(used-3, widely-2)
+root(ROOT-0, used-3)
+
+----------
+[advmod(qualified-3, well-2), root(ROOT-0, qualified-3)]
+
+advmod(qualified-3, well-2)
+root(ROOT-0, qualified-3)
+
+----------
+[root(ROOT-0, increasing-1), cc(increasing-1, and-2), conj:and(increasing-1, diversifying-3)]
+
+root(ROOT-0, increasing-1)
+cc(increasing-1, and-2)
+conj:and(increasing-1, diversifying-3)
+
+----------
+[root(ROOT-0, Estimated-1), cc(Estimated-1, and-2), conj:and(Estimated-1, actual-3)]
+
+root(ROOT-0, Estimated-1)
+cc(Estimated-1, and-2)
+conj:and(Estimated-1, actual-3)
+
+----------

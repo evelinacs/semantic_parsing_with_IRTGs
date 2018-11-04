@@ -1,0 +1,63 @@
+
+//AdjectivePhrase out of one Determiner.
+//(ADJP (DT another))
+//ADJP( DT( another))
+ADJP -> one_DT(DT)
+[string] ?1
+[tree] ADJP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//AdjectivePhrase out of one Adjective.
+//(ADJP (JJ available))
+//ADJP( JJ( available))
+ADJP -> one_JJ(JJbasic)
+[string] ?1
+[tree] ADJP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//AdjectivePhrase out of one ComparativeAdjective.
+//(ADJP (JJR cheaper))
+//ADJP( JJR( cheaper))
+ADJP -> one_JJR(JJR)
+[string] ?1
+[tree] ADJP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//AdjectivePhrase out of one Noun.
+//(ADJP (NN worth))
+//ADJP( NN( worth))
+ADJP -> one_NN(NNbasic)
+[string] ?1
+[tree] ADJP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//AdjectivePhrase out of one Adverb.
+//(ADJP (RB long))
+//ADJP( RB( long))
+ADJP -> one_RB(RBbasic)
+[string] ?1
+[tree] ADJP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//AdjectivePhrase out of one Comparative Adverb.
+//(ADJP (RBR more))
+//ADJP( RBR( more))
+ADJP -> one_RBR(RBR)
+[string] ?1
+[tree] ADJP(?1)
+[ud] ?1
+[fourlang] ?1
+
+//AdjectivePhrase out of one PastParticipleVerb.
+//(ADJP (VBN insured))
+//ADJP( VBN( insured))
+ADJP -> one_VBN(VBN)
+[string] ?1
+[tree] ADJP(?1)
+[ud] ?1
+[fourlang] ?1
