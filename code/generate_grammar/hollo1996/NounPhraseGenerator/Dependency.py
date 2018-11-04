@@ -41,6 +41,7 @@ class Dependency:
             Dependency.dependencyToFourlang["conj:and"] = Fourlang.UnderTo
             Dependency.dependencyToFourlang["conj:v."] = Fourlang.UnderTo
             Dependency.dependencyToFourlang["conj:or"] = Fourlang.UnderTo
+            Dependency.dependencyToFourlang["conj:but"] = Fourlang.UnderTo
             Dependency.dependencyToFourlang["obl"] = Fourlang.UnderTo # 3 more dependency types added
             Dependency.dependencyToFourlang["cop"] = Fourlang._None
             Dependency.dependencyToFourlang["mark"] = Fourlang._None
