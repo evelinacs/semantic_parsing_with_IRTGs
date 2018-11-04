@@ -1,4 +1,4 @@
-from basicADJP import *
+from tallNP import *
 
 #This is my main file
 #You can run this to watch how all NP-s are generated at the moment
@@ -8,11 +8,9 @@ Short2Long.loadFromFile("Data/Short2Long/dep_S2L", Short2Long.dependency)
 
 
 
-with open("Data/Output/out_adjp_1x1.txt","w") as file:
-    file.write(basicUnariADJP())
-with open("Data/Output/out_adjp_1x2.txt","w") as file:
-    file.write(basicBinaryADJP())
-with open("Data/Output/out_adjp_1x3_tail.txt","w") as file:
-    file.write(basicTernaryADJPTail())
-with open("Data/Output/out_adjp_1x3_comp.txt","w") as file:
-    file.write(basicTernaryADJPComplete())
+with open("Data/Output/out_np_2x2_adjp.txt","w") as file:
+    file.write(tallBinaryNPADJP())
+with open("Data/Output/out_np_2x3_adjp_tail.txt","w") as file:
+    file.write(tallTernaryNPADJPTail())
+with open("Data/Output/out_np_2x3_adjp_comp.txt","w") as file:
+    file.write(tallTernaryNPADJPComplete())
