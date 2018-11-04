@@ -1,0 +1,72 @@
+
+//End of a NounPhrase End out of two PluralNoun-s.
+//NP3( ADJP( something), NNP( UPERIODSPERIOD), NNS( firms))
+//(NP (ADJP something) (NNP UPERIODSPERIOD) (NNS firms))
+NP_BAR -> undependent_NNP_NNS_Tail(NNP,NNS)
+[string] *(?1,?2)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Noun-s.
+//NP3( ADJP( something), DT( a), NN( year))
+//(NP (ADJP something) (DT a) (NN year))
+NP_BAR -> undependent_DT_NN_Tail(DT,NNbasic)
+[string] *(?1,?2)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Noun-s.
+//NP3( ADJP( something), VBN( colored), NN( light))
+//(NP (ADJP something) (VBN colored) (NN light))
+NP_BAR -> undependent_VBN_NN_Tail(VBN,NNbasic)
+[string] *(?1,?2)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Noun-s.
+//NP3( ADJP( something), JJ( currentHYPHENcarrying), NN( capacity))
+//(NP (ADJP something) (JJ currentHYPHENcarrying) (NN capacity))
+NP_BAR -> undependent_JJ_NN_Tail(JJbasic,NNbasic)
+[string] *(?1,?2)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two PluralNoun-s.
+//NP3( ADJP( something), NN( ballot), NNS( issues))
+//(NP (ADJP something) (NN ballot) (NNS issues))
+NP_BAR -> undependent_NN_NNS_Tail(NNbasic,NNS)
+[string] *(?1,?2)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two Noun-s.
+//NP3( DT( a), ADJP( something), NN( bid))
+//(NP (DT a) (ADJP something) (NN bid))
+NP_BAR -> undependent_ADJP_NN_Tail(ADJP,NNbasic)
+[string] *(?1,?2)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two PluralNoun-s.
+//NP3( DT( The), ADJP( something), NNS( bonds))
+//(NP (DT The) (ADJP something) (NNS bonds))
+NP_BAR -> undependent_ADJP_NNS_Tail(ADJP,NNS)
+[string] *(?1,?2)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1
+
+//End of a NounPhrase End out of two CardinalNumber-s.
+//NP3( DT( the), ADJP( something), CD( one))
+//(NP (DT the) (ADJP something) (CD one))
+NP_BAR -> undependent_ADJP_CD_Tail(ADJP,CD)
+[string] *(?1,?2)
+[tree] NP3(*,?1,?2)
+[ud] ?1
+[fourlang] ?1

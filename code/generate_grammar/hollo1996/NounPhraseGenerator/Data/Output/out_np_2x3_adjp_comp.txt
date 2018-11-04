@@ -1,0 +1,18 @@
+
+//a long NounPhrase out of a  NounPhrase Bar and a AdjectivePhrase (which is a adjectival modifier). 
+//NP3( ADJP( something), NNP( UPERIODSPERIOD), NNS( firms))
+//(NP (ADJP something) (NNP UPERIODSPERIOD) (NNS firms))
+NP -> amod_ADJP_NPBAR_Tail(ADJP, NP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?1))),?2)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?1))),?2)
+
+//a long NounPhrase out of a Determiner and a NounPhrase Bar.
+//NP3( DT( a), ADJP( something), NN( bid))
+//(NP (DT a) (ADJP something) (NN bid))
+NP -> unconnected_DT_NPBAR(DT, NP_BAR)
+[string] *(?1,?2)
+[tree] @(?2,?1)
+[ud] ?2
+[fourlang] ?2

@@ -1,0 +1,36 @@
+
+//NounPhrase out of a Noun (which is a adjectival modifier) and a AdjectivePhrase.
+//NP2( ADJP( something), NN( bribery))
+//(NP (ADJP something) (NN bribery))
+NP -> amod_ADJP_NN(ADJP,NNbasic)
+[string] *(?1,?2)
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//NounPhrase out of a PluralNoun (which is a adjectival modifier) and a AdjectivePhrase.
+//NP2( ADJP( something), NNS( areas))
+//(NP (ADJP something) (NNS areas))
+NP -> amod_ADJP_NNS(ADJP,NNS)
+[string] *(?1,?2)
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//NounPhrase out of a SingularProperNoun (which is a adjectival modifier) and a AdjectivePhrase.
+//NP2( ADJP( something), NNP( First))
+//(NP (ADJP something) (NNP First))
+NP -> amod_ADJP_NNP(ADJP,NNP)
+[string] *(?1,?2)
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :amod (d<dep>))", r_dep(?2))),?1)
+[fourlang] merge(f_dep(merge("(r<root> :0 (d<dep>))", r_dep(?2))),?1)
+
+//NounPhrase out of a AdjectivePhrase (which is a determiner) and a Determiner.
+//NP2( DT( The), ADJP( something))
+//(NP (DT The) (ADJP something))
+NP -> det_DT_ADJP(DT,ADJP)
+[string] *(?1,?2)
+[tree] NP2(?1,?2)
+[ud] merge(f_dep(merge("(r<root> :det (d<dep>))", r_dep(?2))),?1)
+[fourlang] ?2
