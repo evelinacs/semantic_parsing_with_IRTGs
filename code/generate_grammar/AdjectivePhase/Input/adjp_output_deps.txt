@@ -1,0 +1,3782 @@
+[nummod(years-2, 61-1), nmod:npmod(old-3, years-2), root(ROOT-0, old-3)]
+
+nummod(years-2, 61-1)
+nmod:npmod(old-3, years-2)
+root(ROOT-0, old-3)
+
+----------
+[nummod(years-2, 55-1), nmod:npmod(old-3, years-2), root(ROOT-0, old-3)]
+
+nummod(years-2, 55-1)
+nmod:npmod(old-3, years-2)
+root(ROOT-0, old-3)
+
+----------
+[amod(York-based-2, New-1), root(ROOT-0, York-based-2)]
+
+amod(York-based-2, New-1)
+root(ROOT-0, York-based-2)
+
+----------
+[root(ROOT-0, likely-1), mark(bring-3, to-2), xcomp(likely-1, bring-3), amod(attention-5, new-4), dobj(bring-3, attention-5), case(problem-8, to-6), det(problem-8, the-7), nmod:to(bring-3, problem-8)]
+
+root(ROOT-0, likely-1)
+mark(bring-3, to-2)
+xcomp(likely-1, bring-3)
+amod(attention-5, new-4)
+dobj(bring-3, attention-5)
+case(problem-8, to-6)
+det(problem-8, the-7)
+nmod:to(bring-3, problem-8)
+
+----------
+[advmod(modest-2, very-1), root(ROOT-0, modest-2)]
+
+advmod(modest-2, very-1)
+root(ROOT-0, modest-2)
+
+----------
+[advmod(diagnosed-2, recently-1), root(ROOT-0, diagnosed-2)]
+
+advmod(diagnosed-2, recently-1)
+root(ROOT-0, diagnosed-2)
+
+----------
+[advmod(higher-2, far-1), root(ROOT-0, higher-2)]
+
+advmod(higher-2, far-1)
+root(ROOT-0, higher-2)
+
+----------
+[advmod(all-2, virtually-1), root(ROOT-0, all-2)]
+
+advmod(all-2, virtually-1)
+root(ROOT-0, all-2)
+
+----------
+[advmod(all-2, almost-1), root(ROOT-0, all-2)]
+
+advmod(all-2, almost-1)
+root(ROOT-0, all-2)
+
+----------
+[root(ROOT-0, open-1), advmod(institutions-4, only-2), case(institutions-4, to-3), nmod:to(open-1, institutions-4)]
+
+root(ROOT-0, open-1)
+advmod(institutions-4, only-2)
+case(institutions-4, to-3)
+nmod:to(open-1, institutions-4)
+
+----------
+[compound(%-2, 83.4-1), root(ROOT-0, %-2)]
+
+compound(%-2, 83.4-1)
+root(ROOT-0, %-2)
+
+----------
+[nummod(years-2, 43-1), nmod:npmod(old-3, years-2), root(ROOT-0, old-3)]
+
+nummod(years-2, 43-1)
+nmod:npmod(old-3, years-2)
+root(ROOT-0, old-3)
+
+----------
+[root(ROOT-0, tasty-1), cc(free-4, and-3), dep(tasty-1, free-4)]
+
+root(ROOT-0, tasty-1)
+cc(free-4, and-3)
+dep(tasty-1, free-4)
+
+----------
+[advmod(0.7-3, a-1), advmod(0.7-3, mere-2), dep(%-4, 0.7-3), root(ROOT-0, %-4)]
+
+advmod(0.7-3, a-1)
+advmod(0.7-3, mere-2)
+dep(%-4, 0.7-3)
+root(ROOT-0, %-4)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 2.29-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 2.29-2)
+nummod($-1, billion-3)
+
+----------
+[advmod(5.5-2, around-1), dep(%-3, 5.5-2), root(ROOT-0, %-3)]
+
+advmod(5.5-2, around-1)
+dep(%-3, 5.5-2)
+root(ROOT-0, %-3)
+
+----------
+[nummod(years-2, 52-1), nmod:npmod(old-3, years-2), root(ROOT-0, old-3)]
+
+nummod(years-2, 52-1)
+nmod:npmod(old-3, years-2)
+root(ROOT-0, old-3)
+
+----------
+[advmod($-2, about-1), nmod:npmod(more-5, $-2), compound(million-4, 55-3), nummod($-2, million-4), root(ROOT-0, more-5)]
+
+advmod($-2, about-1)
+nmod:npmod(more-5, $-2)
+compound(million-4, 55-3)
+nummod($-2, million-4)
+root(ROOT-0, more-5)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 2.5-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 2.5-2)
+nummod($-1, billion-3)
+
+----------
+[root(ROOT-0, subject-1), case(refund-4, to-2), det(refund-4, a-3), nmod:to(subject-1, refund-4)]
+
+root(ROOT-0, subject-1)
+case(refund-4, to-2)
+det(refund-4, a-3)
+nmod:to(subject-1, refund-4)
+
+----------
+[root(ROOT-0, increasing-1), cc(increasing-1, and-2), conj:and(increasing-1, diversifying-3)]
+
+root(ROOT-0, increasing-1)
+cc(increasing-1, and-2)
+conj:and(increasing-1, diversifying-3)
+
+----------
+[advmod(operational-2, fully-1), root(ROOT-0, operational-2)]
+
+advmod(operational-2, fully-1)
+root(ROOT-0, operational-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 98.3-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 98.3-2)
+nummod($-1, million-3)
+
+----------
+[advmod(fragile-2, so-1), root(ROOT-0, fragile-2), cc(fragile-2, and-3), conj:and(fragile-2, minute-4)]
+
+advmod(fragile-2, so-1)
+root(ROOT-0, fragile-2)
+cc(fragile-2, and-3)
+conj:and(fragile-2, minute-4)
+
+----------
+[advmod(many-3, twice-1), advmod(many-3, as-2), root(ROOT-0, many-3), case(supercomputer-8, as-4), det(supercomputer-8, the-5), amod(supercomputer-8, largest-6), amod(supercomputer-8, current-7), nmod:as(many-3, supercomputer-8)]
+
+advmod(many-3, twice-1)
+advmod(many-3, as-2)
+root(ROOT-0, many-3)
+case(supercomputer-8, as-4)
+det(supercomputer-8, the-5)
+amod(supercomputer-8, largest-6)
+amod(supercomputer-8, current-7)
+nmod:as(many-3, supercomputer-8)
+
+----------
+[root(ROOT-0, related-1), case(development-5, to-2), det(development-5, the-3), nummod(development-5, Cray-3-4), nmod:to(related-1, development-5), nsubj(drain-11, which-7), aux(drain-11, has-8), cop(drain-11, been-9), det(drain-11, a-10), acl:relcl(development-5, drain-11), case(earnings-16, on-12), compound(Research-14, Cray-13), nmod:poss(earnings-16, Research-14), case(Research-14, 's-15), nmod:on(drain-11, earnings-16)]
+
+root(ROOT-0, related-1)
+case(development-5, to-2)
+det(development-5, the-3)
+nummod(development-5, Cray-3-4)
+nmod:to(related-1, development-5)
+nsubj(drain-11, development-5)
+ref(development-5, which-7)
+aux(drain-11, has-8)
+cop(drain-11, been-9)
+det(drain-11, a-10)
+acl:relcl(development-5, drain-11)
+case(earnings-16, on-12)
+compound(Research-14, Cray-13)
+nmod:poss(earnings-16, Research-14)
+case(Research-14, 's-15)
+nmod:on(drain-11, earnings-16)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 20.5-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 20.5-2)
+nummod($-1, million-3)
+
+----------
+[nummod(years-2, 49-1), nmod:npmod(old-3, years-2), root(ROOT-0, old-3)]
+
+nummod(years-2, 49-1)
+nmod:npmod(old-3, years-2)
+root(ROOT-0, old-3)
+
+----------
+[root(ROOT-0, compatible-1), case(standards-4, with-2), amod(standards-4, international-3), nmod:with(compatible-1, standards-4)]
+
+root(ROOT-0, compatible-1)
+case(standards-4, with-2)
+amod(standards-4, international-3)
+nmod:with(compatible-1, standards-4)
+
+----------
+[root(ROOT-0, Crude-1)]
+
+root(ROOT-0, Crude-1)
+
+----------
+[compound(times-2, 500-1), root(ROOT-0, times-2), dep(times-2, greater-3), case(counterparts-7, than-4), nmod:poss(counterparts-7, their-5), nummod(counterparts-7, 1977-6), nmod:than(times-2, counterparts-7)]
+
+compound(times-2, 500-1)
+root(ROOT-0, times-2)
+dep(times-2, greater-3)
+case(counterparts-7, than-4)
+nmod:poss(counterparts-7, their-5)
+nummod(counterparts-7, 1977-6)
+nmod:than(times-2, counterparts-7)
+
+----------
+[amod(Jersey-based-2, New-1), root(ROOT-0, Jersey-based-2)]
+
+amod(Jersey-based-2, New-1)
+root(ROOT-0, Jersey-based-2)
+
+----------
+[amod(York-based-2, New-1), root(ROOT-0, York-based-2)]
+
+amod(York-based-2, New-1)
+root(ROOT-0, York-based-2)
+
+----------
+[root(ROOT-0, free-1), case(tax-4, of-2), amod(tax-4, excise-3), nmod:of(free-1, tax-4)]
+
+root(ROOT-0, free-1)
+case(tax-4, of-2)
+amod(tax-4, excise-3)
+nmod:of(free-1, tax-4)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 10.2-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 10.2-2)
+nummod($-1, million-3)
+
+----------
+[advmod(small-2, relatively-1), root(ROOT-0, small-2)]
+
+advmod(small-2, relatively-1)
+root(ROOT-0, small-2)
+
+----------
+[advmod(satisfactory-2, more-1), root(ROOT-0, satisfactory-2)]
+
+advmod(satisfactory-2, more-1)
+root(ROOT-0, satisfactory-2)
+
+----------
+[advmod(influential-2, more-1), root(ROOT-0, influential-2)]
+
+advmod(influential-2, more-1)
+root(ROOT-0, influential-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 570-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 570-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[root(ROOT-0, $-1), dep($-1, 37-a-share-2)]
+
+root(ROOT-0, $-1)
+dep($-1, 37-a-share-2)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[advmod(announced-2, previously-1), root(ROOT-0, announced-2)]
+
+advmod(announced-2, previously-1)
+root(ROOT-0, announced-2)
+
+----------
+[compound(yen-2, 150.00-1), root(ROOT-0, yen-2)]
+
+compound(yen-2, 150.00-1)
+root(ROOT-0, yen-2)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 2.2-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 2.2-2)
+nummod($-1, billion-3)
+
+----------
+[advmod(traded-2, publicly-1), root(ROOT-0, traded-2)]
+
+advmod(traded-2, publicly-1)
+root(ROOT-0, traded-2)
+
+----------
+[advmod(focused-2, narrowly-1), root(ROOT-0, focused-2)]
+
+advmod(focused-2, narrowly-1)
+root(ROOT-0, focused-2)
+
+----------
+[advmod(mature-2, more-1), root(ROOT-0, mature-2)]
+
+advmod(mature-2, more-1)
+root(ROOT-0, mature-2)
+
+----------
+[advmod(fat-2, historically-1), root(ROOT-0, fat-2)]
+
+advmod(fat-2, historically-1)
+root(ROOT-0, fat-2)
+
+----------
+[compound(%-2, 120-1), root(ROOT-0, %-2)]
+
+compound(%-2, 120-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(fattened-2, newly-1), root(ROOT-0, fattened-2)]
+
+advmod(fattened-2, newly-1)
+root(ROOT-0, fattened-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 188-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 188-2)
+nummod($-1, million-3)
+
+----------
+[advmod(outstanding-2, still-1), root(ROOT-0, outstanding-2), case(program-9, from-3), det(program-9, the-4), compound(program-9, World-5), compound(program-9, War-6), compound(program-9, II-7), amod(program-9, lend-lease-8), nmod:from(outstanding-2, program-9)]
+
+advmod(outstanding-2, still-1)
+root(ROOT-0, outstanding-2)
+case(program-9, from-3)
+det(program-9, the-4)
+compound(program-9, World-5)
+compound(program-9, War-6)
+compound(program-9, II-7)
+amod(program-9, lend-lease-8)
+nmod:from(outstanding-2, program-9)
+
+----------
+[compound(%-2, 59.6-1), root(ROOT-0, %-2)]
+
+compound(%-2, 59.6-1)
+root(ROOT-0, %-2)
+
+----------
+[neg(different-3, not-1), advmod(different-3, significantly-2), root(ROOT-0, different-3), case($-6, from-4), det($-6, the-5), nmod:from(different-3, $-6), compound(billion-8, 415.8-7), nummod($-6, billion-8), acl($-6, reported-9), case(August-11, for-10), nmod:for(reported-9, August-11)]
+
+neg(different-3, not-1)
+advmod(different-3, significantly-2)
+root(ROOT-0, different-3)
+case($-6, from-4)
+det($-6, the-5)
+nmod:from(different-3, $-6)
+compound(billion-8, 415.8-7)
+nummod($-6, billion-8)
+acl($-6, reported-9)
+case(August-11, for-10)
+nmod:for(reported-9, August-11)
+
+----------
+[compound(%-2, 8-1), root(ROOT-0, %-2)]
+
+compound(%-2, 8-1)
+root(ROOT-0, %-2)
+
+----------
+[dep(%-3, low-1), compound(%-3, 40-2), root(ROOT-0, %-3)]
+
+dep(%-3, low-1)
+compound(%-3, 40-2)
+root(ROOT-0, %-3)
+
+----------
+[advmod(steeper-2, even-1), root(ROOT-0, steeper-2)]
+
+advmod(steeper-2, even-1)
+root(ROOT-0, steeper-2)
+
+----------
+[root(ROOT-0, stronger-1)]
+
+root(ROOT-0, stronger-1)
+
+----------
+[advmod(high-2, exceptionally-1), root(ROOT-0, high-2)]
+
+advmod(high-2, exceptionally-1)
+root(ROOT-0, high-2)
+
+----------
+[advmod(adjusted-2, seasonally-1), root(ROOT-0, adjusted-2)]
+
+advmod(adjusted-2, seasonally-1)
+root(ROOT-0, adjusted-2)
+
+----------
+[advmod(adjusted-2, seasonally-1), root(ROOT-0, adjusted-2)]
+
+advmod(adjusted-2, seasonally-1)
+root(ROOT-0, adjusted-2)
+
+----------
+[advmod(entirely-2, almost-1), advmod(Western-3, entirely-2), root(ROOT-0, Western-3)]
+
+advmod(entirely-2, almost-1)
+advmod(Western-3, entirely-2)
+root(ROOT-0, Western-3)
+
+----------
+[root(ROOT-0, unfathomable-1), case(outsiders-3, by-2), nmod:by(unfathomable-1, outsiders-3)]
+
+root(ROOT-0, unfathomable-1)
+case(outsiders-3, by-2)
+nmod:by(unfathomable-1, outsiders-3)
+
+----------
+[root(ROOT-0, imaginative-1)]
+
+root(ROOT-0, imaginative-1)
+
+----------
+[advmod(recent-2, more-1), root(ROOT-0, recent-2)]
+
+advmod(recent-2, more-1)
+root(ROOT-0, recent-2)
+
+----------
+[advmod(important-2, as-1), root(ROOT-0, important-2)]
+
+advmod(important-2, as-1)
+root(ROOT-0, important-2)
+
+----------
+[advmod(amusing-2, often-1), root(ROOT-0, amusing-2)]
+
+advmod(amusing-2, often-1)
+root(ROOT-0, amusing-2)
+
+----------
+[advmod(amusing-2, sometimes-1), root(ROOT-0, amusing-2), advmod(often-5, more-4), advmod(supercilious-6, often-5), dep(amusing-2, supercilious-6), advmod(vicious-9, even-8), dep(amusing-2, vicious-9)]
+
+advmod(amusing-2, sometimes-1)
+root(ROOT-0, amusing-2)
+advmod(often-5, more-4)
+advmod(supercilious-6, often-5)
+dep(amusing-2, supercilious-6)
+advmod(vicious-9, even-8)
+dep(amusing-2, vicious-9)
+
+----------
+[advmod(hierarchical-2, so-1), root(ROOT-0, hierarchical-2)]
+
+advmod(hierarchical-2, so-1)
+root(ROOT-0, hierarchical-2)
+
+----------
+[root(ROOT-0, More-1), cc(More-1, and-2), conj:and(More-1, more-3)]
+
+root(ROOT-0, More-1)
+cc(More-1, and-2)
+conj:and(More-1, more-3)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 250-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 250-2)
+
+----------
+[advmod(materialistic-2, most-1), root(ROOT-0, materialistic-2)]
+
+advmod(materialistic-2, most-1)
+root(ROOT-0, materialistic-2)
+
+----------
+[advmod(pressured-2, more-1), root(ROOT-0, pressured-2)]
+
+advmod(pressured-2, more-1)
+root(ROOT-0, pressured-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 19-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 19-2)
+nummod($-1, million-3)
+
+----------
+[advmod(low-2, unrealistically-1), root(ROOT-0, low-2)]
+
+advmod(low-2, unrealistically-1)
+root(ROOT-0, low-2)
+
+----------
+[advmod(strapped-2, financially-1), root(ROOT-0, strapped-2)]
+
+advmod(strapped-2, financially-1)
+root(ROOT-0, strapped-2)
+
+----------
+[advmod(complete-3, now-1), advmod(complete-3, nearly-2), root(ROOT-0, complete-3)]
+
+advmod(complete-3, now-1)
+advmod(complete-3, nearly-2)
+root(ROOT-0, complete-3)
+
+----------
+[compound(%-2, 2.2-1), root(ROOT-0, %-2)]
+
+compound(%-2, 2.2-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-2, 10.5-1), root(ROOT-0, %-2)]
+
+compound(%-2, 10.5-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, C$-1), compound(C$-1, 1,000-2)]
+
+root(ROOT-0, C$-1)
+compound(C$-1, 1,000-2)
+
+----------
+[advmod(romanticized-2, highly-1), root(ROOT-0, romanticized-2)]
+
+advmod(romanticized-2, highly-1)
+root(ROOT-0, romanticized-2)
+
+----------
+[root(ROOT-0, another-1)]
+
+root(ROOT-0, another-1)
+
+----------
+[advmod(improbable-2, highly-1), root(ROOT-0, improbable-2)]
+
+advmod(improbable-2, highly-1)
+root(ROOT-0, improbable-2)
+
+----------
+[root(ROOT-0, whimsical-1), cc(whimsical-1, or-2), conj:or(whimsical-1, enviable-3)]
+
+root(ROOT-0, whimsical-1)
+cc(whimsical-1, or-2)
+conj:or(whimsical-1, enviable-3)
+
+----------
+[advmod(sympathetic-2, most-1), root(ROOT-0, sympathetic-2)]
+
+advmod(sympathetic-2, most-1)
+root(ROOT-0, sympathetic-2)
+
+----------
+[advmod(loose-2, marvelously-1), root(ROOT-0, loose-2), cc(loose-2, and-3), conj:and(loose-2, energetic-4)]
+
+advmod(loose-2, marvelously-1)
+root(ROOT-0, loose-2)
+cc(loose-2, and-3)
+conj:and(loose-2, energetic-4)
+
+----------
+[root(ROOT-0, empty-1), case(issues-4, of-2), amod(issues-4, significant-3), nmod:of(empty-1, issues-4)]
+
+root(ROOT-0, empty-1)
+case(issues-4, of-2)
+amod(issues-4, significant-3)
+nmod:of(empty-1, issues-4)
+
+----------
+[advmod(new-2, entirely-1), root(ROOT-0, new-2)]
+
+advmod(new-2, entirely-1)
+root(ROOT-0, new-2)
+
+----------
+[root(ROOT-0, confrontational-1)]
+
+root(ROOT-0, confrontational-1)
+
+----------
+[root(ROOT-0, true-1)]
+
+root(ROOT-0, true-1)
+
+----------
+[root(ROOT-0, younger-1)]
+
+root(ROOT-0, younger-1)
+
+----------
+[advmod(important-2, more-1), root(ROOT-0, important-2)]
+
+advmod(important-2, more-1)
+root(ROOT-0, important-2)
+
+----------
+[root(ROOT-0, mean-1), cc(mean-1, and-2), conj:and(mean-1, dirty-3)]
+
+root(ROOT-0, mean-1)
+cc(mean-1, and-2)
+conj:and(mean-1, dirty-3)
+
+----------
+[root(ROOT-0, involved-1)]
+
+root(ROOT-0, involved-1)
+
+----------
+[root(ROOT-0, true-1)]
+
+root(ROOT-0, true-1)
+
+----------
+[advmod(cohesive-2, more-1), root(ROOT-0, cohesive-2)]
+
+advmod(cohesive-2, more-1)
+root(ROOT-0, cohesive-2)
+
+----------
+[root(ROOT-0, Asian-1), cc(Asian-1, and-2), conj:and(Asian-1, Pacific-3)]
+
+root(ROOT-0, Asian-1)
+cc(Asian-1, and-2)
+conj:and(Asian-1, Pacific-3)
+
+----------
+[advmod(more-2, far-1), root(ROOT-0, more-2)]
+
+advmod(more-2, far-1)
+root(ROOT-0, more-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 500-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 500-2)
+
+----------
+[root(ROOT-0, stunned-1), mark(became-12, that-2), case(nature-6, despite-3), det(nature-6, the-4), amod(nature-6, bald-faced-5), nmod:despite(became-12, nature-6), case(actions-9, of-7), nmod:poss(actions-9, her-8), nmod:of(nature-6, actions-9), nsubj(became-12, she-11), ccomp(stunned-1, became-12), xcomp(became-12, something-13), case(martyr-17, of-14), det(martyr-17, a-15), amod(martyr-17, local-16), nmod:of(something-13, martyr-17)]
+
+root(ROOT-0, stunned-1)
+mark(became-12, that-2)
+case(nature-6, despite-3)
+det(nature-6, the-4)
+amod(nature-6, bald-faced-5)
+nmod:despite(became-12, nature-6)
+case(actions-9, of-7)
+nmod:poss(actions-9, her-8)
+nmod:of(nature-6, actions-9)
+nsubj(became-12, she-11)
+ccomp(stunned-1, became-12)
+xcomp(became-12, something-13)
+case(martyr-17, of-14)
+det(martyr-17, a-15)
+amod(martyr-17, local-16)
+nmod:of(something-13, martyr-17)
+
+----------
+[root(ROOT-0, short-1), case(sheets-5, of-2), amod(sheets-5, sophisticated-3), compound(sheets-5, crib-4), nmod:of(short-1, sheets-5)]
+
+root(ROOT-0, short-1)
+case(sheets-5, of-2)
+amod(sheets-5, sophisticated-3)
+compound(sheets-5, crib-4)
+nmod:of(short-1, sheets-5)
+
+----------
+[root(ROOT-0, widespread-1), case(Carolina-4, in-2), compound(Carolina-4, South-3), nmod:in(widespread-1, Carolina-4)]
+
+root(ROOT-0, widespread-1)
+case(Carolina-4, in-2)
+compound(Carolina-4, South-3)
+nmod:in(widespread-1, Carolina-4)
+
+----------
+[compound(Prize-2, Nobel-1), dep(winning-3, Prize-2), root(ROOT-0, winning-3)]
+
+compound(Prize-2, Nobel-1)
+dep(winning-3, Prize-2)
+root(ROOT-0, winning-3)
+
+----------
+[root(ROOT-0, disparate-1), cc(disparate-1, and-3), advmod(split-5, evenly-4), conj:and(disparate-1, split-5)]
+
+root(ROOT-0, disparate-1)
+cc(disparate-1, and-3)
+advmod(split-5, evenly-4)
+conj:and(disparate-1, split-5)
+
+----------
+[dep(type-2, college-bowl-1), root(ROOT-0, type-2)]
+
+dep(type-2, college-bowl-1)
+root(ROOT-0, type-2)
+
+----------
+[root(ROOT-0, cocky-1), cc(cocky-1, and-2), advmod(yielding-4, too-3), conj:and(cocky-1, yielding-4), case(students-6, to-5), nmod:to(yielding-4, students-6)]
+
+root(ROOT-0, cocky-1)
+cc(cocky-1, and-2)
+advmod(yielding-4, too-3)
+conj:and(cocky-1, yielding-4)
+case(students-6, to-5)
+nmod:to(yielding-4, students-6)
+
+----------
+[root(ROOT-0, worthy-1), case(case-5, of-2), det(case-5, a-3), compound(case-5, murder-4), nmod:of(worthy-1, case-5)]
+
+root(ROOT-0, worthy-1)
+case(case-5, of-2)
+det(case-5, a-3)
+compound(case-5, murder-4)
+nmod:of(worthy-1, case-5)
+
+----------
+[advmod(little-2, damn-1), root(ROOT-0, little-2)]
+
+advmod(little-2, damn-1)
+root(ROOT-0, little-2)
+
+----------
+[advmod(strong-2, so-1), root(ROOT-0, strong-2)]
+
+advmod(strong-2, so-1)
+root(ROOT-0, strong-2)
+
+----------
+[advmod(used-2, widely-1), root(ROOT-0, used-2)]
+
+advmod(used-2, widely-1)
+root(ROOT-0, used-2)
+
+----------
+[advmod(similar-2, so-1), root(ROOT-0, similar-2), case(tests-5, to-3), det(tests-5, the-4), nmod:to(similar-2, tests-5), nmod:npmod(tests-5, themselves-6)]
+
+advmod(similar-2, so-1)
+root(ROOT-0, similar-2)
+case(tests-5, to-3)
+det(tests-5, the-4)
+nmod:to(similar-2, tests-5)
+nmod:npmod(tests-5, themselves-6)
+
+----------
+[advmod(used-3, most-1), advmod(used-3, widely-2), root(ROOT-0, used-3)]
+
+advmod(used-3, most-1)
+advmod(used-3, widely-2)
+root(ROOT-0, used-3)
+
+----------
+[amod(York-based-2, New-1), root(ROOT-0, York-based-2)]
+
+amod(York-based-2, New-1)
+root(ROOT-0, York-based-2)
+
+----------
+[advmod(funded-2, privately-1), root(ROOT-0, funded-2)]
+
+advmod(funded-2, privately-1)
+root(ROOT-0, funded-2)
+
+----------
+[root(ROOT-0, scientific-1), conj:and(scientific-1, legal-3), cc(scientific-1, and-4), conj:and(scientific-1, ethical-5)]
+
+root(ROOT-0, scientific-1)
+conj:and(scientific-1, legal-3)
+cc(scientific-1, and-4)
+conj:and(scientific-1, ethical-5)
+
+----------
+[root(ROOT-0, scientific-1), cc(scientific-1, and-2), conj:and(scientific-1, administrative-3)]
+
+root(ROOT-0, scientific-1)
+cc(scientific-1, and-2)
+conj:and(scientific-1, administrative-3)
+
+----------
+[advmod(funded-2, privately-1), root(ROOT-0, funded-2)]
+
+advmod(funded-2, privately-1)
+root(ROOT-0, funded-2)
+
+----------
+[advmod(visible-2, more-1), root(ROOT-0, visible-2)]
+
+advmod(visible-2, more-1)
+root(ROOT-0, visible-2)
+
+----------
+[amod(London-based-2, New-1), root(ROOT-0, London-based-2)]
+
+amod(London-based-2, New-1)
+root(ROOT-0, London-based-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 89.9-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 89.9-2)
+nummod($-1, million-3)
+
+----------
+[compound(%-2, 42.5-1), root(ROOT-0, %-2)]
+
+compound(%-2, 42.5-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, punishable-1), case(years-6, by-2), dep(10-5, up-3), mwe(up-3, to-4), nummod(years-6, 10-5), nmod:by(punishable-1, years-6), case(prison-8, in-7), nmod:in(years-6, prison-8)]
+
+root(ROOT-0, punishable-1)
+case(years-6, by-2)
+dep(10-5, up-3)
+mwe(up-3, to-4)
+nummod(years-6, 10-5)
+nmod:by(punishable-1, years-6)
+case(prison-8, in-7)
+nmod:in(years-6, prison-8)
+
+----------
+[root(ROOT-0, familiar-1), case(policy-7, with-2), det(Department-5, the-3), compound(Department-5, Justice-4), nmod:poss(policy-7, Department-5), case(Department-5, 's-6), nmod:with(familiar-1, policy-7)]
+
+root(ROOT-0, familiar-1)
+case(policy-7, with-2)
+det(Department-5, the-3)
+compound(Department-5, Justice-4)
+nmod:poss(policy-7, Department-5)
+case(Department-5, 's-6)
+nmod:with(familiar-1, policy-7)
+
+----------
+[advmod(lucrative-2, more-1), root(ROOT-0, lucrative-2)]
+
+advmod(lucrative-2, more-1)
+root(ROOT-0, lucrative-2)
+
+----------
+[root(ROOT-0, sure-1), nsubj(understood-3, they-2), ccomp(sure-1, understood-3), det(concern-6, the-5), dobj(understood-3, concern-6), case(practices-9, about-7), amod(practices-9, such-8), nmod:about(concern-6, practices-9)]
+
+root(ROOT-0, sure-1)
+nsubj(understood-3, they-2)
+ccomp(sure-1, understood-3)
+det(concern-6, the-5)
+dobj(understood-3, concern-6)
+case(practices-9, about-7)
+amod(practices-9, such-8)
+nmod:about(concern-6, practices-9)
+
+----------
+[root(ROOT-0, social-1), cc(social-1, and-2), conj:and(social-1, international-3)]
+
+root(ROOT-0, social-1)
+cc(social-1, and-2)
+conj:and(social-1, international-3)
+
+----------
+[root(ROOT-0, common-1)]
+
+root(ROOT-0, common-1)
+
+----------
+[root(ROOT-0, normal-1)]
+
+root(ROOT-0, normal-1)
+
+----------
+[advmod(higher-2, substantially-1), root(ROOT-0, higher-2), case(offer-6, than-3), det(offer-6, the-4), compound(offer-6, Fujitsu-5), nmod:than(higher-2, offer-6)]
+
+advmod(higher-2, substantially-1)
+root(ROOT-0, higher-2)
+case(offer-6, than-3)
+det(offer-6, the-4)
+compound(offer-6, Fujitsu-5)
+nmod:than(higher-2, offer-6)
+
+----------
+[root(ROOT-0, central-1), case(debate-7, to-2), det(debate-7, the-3), advmod(tense-5, increasingly-4), amod(debate-7, tense-5), compound(debate-7, trade-6), nmod:to(central-1, debate-7)]
+
+root(ROOT-0, central-1)
+case(debate-7, to-2)
+det(debate-7, the-3)
+advmod(tense-5, increasingly-4)
+amod(debate-7, tense-5)
+compound(debate-7, trade-6)
+nmod:to(central-1, debate-7)
+
+----------
+[advmod(held-2, closely-1), root(ROOT-0, held-2)]
+
+advmod(held-2, closely-1)
+root(ROOT-0, held-2)
+
+----------
+[compound(%-2, 10-1), root(ROOT-0, %-2)]
+
+compound(%-2, 10-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, open-1)]
+
+root(ROOT-0, open-1)
+
+----------
+[advmod(operated-2, hydraulically-1), root(ROOT-0, operated-2)]
+
+advmod(operated-2, hydraulically-1)
+root(ROOT-0, operated-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 35.7-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 35.7-2)
+nummod($-1, million-3)
+
+----------
+[dep($-5, $-1), compound($-5, 2-2), compound($-5, million-3), dep($-5, to-4), root(ROOT-0, $-5), compound(million-7, 3-6), nummod($-5, million-7)]
+
+dep($-5, $-1)
+compound($-5, 2-2)
+compound($-5, million-3)
+dep($-5, to-4)
+root(ROOT-0, $-5)
+compound(million-7, 3-6)
+nummod($-5, million-7)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 43-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 43-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 35.7-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 35.7-2)
+nummod($-1, million-3)
+
+----------
+[advmod(slow-2, traditionally-1), root(ROOT-0, slow-2)]
+
+advmod(slow-2, traditionally-1)
+root(ROOT-0, slow-2)
+
+----------
+[advmod(narrow-2, relatively-1), root(ROOT-0, narrow-2)]
+
+advmod(narrow-2, relatively-1)
+root(ROOT-0, narrow-2)
+
+----------
+[root(ROOT-0, uncomfortable-1)]
+
+root(ROOT-0, uncomfortable-1)
+
+----------
+[advmod(bad-2, particularly-1), root(ROOT-0, bad-2)]
+
+advmod(bad-2, particularly-1)
+root(ROOT-0, bad-2)
+
+----------
+[advmod(solid-2, pretty-1), root(ROOT-0, solid-2)]
+
+advmod(solid-2, pretty-1)
+root(ROOT-0, solid-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 5-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 5-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 6-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 6-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, investor-relations-1), cc(investor-relations-1, and-2), conj:and(investor-relations-1, marketing-communications-3)]
+
+root(ROOT-0, investor-relations-1)
+cc(investor-relations-1, and-2)
+conj:and(investor-relations-1, marketing-communications-3)
+
+----------
+[root(ROOT-0, $-1), dep($-1, 70-a-share-2)]
+
+root(ROOT-0, $-1)
+dep($-1, 70-a-share-2)
+
+----------
+[amod(Bermuda-based-3, Hamilton-1), root(ROOT-0, Bermuda-based-3)]
+
+amod(Bermuda-based-3, Hamilton-1)
+root(ROOT-0, Bermuda-based-3)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 70-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 70-2)
+
+----------
+[advmod(conditional-2, highly-1), root(ROOT-0, conditional-2)]
+
+advmod(conditional-2, highly-1)
+root(ROOT-0, conditional-2)
+
+----------
+[root(ROOT-0, legal-1), conj:and(legal-1, regulatory-3), conj:and(legal-1, financial-5), cc(legal-1, and-6), conj:and(legal-1, fairness-7)]
+
+root(ROOT-0, legal-1)
+conj:and(legal-1, regulatory-3)
+conj:and(legal-1, financial-5)
+cc(legal-1, and-6)
+conj:and(legal-1, fairness-7)
+
+----------
+[advmod(different-2, very-1), root(ROOT-0, different-2)]
+
+advmod(different-2, very-1)
+root(ROOT-0, different-2)
+
+----------
+[advmod(held-2, closely-1), root(ROOT-0, held-2)]
+
+advmod(held-2, closely-1)
+root(ROOT-0, held-2)
+
+----------
+[advmod(hot-2, very-1), root(ROOT-0, hot-2)]
+
+advmod(hot-2, very-1)
+root(ROOT-0, hot-2)
+
+----------
+[amod(N.J.-based-3, Kearny-1), root(ROOT-0, N.J.-based-3)]
+
+amod(N.J.-based-3, Kearny-1)
+root(ROOT-0, N.J.-based-3)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[compound(%-2, 42.5-1), root(ROOT-0, %-2)]
+
+compound(%-2, 42.5-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 75-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 75-2)
+
+----------
+[root(ROOT-0, such-1)]
+
+root(ROOT-0, such-1)
+
+----------
+[root(ROOT-0, available-1)]
+
+root(ROOT-0, available-1)
+
+----------
+[advmod(high-2, exceedingly-1), root(ROOT-0, high-2)]
+
+advmod(high-2, exceedingly-1)
+root(ROOT-0, high-2)
+
+----------
+[advmod(rich-2, spectacularly-1), root(ROOT-0, rich-2)]
+
+advmod(rich-2, spectacularly-1)
+root(ROOT-0, rich-2)
+
+----------
+[advmod(precious-2, most-1), root(ROOT-0, precious-2)]
+
+advmod(precious-2, most-1)
+root(ROOT-0, precious-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 90-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 90-2)
+
+----------
+[advmod(different-2, very-1), root(ROOT-0, different-2)]
+
+advmod(different-2, very-1)
+root(ROOT-0, different-2)
+
+----------
+[root(ROOT-0, first-1)]
+
+root(ROOT-0, first-1)
+
+----------
+[advmod(knowledgeable-2, more-1), root(ROOT-0, knowledgeable-2)]
+
+advmod(knowledgeable-2, more-1)
+root(ROOT-0, knowledgeable-2)
+
+----------
+[advmod(good-2, equally-1), root(ROOT-0, good-2)]
+
+advmod(good-2, equally-1)
+root(ROOT-0, good-2)
+
+----------
+[dep($-4, $-1), compound($-4, 30-2), dep($-4, to-3), root(ROOT-0, $-4), nummod($-4, 40-5)]
+
+dep($-4, $-1)
+compound($-4, 30-2)
+dep($-4, to-3)
+root(ROOT-0, $-4)
+nummod($-4, 40-5)
+
+----------
+[advmod(2.5-2, roughly-1), dep(%-3, 2.5-2), root(ROOT-0, %-3)]
+
+advmod(2.5-2, roughly-1)
+dep(%-3, 2.5-2)
+root(ROOT-0, %-3)
+
+----------
+[root(ROOT-0, particular-1)]
+
+root(ROOT-0, particular-1)
+
+----------
+[root(ROOT-0, slow-1)]
+
+root(ROOT-0, slow-1)
+
+----------
+[compound(%-2, 50-1), root(ROOT-0, %-2)]
+
+compound(%-2, 50-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-2, 13.5-1), root(ROOT-0, %-2)]
+
+compound(%-2, 13.5-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 20-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 20-2)
+nummod($-1, billion-3)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 10-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 10-2)
+nummod($-1, billion-3)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 3.18-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 3.18-2)
+nummod($-1, billion-3)
+
+----------
+[advmod(good-2, exceptionally-1), root(ROOT-0, good-2)]
+
+advmod(good-2, exceptionally-1)
+root(ROOT-0, good-2)
+
+----------
+[compound(%-2, 62-1), root(ROOT-0, %-2)]
+
+compound(%-2, 62-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, aggressive-1), cc(aggressive-1, and-2), conj:and(aggressive-1, persistent-3)]
+
+root(ROOT-0, aggressive-1)
+cc(aggressive-1, and-2)
+conj:and(aggressive-1, persistent-3)
+
+----------
+[compound(%-2, 9.9-1), root(ROOT-0, %-2)]
+
+compound(%-2, 9.9-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, unchanged-1)]
+
+root(ROOT-0, unchanged-1)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[compound(%-2, 51-1), root(ROOT-0, %-2)]
+
+compound(%-2, 51-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(publicized-2, highly-1), root(ROOT-0, publicized-2)]
+
+advmod(publicized-2, highly-1)
+root(ROOT-0, publicized-2)
+
+----------
+[compound(%-2, 26.2-1), root(ROOT-0, %-2)]
+
+compound(%-2, 26.2-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, small-1), cc(small-1, and-2), conj:and(small-1, medium-sized-3)]
+
+root(ROOT-0, small-1)
+cc(small-1, and-2)
+conj:and(small-1, medium-sized-3)
+
+----------
+[compound(%-2, 61-1), root(ROOT-0, %-2)]
+
+compound(%-2, 61-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(visible-2, highly-1), root(ROOT-0, visible-2)]
+
+advmod(visible-2, highly-1)
+root(ROOT-0, visible-2)
+
+----------
+[compound(%-2, 51-1), root(ROOT-0, %-2)]
+
+compound(%-2, 51-1)
+root(ROOT-0, %-2)
+
+----------
+[amod(York-based-2, New-1), root(ROOT-0, York-based-2)]
+
+amod(York-based-2, New-1)
+root(ROOT-0, York-based-2)
+
+----------
+[advmod(integrated-2, vertically-1), root(ROOT-0, integrated-2)]
+
+advmod(integrated-2, vertically-1)
+root(ROOT-0, integrated-2)
+
+----------
+[advmod(much-2, so-1), advmod(interested-3, much-2), root(ROOT-0, interested-3), case(return-7, in-4), det(return-7, a-5), amod(return-7, high-6), nmod:in(interested-3, return-7), case(investment-9, on-8), nmod:on(return-7, investment-9)]
+
+advmod(much-2, so-1)
+advmod(interested-3, much-2)
+root(ROOT-0, interested-3)
+case(return-7, in-4)
+det(return-7, a-5)
+amod(return-7, high-6)
+nmod:in(interested-3, return-7)
+case(investment-9, on-8)
+nmod:on(return-7, investment-9)
+
+----------
+[compound(%-2, 35-1), root(ROOT-0, %-2)]
+
+compound(%-2, 35-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-5, 1-1), dep(%-5, %-2), dep(%-5, to-3), compound(%-5, 2-4), root(ROOT-0, %-5)]
+
+compound(%-5, 1-1)
+dep(%-5, %-2)
+dep(%-5, to-3)
+compound(%-5, 2-4)
+root(ROOT-0, %-5)
+
+----------
+[nummod(years-2, 46-1), nmod:npmod(old-3, years-2), root(ROOT-0, old-3)]
+
+nummod(years-2, 46-1)
+nmod:npmod(old-3, years-2)
+root(ROOT-0, old-3)
+
+----------
+[advmod(recent-2, most-1), root(ROOT-0, recent-2)]
+
+advmod(recent-2, most-1)
+root(ROOT-0, recent-2)
+
+----------
+[root(ROOT-0, free-1)]
+
+root(ROOT-0, free-1)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 10,000-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 10,000-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 3-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 3-2)
+
+----------
+[root(ROOT-0, local-1), conj:and(local-1, regional-3), cc(local-1, and-4), conj:and(local-1, money-center-5)]
+
+root(ROOT-0, local-1)
+conj:and(local-1, regional-3)
+cc(local-1, and-4)
+conj:and(local-1, money-center-5)
+
+----------
+[advmod(savvier-2, much-1), root(ROOT-0, savvier-2)]
+
+advmod(savvier-2, much-1)
+root(ROOT-0, savvier-2)
+
+----------
+[advmod(likely-2, more-1), root(ROOT-0, likely-2)]
+
+advmod(likely-2, more-1)
+root(ROOT-0, likely-2)
+
+----------
+[advmod(comprehensive-2, that-1), root(ROOT-0, comprehensive-2)]
+
+advmod(comprehensive-2, that-1)
+root(ROOT-0, comprehensive-2)
+
+----------
+[advmod(issued-2, newly-1), root(ROOT-0, issued-2)]
+
+advmod(issued-2, newly-1)
+root(ROOT-0, issued-2)
+
+----------
+[root(ROOT-0, exercisable-1), case(purchase-4, for-2), det(purchase-4, the-3), nmod:for(exercisable-1, purchase-4), case(share-8, of-5), nummod(share-8, one-6), amod(share-8, common-7), nmod:of(purchase-4, share-8)]
+
+root(ROOT-0, exercisable-1)
+case(purchase-4, for-2)
+det(purchase-4, the-3)
+nmod:for(exercisable-1, purchase-4)
+case(share-8, of-5)
+nummod(share-8, one-6)
+amod(share-8, common-7)
+nmod:of(purchase-4, share-8)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[root(ROOT-0, full-1), case(promise-3, of-2), nmod:of(full-1, promise-3)]
+
+root(ROOT-0, full-1)
+case(promise-3, of-2)
+nmod:of(full-1, promise-3)
+
+----------
+[root(ROOT-0, solvent-1)]
+
+root(ROOT-0, solvent-1)
+
+----------
+[root(ROOT-0, crucial-1), case(survival-4, to-2), nmod:poss(survival-4, its-3), nmod:to(crucial-1, survival-4)]
+
+root(ROOT-0, crucial-1)
+case(survival-4, to-2)
+nmod:poss(survival-4, its-3)
+nmod:to(crucial-1, survival-4)
+
+----------
+[root(ROOT-0, equal-1), case(points-5, to-2), advmod(100-4, about-3), nummod(points-5, 100-4), nmod:to(equal-1, points-5), case(industrials-10, on-6), det(industrials-10, the-7), compound(industrials-10, Dow-8), compound(industrials-10, Jones-9), nmod:on(points-5, industrials-10)]
+
+root(ROOT-0, equal-1)
+case(points-5, to-2)
+advmod(100-4, about-3)
+nummod(points-5, 100-4)
+nmod:to(equal-1, points-5)
+case(industrials-10, on-6)
+det(industrials-10, the-7)
+compound(industrials-10, Dow-8)
+compound(industrials-10, Jones-9)
+nmod:on(points-5, industrials-10)
+
+----------
+[advmod(vague-3, so-1), root(ROOT-0, vague-3), cc(vague-3, and-4), conj:and(vague-3, mushy-5)]
+
+advmod(vague-3, so-1)
+root(ROOT-0, vague-3)
+cc(vague-3, and-4)
+conj:and(vague-3, mushy-5)
+
+----------
+[advmod(little-2, so-1), root(ROOT-0, little-2)]
+
+advmod(little-2, so-1)
+root(ROOT-0, little-2)
+
+----------
+[root(ROOT-0, peculiar-1), case(English-4, to-2), det(English-4, the-3), nmod:to(peculiar-1, English-4)]
+
+root(ROOT-0, peculiar-1)
+case(English-4, to-2)
+det(English-4, the-3)
+nmod:to(peculiar-1, English-4)
+
+----------
+[amod(Anglian-2, East-1), root(ROOT-0, Anglian-2)]
+
+amod(Anglian-2, East-1)
+root(ROOT-0, Anglian-2)
+
+----------
+[root(ROOT-0, childish-1)]
+
+root(ROOT-0, childish-1)
+
+----------
+[root(ROOT-0, inverted-1), cc(inverted-1, or-3), conj:or(inverted-1, mouth-up-4)]
+
+root(ROOT-0, inverted-1)
+cc(inverted-1, or-3)
+conj:or(inverted-1, mouth-up-4)
+
+----------
+[advmod(strong-willed-2, equally-1), root(ROOT-0, strong-willed-2), cc(strong-willed-2, and-3), advmod(non-religious-5, often-4), conj:and(strong-willed-2, non-religious-5)]
+
+advmod(strong-willed-2, equally-1)
+root(ROOT-0, strong-willed-2)
+cc(strong-willed-2, and-3)
+advmod(non-religious-5, often-4)
+conj:and(strong-willed-2, non-religious-5)
+
+----------
+[advmod(fed-2, so-1), root(ROOT-0, fed-2), dep(fed-2, up-3), case(ringers-5, with-4), nmod:with(fed-2, ringers-5), nsubj(attend-9, who-6), aux(attend-9, did-7), neg(attend-9, n't-8), acl:relcl(ringers-5, attend-9), dobj(attend-9, service-10)]
+
+advmod(fed-2, so-1)
+root(ROOT-0, fed-2)
+dep(fed-2, up-3)
+case(ringers-5, with-4)
+nmod:with(fed-2, ringers-5)
+nsubj(attend-9, ringers-5)
+ref(ringers-5, who-6)
+aux(attend-9, did-7)
+neg(attend-9, n't-8)
+acl:relcl(ringers-5, attend-9)
+dobj(attend-9, service-10)
+
+----------
+[advmod(obvious-2, very-1), root(ROOT-0, obvious-2)]
+
+advmod(obvious-2, very-1)
+root(ROOT-0, obvious-2)
+
+----------
+[advmod(male-dominated-2, once-1), root(ROOT-0, male-dominated-2)]
+
+advmod(male-dominated-2, once-1)
+root(ROOT-0, male-dominated-2)
+
+----------
+[dep(prestigious-2, most-1), root(ROOT-0, prestigious-2)]
+
+dep(prestigious-2, most-1)
+root(ROOT-0, prestigious-2)
+
+----------
+[advmod(dressed-2, badly-1), root(ROOT-0, dressed-2)]
+
+advmod(dressed-2, badly-1)
+root(ROOT-0, dressed-2)
+
+----------
+[advmod(slower-2, much-1), root(ROOT-0, slower-2)]
+
+advmod(slower-2, much-1)
+root(ROOT-0, slower-2)
+
+----------
+[compound(%-2, 15-1), root(ROOT-0, %-2)]
+
+compound(%-2, 15-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, even-1), dep(even-1, stronger-2)]
+
+root(ROOT-0, even-1)
+dep(even-1, stronger-2)
+
+----------
+[compound(%-2, 3-1), root(ROOT-0, %-2)]
+
+compound(%-2, 3-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-2, 3.3-1), root(ROOT-0, %-2)]
+
+compound(%-2, 3.3-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(meaningful-2, very-1), root(ROOT-0, meaningful-2)]
+
+advmod(meaningful-2, very-1)
+root(ROOT-0, meaningful-2)
+
+----------
+[root(ROOT-0, particular-1)]
+
+root(ROOT-0, particular-1)
+
+----------
+[advmod(higher-2, sharply-1), root(ROOT-0, higher-2)]
+
+advmod(higher-2, sharply-1)
+root(ROOT-0, higher-2)
+
+----------
+[compound(%-5, 12-1), dep(%-5, %-2), dep(%-5, to-3), compound(%-5, 15-4), root(ROOT-0, %-5)]
+
+compound(%-5, 12-1)
+dep(%-5, %-2)
+dep(%-5, to-3)
+compound(%-5, 15-4)
+root(ROOT-0, %-5)
+
+----------
+[compound(%-2, 12-1), root(ROOT-0, %-2)]
+
+compound(%-2, 12-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, wealthy-1), cc(wealthy-1, and-2), conj:and(wealthy-1, well-connected-3)]
+
+root(ROOT-0, wealthy-1)
+cc(wealthy-1, and-2)
+conj:and(wealthy-1, well-connected-3)
+
+----------
+[advmod(different-4, structurally-1), cc(structurally-1, and-2), conj:and(structurally-1, radically-3), root(ROOT-0, different-4)]
+
+advmod(different-4, structurally-1)
+cc(structurally-1, and-2)
+conj:and(structurally-1, radically-3)
+advmod(different-4, radically-3)
+root(ROOT-0, different-4)
+
+----------
+[advmod(prominent-2, most-1), root(ROOT-0, prominent-2)]
+
+advmod(prominent-2, most-1)
+root(ROOT-0, prominent-2)
+
+----------
+[amod(government-funded-2, U.S.-1), root(ROOT-0, government-funded-2)]
+
+amod(government-funded-2, U.S.-1)
+root(ROOT-0, government-funded-2)
+
+----------
+[root(ROOT-0, higher-1)]
+
+root(ROOT-0, higher-1)
+
+----------
+[advmod(Higher-2, Even-1), root(ROOT-0, Higher-2)]
+
+advmod(Higher-2, Even-1)
+root(ROOT-0, Higher-2)
+
+----------
+[dep(progressive-2, more-1), root(ROOT-0, progressive-2)]
+
+dep(progressive-2, more-1)
+root(ROOT-0, progressive-2)
+
+----------
+[advmod(few-2, so-1), root(ROOT-0, few-2)]
+
+advmod(few-2, so-1)
+root(ROOT-0, few-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 10,000-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 10,000-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 10,000-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 10,000-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 10,000-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 10,000-2)
+
+----------
+[root(ROOT-0, small-1), cc(small-1, but-2), conj:but(small-1, growing-3)]
+
+root(ROOT-0, small-1)
+cc(small-1, but-2)
+conj:but(small-1, growing-3)
+
+----------
+[advmod(popular-2, most-1), root(ROOT-0, popular-2)]
+
+advmod(popular-2, most-1)
+root(ROOT-0, popular-2)
+
+----------
+[root(ROOT-0, big-1), advmod(big-1, enough-2)]
+
+root(ROOT-0, big-1)
+advmod(big-1, enough-2)
+
+----------
+[compound(times-2, four-1), dep(large-4, times-2), advmod(large-4, as-3), root(ROOT-0, large-4)]
+
+compound(times-2, four-1)
+dep(large-4, times-2)
+advmod(large-4, as-3)
+root(ROOT-0, large-4)
+
+----------
+[root(ROOT-0, replete-1), case(complaints-3, with-2), nmod:with(replete-1, complaints-3), case(proponents-6, from-4), cc:preconj(proponents-6, both-5), nmod:from(complaints-3, proponents-6), cc(proponents-6, and-7), conj:and(proponents-6, critics-8), case(increase-12, of-9), det(increase-12, a-10), amod(increase-12, substantial-11), nmod:of(proponents-6, increase-12), case(floor-16, in-13), det(floor-16, the-14), compound(floor-16, wage-15), nmod:in(increase-12, floor-16)]
+
+root(ROOT-0, replete-1)
+case(complaints-3, with-2)
+nmod:with(replete-1, complaints-3)
+case(proponents-6, from-4)
+cc:preconj(proponents-6, both-5)
+nmod:from(complaints-3, proponents-6)
+cc(proponents-6, and-7)
+nmod:from(complaints-3, critics-8)
+conj:and(proponents-6, critics-8)
+case(increase-12, of-9)
+det(increase-12, a-10)
+amod(increase-12, substantial-11)
+nmod:of(proponents-6, increase-12)
+case(floor-16, in-13)
+det(floor-16, the-14)
+compound(floor-16, wage-15)
+nmod:in(increase-12, floor-16)
+
+----------
+[root(ROOT-0, necessary-1), mark(help-3, to-2), xcomp(necessary-1, help-3), ccomp(help-3, impart-4), compound(skills-6, job-5), dobj(impart-4, skills-6), case(entrants-8, to-7), nmod:to(impart-4, entrants-8), case(force-12, into-9), det(force-12, the-10), compound(force-12, work-11), nmod:into(entrants-8, force-12)]
+
+root(ROOT-0, necessary-1)
+mark(help-3, to-2)
+xcomp(necessary-1, help-3)
+ccomp(help-3, impart-4)
+compound(skills-6, job-5)
+dobj(impart-4, skills-6)
+case(entrants-8, to-7)
+nmod:to(impart-4, entrants-8)
+case(force-12, into-9)
+det(force-12, the-10)
+compound(force-12, work-11)
+nmod:into(entrants-8, force-12)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 534-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 534-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 130.7-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 130.7-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 29.9-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 29.9-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 29.4-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 29.4-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, kind-1), cc(kind-1, and-2), conj:and(kind-1, gentle-3)]
+
+root(ROOT-0, kind-1)
+cc(kind-1, and-2)
+conj:and(kind-1, gentle-3)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 3.19-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 3.19-2)
+nummod($-1, billion-3)
+
+----------
+[advmod(far-2, so-1), root(ROOT-0, far-2)]
+
+advmod(far-2, so-1)
+root(ROOT-0, far-2)
+
+----------
+[advmod(ambitious-2, more-1), root(ROOT-0, ambitious-2)]
+
+advmod(ambitious-2, more-1)
+root(ROOT-0, ambitious-2)
+
+----------
+[compound(%-2, 11-1), root(ROOT-0, %-2)]
+
+compound(%-2, 11-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, related-1), dep(warming-5, both-2), case(warming-5, to-3), amod(warming-5, global-4), nmod:to(related-1, warming-5), cc(warming-5, and-6), det(plight-8, the-7), conj:and(warming-5, plight-8), case(elephant-12, of-9), det(elephant-12, the-10), amod(elephant-12, African-11), nmod:of(plight-8, elephant-12)]
+
+root(ROOT-0, related-1)
+dep(warming-5, both-2)
+case(warming-5, to-3)
+amod(warming-5, global-4)
+nmod:to(related-1, warming-5)
+cc(warming-5, and-6)
+det(plight-8, the-7)
+nmod:to(related-1, plight-8)
+conj:and(warming-5, plight-8)
+case(elephant-12, of-9)
+det(elephant-12, the-10)
+amod(elephant-12, African-11)
+nmod:of(plight-8, elephant-12)
+
+----------
+[root(ROOT-0, small-1), cc(small-1, but-2), conj:but(small-1, intriguing-3)]
+
+root(ROOT-0, small-1)
+cc(small-1, but-2)
+conj:but(small-1, intriguing-3)
+
+----------
+[root(ROOT-0, wary-1), mark(upsetting-3, of-2), advcl(wary-1, upsetting-3), nmod:poss(allies-7, its-4), compound(allies-7, Caribbean-5), compound(allies-7, Basin-6), dobj(upsetting-3, allies-7)]
+
+root(ROOT-0, wary-1)
+mark(upsetting-3, of-2)
+advcl(wary-1, upsetting-3)
+nmod:poss(allies-7, its-4)
+compound(allies-7, Caribbean-5)
+compound(allies-7, Basin-6)
+dobj(upsetting-3, allies-7)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 27.1-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 27.1-2)
+nummod($-1, billion-3)
+
+----------
+[advmod(likely-2, as-1), root(ROOT-0, likely-2)]
+
+advmod(likely-2, as-1)
+root(ROOT-0, likely-2)
+
+----------
+[advmod(recent-2, most-1), root(ROOT-0, recent-2)]
+
+advmod(recent-2, most-1)
+root(ROOT-0, recent-2)
+
+----------
+[advmod(historic-2, sometimes-1), root(ROOT-0, historic-2)]
+
+advmod(historic-2, sometimes-1)
+root(ROOT-0, historic-2)
+
+----------
+[root(ROOT-0, easier-1)]
+
+root(ROOT-0, easier-1)
+
+----------
+[root(ROOT-0, less-1)]
+
+root(ROOT-0, less-1)
+
+----------
+[root(ROOT-0, other-1), case(state-4, than-2), det(state-4, the-3), nmod:than(other-1, state-4)]
+
+root(ROOT-0, other-1)
+case(state-4, than-2)
+det(state-4, the-3)
+nmod:than(other-1, state-4)
+
+----------
+[advmod(enough-2, far-1), root(ROOT-0, enough-2), case(areas-5, from-3), amod(areas-5, residential-4), nmod:from(enough-2, areas-5), mark(pass-7, to-6), xcomp(enough-2, pass-7), amod(muster-9, public-8), dobj(pass-7, muster-9), cc(enough-2, yet-11), advmod(enough-13, close-12), conj:yet(enough-2, enough-13), mark(permit-15, to-14), xcomp(enough-13, permit-15), compound(visits-17, family-16), dobj(permit-15, visits-17)]
+
+advmod(enough-2, far-1)
+root(ROOT-0, enough-2)
+case(areas-5, from-3)
+amod(areas-5, residential-4)
+nmod:from(enough-2, areas-5)
+mark(pass-7, to-6)
+xcomp(enough-2, pass-7)
+amod(muster-9, public-8)
+dobj(pass-7, muster-9)
+cc(enough-2, yet-11)
+advmod(enough-13, close-12)
+conj:yet(enough-2, enough-13)
+mark(permit-15, to-14)
+xcomp(enough-13, permit-15)
+compound(visits-17, family-16)
+dobj(permit-15, visits-17)
+
+----------
+[root(ROOT-0, effective-1)]
+
+root(ROOT-0, effective-1)
+
+----------
+[advmod(important-2, more-1), root(ROOT-0, important-2)]
+
+advmod(important-2, more-1)
+root(ROOT-0, important-2)
+
+----------
+[advmod(ill-2, mentally-1), root(ROOT-0, ill-2), cc(ill-2, and-3), conj:and(ill-2, substance-abusing-4)]
+
+advmod(ill-2, mentally-1)
+root(ROOT-0, ill-2)
+cc(ill-2, and-3)
+conj:and(ill-2, substance-abusing-4)
+
+----------
+[root(ROOT-0, complex-1), case(case-5, in-2), det(case-5, any-3), amod(case-5, individual-4), nmod:in(complex-1, case-5)]
+
+root(ROOT-0, complex-1)
+case(case-5, in-2)
+det(case-5, any-3)
+amod(case-5, individual-4)
+nmod:in(complex-1, case-5)
+
+----------
+[root(ROOT-0, difficult-1)]
+
+root(ROOT-0, difficult-1)
+
+----------
+[advmod(sophisticated-3, much-1), advmod(sophisticated-3, more-2), root(ROOT-0, sophisticated-3)]
+
+advmod(sophisticated-3, much-1)
+advmod(sophisticated-3, more-2)
+root(ROOT-0, sophisticated-3)
+
+----------
+[advmod(regarded-2, highly-1), root(ROOT-0, regarded-2)]
+
+advmod(regarded-2, highly-1)
+root(ROOT-0, regarded-2)
+
+----------
+[root(ROOT-0, sentimental-1)]
+
+root(ROOT-0, sentimental-1)
+
+----------
+[root(ROOT-0, similar-1), case(bill-5, to-2), det(bill-5, the-3), compound(bill-5, House-4), nmod:to(similar-1, bill-5)]
+
+root(ROOT-0, similar-1)
+case(bill-5, to-2)
+det(bill-5, the-3)
+compound(bill-5, House-4)
+nmod:to(similar-1, bill-5)
+
+----------
+[root(ROOT-0, inappropriate-1)]
+
+root(ROOT-0, inappropriate-1)
+
+----------
+[dep(oriented-7, sales-1), cc(profit-5, and-3), dep(profit-5, not-4), dep(oriented-7, profit-5), root(ROOT-0, oriented-7)]
+
+dep(oriented-7, sales-1)
+cc(profit-5, and-3)
+dep(profit-5, not-4)
+dep(oriented-7, profit-5)
+root(ROOT-0, oriented-7)
+
+----------
+[advmod(more-2, far-1), root(ROOT-0, more-2)]
+
+advmod(more-2, far-1)
+root(ROOT-0, more-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 343-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 343-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, familiar-1), case(agenda-4, with-2), det(agenda-4, the-3), nmod:with(familiar-1, agenda-4), case(meeting-9, of-5), det(board-7, the-6), nmod:poss(meeting-9, board-7), case(board-7, 's-8), nmod:of(agenda-4, meeting-9), amod(week-11, last-10), nmod:tmod(meeting-9, week-11), case(London-13, in-12), nmod:in(meeting-9, London-13)]
+
+root(ROOT-0, familiar-1)
+case(agenda-4, with-2)
+det(agenda-4, the-3)
+nmod:with(familiar-1, agenda-4)
+case(meeting-9, of-5)
+det(board-7, the-6)
+nmod:poss(meeting-9, board-7)
+case(board-7, 's-8)
+nmod:of(agenda-4, meeting-9)
+amod(week-11, last-10)
+nmod:tmod(meeting-9, week-11)
+case(London-13, in-12)
+nmod:in(meeting-9, London-13)
+
+----------
+[compound(%-2, 6-1), root(ROOT-0, %-2)]
+
+compound(%-2, 6-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, high-1)]
+
+root(ROOT-0, high-1)
+
+----------
+[root(ROOT-0, necessary-1), mark(execute-3, to-2), xcomp(necessary-1, execute-3), dobj(execute-3, certain-4), case(duties-7, of-5), nmod:poss(duties-7, his-6), nmod:of(certain-4, duties-7), cc(duties-7, and-8), conj:and(duties-7, prerogatives-9), acl(certain-4, specified-10), case(II-13, in-11), compound(II-13, Article-12), nmod:in(specified-10, II-13), case(Constitution-16, of-14), det(Constitution-16, the-15), nmod:of(II-13, Constitution-16)]
+
+root(ROOT-0, necessary-1)
+mark(execute-3, to-2)
+xcomp(necessary-1, execute-3)
+dobj(execute-3, certain-4)
+case(duties-7, of-5)
+nmod:poss(duties-7, his-6)
+nmod:of(certain-4, duties-7)
+cc(duties-7, and-8)
+nmod:of(certain-4, prerogatives-9)
+conj:and(duties-7, prerogatives-9)
+acl(certain-4, specified-10)
+case(II-13, in-11)
+compound(II-13, Article-12)
+nmod:in(specified-10, II-13)
+case(Constitution-16, of-14)
+det(Constitution-16, the-15)
+nmod:of(II-13, Constitution-16)
+
+----------
+[root(ROOT-0, void-1), cc(void-1, and-2), conj:and(void-1, severable-3)]
+
+root(ROOT-0, void-1)
+cc(void-1, and-2)
+conj:and(void-1, severable-3)
+
+----------
+[root(ROOT-0, willing-1), mark(serve-3, to-2), xcomp(willing-1, serve-3), case(pay-5, without-4), nmod:without(serve-3, pay-5)]
+
+root(ROOT-0, willing-1)
+mark(serve-3, to-2)
+xcomp(willing-1, serve-3)
+case(pay-5, without-4)
+nmod:without(serve-3, pay-5)
+
+----------
+[dep(market-oriented-2, more-1), root(ROOT-0, market-oriented-2)]
+
+dep(market-oriented-2, more-1)
+root(ROOT-0, market-oriented-2)
+
+----------
+[advmod(egregious-2, most-1), root(ROOT-0, egregious-2)]
+
+advmod(egregious-2, most-1)
+root(ROOT-0, egregious-2)
+
+----------
+[advmod(suspect-2, inherently-1), root(ROOT-0, suspect-2)]
+
+advmod(suspect-2, inherently-1)
+root(ROOT-0, suspect-2)
+
+----------
+[advmod(constitutional-2, perfectly-1), root(ROOT-0, constitutional-2)]
+
+advmod(constitutional-2, perfectly-1)
+root(ROOT-0, constitutional-2)
+
+----------
+[advmod(more-2, far-1), advmod(limited-3, more-2), root(ROOT-0, limited-3)]
+
+advmod(more-2, far-1)
+advmod(limited-3, more-2)
+root(ROOT-0, limited-3)
+
+----------
+[neg(off-3, no-1), dep(off-3, worse-2), root(ROOT-0, off-3)]
+
+neg(off-3, no-1)
+dep(off-3, worse-2)
+root(ROOT-0, off-3)
+
+----------
+[advmod(devastating-2, most-1), root(ROOT-0, devastating-2)]
+
+advmod(devastating-2, most-1)
+root(ROOT-0, devastating-2)
+
+----------
+[dep(parched-2, less-1), root(ROOT-0, parched-2)]
+
+dep(parched-2, less-1)
+root(ROOT-0, parched-2)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 4-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 4-2)
+nummod($-1, billion-3)
+
+----------
+[advmod(good-2, as-1), root(ROOT-0, good-2)]
+
+advmod(good-2, as-1)
+root(ROOT-0, good-2)
+
+----------
+[advmod(held-2, closely-1), root(ROOT-0, held-2)]
+
+advmod(held-2, closely-1)
+root(ROOT-0, held-2)
+
+----------
+[root(ROOT-0, blue-collar-1), cc(blue-collar-1, and-2), conj:and(blue-collar-1, sports-oriented-3)]
+
+root(ROOT-0, blue-collar-1)
+cc(blue-collar-1, and-2)
+conj:and(blue-collar-1, sports-oriented-3)
+
+----------
+[amod(Renaissance-style-2, Spanish-1), root(ROOT-0, Renaissance-style-2)]
+
+amod(Renaissance-style-2, Spanish-1)
+root(ROOT-0, Renaissance-style-2)
+
+----------
+[advmod(healthy-2, pretty-1), root(ROOT-0, healthy-2)]
+
+advmod(healthy-2, pretty-1)
+root(ROOT-0, healthy-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 1.64-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 1.64-2)
+nummod($-1, million-3)
+
+----------
+[advmod(sophisticated-2, very-1), root(ROOT-0, sophisticated-2)]
+
+advmod(sophisticated-2, very-1)
+root(ROOT-0, sophisticated-2)
+
+----------
+[advmod(respected-2, relatively-1), root(ROOT-0, respected-2)]
+
+advmod(respected-2, relatively-1)
+root(ROOT-0, respected-2)
+
+----------
+[advmod(30-3, more-1), mwe(more-1, than-2), nummod(years-4, 30-3), nmod:npmod(old-5, years-4), root(ROOT-0, old-5)]
+
+advmod(30-3, more-1)
+mwe(more-1, than-2)
+nummod(years-4, 30-3)
+nmod:npmod(old-5, years-4)
+root(ROOT-0, old-5)
+
+----------
+[root(ROOT-0, similar-1), case(link-6, to-2), det(link-6, the-3), compound(link-6, American-4), compound(link-6, Express-Buick-5), nmod:to(similar-1, link-6)]
+
+root(ROOT-0, similar-1)
+case(link-6, to-2)
+det(link-6, the-3)
+compound(link-6, American-4)
+compound(link-6, Express-Buick-5)
+nmod:to(similar-1, link-6)
+
+----------
+[advmod(active-2, most-1), root(ROOT-0, active-2)]
+
+advmod(active-2, most-1)
+root(ROOT-0, active-2)
+
+----------
+[root(ROOT-0, public-1), cc(public-1, and-2), conj:and(public-1, congressional-3)]
+
+root(ROOT-0, public-1)
+cc(public-1, and-2)
+conj:and(public-1, congressional-3)
+
+----------
+[advmod(falling-2, rapidly-1), root(ROOT-0, falling-2)]
+
+advmod(falling-2, rapidly-1)
+root(ROOT-0, falling-2)
+
+----------
+[root(ROOT-0, long-1)]
+
+root(ROOT-0, long-1)
+
+----------
+[advmod(respected-2, most-1), root(ROOT-0, respected-2)]
+
+advmod(respected-2, most-1)
+root(ROOT-0, respected-2)
+
+----------
+[root(ROOT-0, more-1), case(casino-4, than-2), det(casino-4, a-3), nmod:than(more-1, casino-4)]
+
+root(ROOT-0, more-1)
+case(casino-4, than-2)
+det(casino-4, a-3)
+nmod:than(more-1, casino-4)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 200-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 200-2)
+nummod($-1, million-3)
+
+----------
+[advmod(complex-2, particularly-1), root(ROOT-0, complex-2)]
+
+advmod(complex-2, particularly-1)
+root(ROOT-0, complex-2)
+
+----------
+[root(ROOT-0, greater-1)]
+
+root(ROOT-0, greater-1)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 6.79-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 6.79-2)
+nummod($-1, billion-3)
+
+----------
+[root(ROOT-0, small-1), cc(small-1, but-2), conj:but(small-1, influential-3)]
+
+root(ROOT-0, small-1)
+cc(small-1, but-2)
+conj:but(small-1, influential-3)
+
+----------
+[advmod(unhappy-2, more-1), root(ROOT-0, unhappy-2), case(trading-5, with-3), compound(trading-5, program-4), nmod:with(unhappy-2, trading-5)]
+
+advmod(unhappy-2, more-1)
+root(ROOT-0, unhappy-2)
+case(trading-5, with-3)
+compound(trading-5, program-4)
+nmod:with(unhappy-2, trading-5)
+
+----------
+[nummod(%-2, 24-1), nmod:npmod(lower-3, %-2), root(ROOT-0, lower-3), case(1987-6, than-4), case(1987-6, in-5), nmod:in(lower-3, 1987-6)]
+
+nummod(%-2, 24-1)
+nmod:npmod(lower-3, %-2)
+root(ROOT-0, lower-3)
+case(1987-6, than-4)
+case(1987-6, in-5)
+nmod:in(lower-3, 1987-6)
+
+----------
+[root(ROOT-0, worth-1)]
+
+root(ROOT-0, worth-1)
+
+----------
+[advmod(great-2, so-1), root(ROOT-0, great-2)]
+
+advmod(great-2, so-1)
+root(ROOT-0, great-2)
+
+----------
+[advmod(late-2, too-1), root(ROOT-0, late-2)]
+
+advmod(late-2, too-1)
+root(ROOT-0, late-2)
+
+----------
+[advmod(faster-2, much-1), root(ROOT-0, faster-2)]
+
+advmod(faster-2, much-1)
+root(ROOT-0, faster-2)
+
+----------
+[advmod(basic-2, rather-1), root(ROOT-0, basic-2)]
+
+advmod(basic-2, rather-1)
+root(ROOT-0, basic-2)
+
+----------
+[advmod(100-3, more-1), mwe(more-1, than-2), dep(%-4, 100-3), root(ROOT-0, %-4)]
+
+advmod(100-3, more-1)
+mwe(more-1, than-2)
+dep(%-4, 100-3)
+root(ROOT-0, %-4)
+
+----------
+[advmod(thin-2, very-1), root(ROOT-0, thin-2)]
+
+advmod(thin-2, very-1)
+root(ROOT-0, thin-2)
+
+----------
+[advmod(cumbersome-2, more-1), root(ROOT-0, cumbersome-2)]
+
+advmod(cumbersome-2, more-1)
+root(ROOT-0, cumbersome-2)
+
+----------
+[root(ROOT-0, fast-1), cc(fast-1, and-2), conj:and(fast-1, easy-3)]
+
+root(ROOT-0, fast-1)
+cc(fast-1, and-2)
+conj:and(fast-1, easy-3)
+
+----------
+[advmod(many-2, so-1), root(ROOT-0, many-2)]
+
+advmod(many-2, so-1)
+root(ROOT-0, many-2)
+
+----------
+[root(ROOT-0, unneeded-1)]
+
+root(ROOT-0, unneeded-1)
+
+----------
+[root(ROOT-0, quick-1), cc(quick-1, and-2), conj:and(quick-1, certain-3)]
+
+root(ROOT-0, quick-1)
+cc(quick-1, and-2)
+conj:and(quick-1, certain-3)
+
+----------
+[cc:preconj(foreign-2, both-1), root(ROOT-0, foreign-2), cc(foreign-2, and-3), conj:and(foreign-2, domestic-4)]
+
+cc:preconj(foreign-2, both-1)
+root(ROOT-0, foreign-2)
+cc(foreign-2, and-3)
+conj:and(foreign-2, domestic-4)
+
+----------
+[root(ROOT-0, faster-1), cc(faster-1, and-2), conj:and(faster-1, cleaner-3)]
+
+root(ROOT-0, faster-1)
+cc(faster-1, and-2)
+conj:and(faster-1, cleaner-3)
+
+----------
+[conj:or(short-term-6, long-term-2), cc(short-term-6, or-4), root(ROOT-0, short-term-6)]
+
+conj:or(short-term-6, long-term-2)
+cc(short-term-6, or-4)
+root(ROOT-0, short-term-6)
+
+----------
+[advmod(higher-2, much-1), root(ROOT-0, higher-2)]
+
+advmod(higher-2, much-1)
+root(ROOT-0, higher-2)
+
+----------
+[advmod(worse-2, far-1), root(ROOT-0, worse-2)]
+
+advmod(worse-2, far-1)
+root(ROOT-0, worse-2)
+
+----------
+[advmod(interesting-2, most-1), root(ROOT-0, interesting-2)]
+
+advmod(interesting-2, most-1)
+root(ROOT-0, interesting-2)
+
+----------
+[advmod(noble-2, less-1), root(ROOT-0, noble-2)]
+
+advmod(noble-2, less-1)
+root(ROOT-0, noble-2)
+
+----------
+[dep(able-2, least-1), root(ROOT-0, able-2), mark(cope-4, to-3), xcomp(able-2, cope-4), case(consequences-7, with-5), nmod:poss(consequences-7, its-6), nmod:with(cope-4, consequences-7)]
+
+dep(able-2, least-1)
+root(ROOT-0, able-2)
+mark(cope-4, to-3)
+xcomp(able-2, cope-4)
+case(consequences-7, with-5)
+nmod:poss(consequences-7, its-6)
+nmod:with(cope-4, consequences-7)
+
+----------
+[root(ROOT-0, available-1), case(arbitrage-4, from-2), compound(arbitrage-4, index-3), nmod:from(available-1, arbitrage-4)]
+
+root(ROOT-0, available-1)
+case(arbitrage-4, from-2)
+compound(arbitrage-4, index-3)
+nmod:from(available-1, arbitrage-4)
+
+----------
+[root(ROOT-0, sexy-1), advmod(sexy-1, enough-2)]
+
+root(ROOT-0, sexy-1)
+advmod(sexy-1, enough-2)
+
+----------
+[dep(sophisticated-2, least-1), root(ROOT-0, sophisticated-2)]
+
+dep(sophisticated-2, least-1)
+root(ROOT-0, sophisticated-2)
+
+----------
+[advmod(tight-2, so-1), root(ROOT-0, tight-2)]
+
+advmod(tight-2, so-1)
+root(ROOT-0, tight-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 20,000-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 20,000-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 10-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 10-2)
+nummod($-1, million-3)
+
+----------
+[advmod(few-2, relatively-1), root(ROOT-0, few-2)]
+
+advmod(few-2, relatively-1)
+root(ROOT-0, few-2)
+
+----------
+[advmod(documented-2, poorly-1), root(ROOT-0, documented-2)]
+
+advmod(documented-2, poorly-1)
+root(ROOT-0, documented-2)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 300-2), dep($-1, million-a-year-3)]
+
+root(ROOT-0, $-1)
+compound($-1, 300-2)
+dep($-1, million-a-year-3)
+
+----------
+[advmod(receptive-2, more-1), root(ROOT-0, receptive-2)]
+
+advmod(receptive-2, more-1)
+root(ROOT-0, receptive-2)
+
+----------
+[root(ROOT-0, TIRED-1), mark(TRIMMING-3, OF-2), advcl(TIRED-1, TRIMMING-3)]
+
+root(ROOT-0, TIRED-1)
+mark(TRIMMING-3, OF-2)
+advcl(TIRED-1, TRIMMING-3)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 6,500-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 6,500-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 1-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 1-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, interested-1), mark(starting-3, in-2), advcl(interested-1, starting-3), compound(services-5, diaper-4), dobj(starting-3, services-5)]
+
+root(ROOT-0, interested-1)
+mark(starting-3, in-2)
+advcl(interested-1, starting-3)
+compound(services-5, diaper-4)
+dobj(starting-3, services-5)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 24.95-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 24.95-2)
+
+----------
+[root(ROOT-0, sure-1)]
+
+root(ROOT-0, sure-1)
+
+----------
+[advmod(leery-2, more-1), root(ROOT-0, leery-2)]
+
+advmod(leery-2, more-1)
+root(ROOT-0, leery-2)
+
+----------
+[amod(bad-2, real-1), root(ROOT-0, bad-2)]
+
+amod(bad-2, real-1)
+root(ROOT-0, bad-2)
+
+----------
+[root(ROOT-0, other-1), case(Underwoods-4, than-2), det(Underwoods-4, the-3), nmod:than(other-1, Underwoods-4)]
+
+root(ROOT-0, other-1)
+case(Underwoods-4, than-2)
+det(Underwoods-4, the-3)
+nmod:than(other-1, Underwoods-4)
+
+----------
+[advmod(strong-2, moderately-1), root(ROOT-0, strong-2)]
+
+advmod(strong-2, moderately-1)
+root(ROOT-0, strong-2)
+
+----------
+[advmod(higher-2, even-1), root(ROOT-0, higher-2)]
+
+advmod(higher-2, even-1)
+root(ROOT-0, higher-2)
+
+----------
+[advmod(low-2, too-1), root(ROOT-0, low-2)]
+
+advmod(low-2, too-1)
+root(ROOT-0, low-2)
+
+----------
+[compound(%-3, 8-1), compound(%-3, 3/8-2), root(ROOT-0, %-3)]
+
+compound(%-3, 8-1)
+compound(%-3, 3/8-2)
+root(ROOT-0, %-3)
+
+----------
+[compound(%-3, 8-1), compound(%-3, 1/8-2), root(ROOT-0, %-3)]
+
+compound(%-3, 8-1)
+compound(%-3, 1/8-2)
+root(ROOT-0, %-3)
+
+----------
+[advmod(planned-2, originally-1), root(ROOT-0, planned-2)]
+
+advmod(planned-2, originally-1)
+root(ROOT-0, planned-2)
+
+----------
+[root(ROOT-0, due-1), nmod:tmod(due-1, 1991-2000-2), cc(1991-2000-2, and-3), conj:and(1991-2000-2, 2009-4)]
+
+root(ROOT-0, due-1)
+nmod:tmod(due-1, 1991-2000-2)
+cc(1991-2000-2, and-3)
+nmod:tmod(due-1, 2009-4)
+conj:and(1991-2000-2, 2009-4)
+
+----------
+[compound(%-2, 7.20-1), root(ROOT-0, %-2)]
+
+compound(%-2, 7.20-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, insured-1)]
+
+root(ROOT-0, insured-1)
+
+----------
+[root(ROOT-0, due-1), nmod:tmod(due-1, 1991-1999-2), nummod(1991-1999-2, 2009-4), cc(1991-1999-2, and-5), conj:and(1991-1999-2, 2019-6)]
+
+root(ROOT-0, due-1)
+nmod:tmod(due-1, 1991-1999-2)
+nummod(1991-1999-2, 2009-4)
+cc(1991-1999-2, and-5)
+nmod:tmod(due-1, 2019-6)
+conj:and(1991-1999-2, 2019-6)
+
+----------
+[compound(%-3, 7-1), compound(%-3, 3/8-2), root(ROOT-0, %-3)]
+
+compound(%-3, 7-1)
+compound(%-3, 3/8-2)
+root(ROOT-0, %-3)
+
+----------
+[compound(%-2, 7.40-1), root(ROOT-0, %-2)]
+
+compound(%-2, 7.40-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, due-1), case(2005-3, in-2), nmod:in(due-1, 2005-3)]
+
+root(ROOT-0, due-1)
+case(2005-3, in-2)
+nmod:in(due-1, 2005-3)
+
+----------
+[compound(%-3, 7-1), compound(%-3, 5/8-2), root(ROOT-0, %-3)]
+
+compound(%-3, 7-1)
+compound(%-3, 5/8-2)
+root(ROOT-0, %-3)
+
+----------
+[root(ROOT-0, due-1), nmod:tmod(due-1, Nov.-2), nummod(Nov.-2, 16-3), nummod(Nov.-2, 1993-5)]
+
+root(ROOT-0, due-1)
+nmod:tmod(due-1, Nov.-2)
+nummod(Nov.-2, 16-3)
+nummod(Nov.-2, 1993-5)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 5,000-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 5,000-2)
+
+----------
+[compound(%-2, 6-1), root(ROOT-0, %-2)]
+
+compound(%-2, 6-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(placed-2, privately-1), root(ROOT-0, placed-2)]
+
+advmod(placed-2, privately-1)
+root(ROOT-0, placed-2)
+
+----------
+[compound(%-2, 5-1), root(ROOT-0, %-2)]
+
+compound(%-2, 5-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(placed-2, privately-1), root(ROOT-0, placed-2)]
+
+advmod(placed-2, privately-1)
+root(ROOT-0, placed-2)
+
+----------
+[compound(%-2, 5-1), root(ROOT-0, %-2)]
+
+compound(%-2, 5-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-3, 6-1), compound(%-3, 1/2-2), root(ROOT-0, %-3)]
+
+compound(%-3, 6-1)
+compound(%-3, 1/2-2)
+root(ROOT-0, %-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 100-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 100-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 100-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 100-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, particular-1)]
+
+root(ROOT-0, particular-1)
+
+----------
+[advmod(held-2, closely-1), root(ROOT-0, held-2)]
+
+advmod(held-2, closely-1)
+root(ROOT-0, held-2)
+
+----------
+[dep(lucrative-2, most-1), root(ROOT-0, lucrative-2)]
+
+dep(lucrative-2, most-1)
+root(ROOT-0, lucrative-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 450-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 450-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, third-1), dep(third-1, largest-2)]
+
+root(ROOT-0, third-1)
+dep(third-1, largest-2)
+
+----------
+[advmod(lower-2, slightly-1), root(ROOT-0, lower-2)]
+
+advmod(lower-2, slightly-1)
+root(ROOT-0, lower-2)
+
+----------
+[advmod(held-2, closely-1), root(ROOT-0, held-2)]
+
+advmod(held-2, closely-1)
+root(ROOT-0, held-2)
+
+----------
+[advmod(aggressive-2, most-1), root(ROOT-0, aggressive-2)]
+
+advmod(aggressive-2, most-1)
+root(ROOT-0, aggressive-2)
+
+----------
+[advmod(successful-2, highly-1), root(ROOT-0, successful-2)]
+
+advmod(successful-2, highly-1)
+root(ROOT-0, successful-2)
+
+----------
+[advmod(compelling-2, less-1), root(ROOT-0, compelling-2)]
+
+advmod(compelling-2, less-1)
+root(ROOT-0, compelling-2)
+
+----------
+[dep(more-2, even-1), root(ROOT-0, more-2)]
+
+dep(more-2, even-1)
+root(ROOT-0, more-2)
+
+----------
+[advmod(lower-2, substantially-1), root(ROOT-0, lower-2)]
+
+advmod(lower-2, substantially-1)
+root(ROOT-0, lower-2)
+
+----------
+[nummod(%-2, 32-1), nmod:npmod(state-owned-3, %-2), root(ROOT-0, state-owned-3)]
+
+nummod(%-2, 32-1)
+nmod:npmod(state-owned-3, %-2)
+root(ROOT-0, state-owned-3)
+
+----------
+[advmod(lower-2, substantially-1), root(ROOT-0, lower-2)]
+
+advmod(lower-2, substantially-1)
+root(ROOT-0, lower-2)
+
+----------
+[root(ROOT-0, available-1), case(surgery-4, for-2), compound(surgery-4, cataract-3), nmod:for(available-1, surgery-4)]
+
+root(ROOT-0, available-1)
+case(surgery-4, for-2)
+compound(surgery-4, cataract-3)
+nmod:for(available-1, surgery-4)
+
+----------
+[advmod(intentioned-2, well-1), root(ROOT-0, intentioned-2)]
+
+advmod(intentioned-2, well-1)
+root(ROOT-0, intentioned-2)
+
+----------
+[advmod(active-2, relatively-1), root(ROOT-0, active-2), cc(active-2, but-3), conj:but(active-2, unfocused-4)]
+
+advmod(active-2, relatively-1)
+root(ROOT-0, active-2)
+cc(active-2, but-3)
+conj:but(active-2, unfocused-4)
+
+----------
+[advmod(higher-2, moderately-1), root(ROOT-0, higher-2)]
+
+advmod(higher-2, moderately-1)
+root(ROOT-0, higher-2)
+
+----------
+[advmod(ample-3, more-1), case(more-1, than-2), root(ROOT-0, ample-3)]
+
+advmod(ample-3, more-1)
+case(more-1, than-2)
+root(ROOT-0, ample-3)
+
+----------
+[advmod(high-2, continuingly-1), root(ROOT-0, high-2)]
+
+advmod(high-2, continuingly-1)
+root(ROOT-0, high-2)
+
+----------
+[root(ROOT-0, overdone-1)]
+
+root(ROOT-0, overdone-1)
+
+----------
+[compound(%-2, 3.7-1), root(ROOT-0, %-2)]
+
+compound(%-2, 3.7-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, due-1), case(qualities-7, to-2), det(sector-4, the-3), nmod:poss(qualities-7, sector-4), case(sector-4, 's-5), amod(qualities-7, defensive-6), nmod:to(due-1, qualities-7)]
+
+root(ROOT-0, due-1)
+case(qualities-7, to-2)
+det(sector-4, the-3)
+nmod:poss(qualities-7, sector-4)
+case(sector-4, 's-5)
+amod(qualities-7, defensive-6)
+nmod:to(due-1, qualities-7)
+
+----------
+[amod(African-2, South-1), root(ROOT-0, African-2)]
+
+amod(African-2, South-1)
+root(ROOT-0, African-2)
+
+----------
+[dep($-3, up-1), mwe(up-1, to-2), root(ROOT-0, $-3), compound(million-5, 300-4), nummod($-3, million-5)]
+
+dep($-3, up-1)
+mwe(up-1, to-2)
+root(ROOT-0, $-3)
+compound(million-5, 300-4)
+nummod($-3, million-5)
+
+----------
+[amod(Calif.-based-3, Irvine-1), root(ROOT-0, Calif.-based-3)]
+
+amod(Calif.-based-3, Irvine-1)
+root(ROOT-0, Calif.-based-3)
+
+----------
+[advmod(many-2, so-1), root(ROOT-0, many-2)]
+
+advmod(many-2, so-1)
+root(ROOT-0, many-2)
+
+----------
+[root(ROOT-0, corporate-1)]
+
+root(ROOT-0, corporate-1)
+
+----------
+[advmod(1/2-2, about-1), nummod(point-4, 1/2-2), compound(point-4, percentage-3), nmod:npmod(higher-5, point-4), root(ROOT-0, higher-5), case(yield-8, than-6), det(yield-8, the-7), nmod:than(higher-5, yield-8), case(bonds-12, on-9), amod(bonds-12, 30-year-10), compound(bonds-12, Treasury-11), nmod:on(yield-8, bonds-12)]
+
+advmod(1/2-2, about-1)
+nummod(point-4, 1/2-2)
+compound(point-4, percentage-3)
+nmod:npmod(higher-5, point-4)
+root(ROOT-0, higher-5)
+case(yield-8, than-6)
+det(yield-8, the-7)
+nmod:than(higher-5, yield-8)
+case(bonds-12, on-9)
+amod(bonds-12, 30-year-10)
+compound(bonds-12, Treasury-11)
+nmod:on(yield-8, bonds-12)
+
+----------
+[advmod(planned-2, originally-1), root(ROOT-0, planned-2)]
+
+advmod(planned-2, originally-1)
+root(ROOT-0, planned-2)
+
+----------
+[advmod(significant-2, most-1), root(ROOT-0, significant-2)]
+
+advmod(significant-2, most-1)
+root(ROOT-0, significant-2)
+
+----------
+[compound(%-2, 0.1-1), root(ROOT-0, %-2)]
+
+compound(%-2, 0.1-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(1/8-2, 8-1), dep(%-3, 1/8-2), root(ROOT-0, %-3)]
+
+compound(1/8-2, 8-1)
+dep(%-3, 1/8-2)
+root(ROOT-0, %-3)
+
+----------
+[root(ROOT-0, congressional-1), cc(congressional-1, and-2), conj:and(congressional-1, presidential-3)]
+
+root(ROOT-0, congressional-1)
+cc(congressional-1, and-2)
+conj:and(congressional-1, presidential-3)
+
+----------
+[root(ROOT-0, $-1), compound($-1, 1,000-2)]
+
+root(ROOT-0, $-1)
+compound($-1, 1,000-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 750-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 750-2)
+nummod($-1, million-3)
+
+----------
+[compound(%-2, 3.8-1), root(ROOT-0, %-2)]
+
+compound(%-2, 3.8-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-2, 7.2-1), root(ROOT-0, %-2)]
+
+compound(%-2, 7.2-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-2, 9-1), root(ROOT-0, %-2)]
+
+compound(%-2, 9-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-2, 9-1), root(ROOT-0, %-2)]
+
+compound(%-2, 9-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 114-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 114-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 107.03-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 107.03-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 130-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 130-2)
+nummod($-1, million-3)
+
+----------
+[amod(German-2, West-1), root(ROOT-0, German-2)]
+
+amod(German-2, West-1)
+root(ROOT-0, German-2)
+
+----------
+[compound(billion-2, four-1), dep(mark-3, billion-2), root(ROOT-0, mark-3)]
+
+compound(billion-2, four-1)
+dep(mark-3, billion-2)
+root(ROOT-0, mark-3)
+
+----------
+[compound(billion-2, six-1), dep(mark-3, billion-2), root(ROOT-0, mark-3)]
+
+compound(billion-2, six-1)
+dep(mark-3, billion-2)
+root(ROOT-0, mark-3)
+
+----------
+[compound(%-2, 4.6-1), root(ROOT-0, %-2)]
+
+compound(%-2, 4.6-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(3/4-2, 11-1), dep(%-3, 3/4-2), root(ROOT-0, %-3)]
+
+compound(3/4-2, 11-1)
+dep(%-3, 3/4-2)
+root(ROOT-0, %-3)
+
+----------
+[compound(%-2, 12-1), root(ROOT-0, %-2)]
+
+compound(%-2, 12-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 415-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 415-2)
+nummod($-1, million-3)
+
+----------
+[advmod(weaker-2, significantly-1), root(ROOT-0, weaker-2), case(plan-8, than-3), det(administration-6, the-4), compound(administration-6, Bush-5), nmod:poss(plan-8, administration-6), case(administration-6, 's-7), nmod:than(weaker-2, plan-8), mark(cut-10, to-9), acl(plan-8, cut-10), compound(emissions-12, utility-11), dobj(cut-10, emissions-12), nsubj(lead-14, that-13), acl:relcl(emissions-12, lead-14), case(rain-17, to-15), amod(rain-17, acid-16), nmod:to(lead-14, rain-17)]
+
+advmod(weaker-2, significantly-1)
+root(ROOT-0, weaker-2)
+case(plan-8, than-3)
+det(administration-6, the-4)
+compound(administration-6, Bush-5)
+nmod:poss(plan-8, administration-6)
+case(administration-6, 's-7)
+nmod:than(weaker-2, plan-8)
+mark(cut-10, to-9)
+acl(plan-8, cut-10)
+compound(emissions-12, utility-11)
+dobj(cut-10, emissions-12)
+nsubj(lead-14, emissions-12)
+ref(emissions-12, that-13)
+acl:relcl(emissions-12, lead-14)
+case(rain-17, to-15)
+amod(rain-17, acid-16)
+nmod:to(lead-14, rain-17)
+
+----------
+[advmod(single-handed-2, almost-1), root(ROOT-0, single-handed-2)]
+
+advmod(single-handed-2, almost-1)
+root(ROOT-0, single-handed-2)
+
+----------
+[case(industry-5, close-1), mwe(close-1, to-2), det(industry-5, the-3), compound(industry-5, utility-4), root(ROOT-0, industry-5)]
+
+case(industry-5, close-1)
+mwe(close-1, to-2)
+det(industry-5, the-3)
+compound(industry-5, utility-4)
+root(ROOT-0, industry-5)
+
+----------
+[amod(Mo.-based-4, Kansas-1), amod(Mo.-based-4, City-2), root(ROOT-0, Mo.-based-4)]
+
+amod(Mo.-based-4, Kansas-1)
+amod(Mo.-based-4, City-2)
+root(ROOT-0, Mo.-based-4)
+
+----------
+[root(ROOT-0, cheaper-1)]
+
+root(ROOT-0, cheaper-1)
+
+----------
+[advmod(common-2, most-1), root(ROOT-0, common-2)]
+
+advmod(common-2, most-1)
+root(ROOT-0, common-2)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 6.79-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 6.79-2)
+nummod($-1, billion-3)
+
+----------
+[compound(%-2, 7-1), root(ROOT-0, %-2)]
+
+compound(%-2, 7-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(held-2, closely-1), root(ROOT-0, held-2)]
+
+advmod(held-2, closely-1)
+root(ROOT-0, held-2)
+
+----------
+[root(ROOT-0, $-1), dep($-1, 18-a-share-2)]
+
+root(ROOT-0, $-1)
+dep($-1, 18-a-share-2)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[root(ROOT-0, inadequate-1)]
+
+root(ROOT-0, inadequate-1)
+
+----------
+[root(ROOT-0, heavy-truck-1), cc(heavy-truck-1, and-2), conj:and(heavy-truck-1, passenger-car-3)]
+
+root(ROOT-0, heavy-truck-1)
+cc(heavy-truck-1, and-2)
+conj:and(heavy-truck-1, passenger-car-3)
+
+----------
+[amod(Texas-based-3, Austin-1), root(ROOT-0, Texas-based-3)]
+
+amod(Texas-based-3, Austin-1)
+root(ROOT-0, Texas-based-3)
+
+----------
+[advmod(made-2, newly-1), root(ROOT-0, made-2)]
+
+advmod(made-2, newly-1)
+root(ROOT-0, made-2)
+
+----------
+[root(ROOT-0, true-1)]
+
+root(ROOT-0, true-1)
+
+----------
+[advmod(high-2, relatively-1), root(ROOT-0, high-2)]
+
+advmod(high-2, relatively-1)
+root(ROOT-0, high-2)
+
+----------
+[root(ROOT-0, unchanged-1)]
+
+root(ROOT-0, unchanged-1)
+
+----------
+[advmod(favored-2, most-1), root(ROOT-0, favored-2)]
+
+advmod(favored-2, most-1)
+root(ROOT-0, favored-2)
+
+----------
+[compound(%-2, 5-1), root(ROOT-0, %-2)]
+
+compound(%-2, 5-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, willing-1), mark(pay-3, to-2), xcomp(willing-1, pay-3), dobj(value-9, what-4), nsubj(considers-6, it-5), ccomp(pay-3, considers-6), amod(value-9, fair-8), xcomp(considers-6, value-9), case(Younkers-12, for-11), nmod:for(pay-3, Younkers-12), case(turmoil-16, because-13), mwe(because-13, of-14), amod(turmoil-16, recent-15), nmod:because_of(pay-3, turmoil-16), conj:and(turmoil-16, turmoil-16'), case(markets-22, in-17), det(markets-22, the-18), compound(markets-22, bond-19), cc(bond-19, and-20), conj:and(bond-19, stock-21), nmod:in(turmoil-16, markets-22), cc(turmoil-16, and-23), case(retailing-25, in-24), nmod:in(turmoil-16', retailing-25)]
+
+root(ROOT-0, willing-1)
+mark(pay-3, to-2)
+xcomp(willing-1, pay-3)
+dobj(value-9, what-4)
+nsubj(considers-6, it-5)
+ccomp(pay-3, considers-6)
+amod(value-9, fair-8)
+xcomp(considers-6, value-9)
+case(Younkers-12, for-11)
+nmod:for(pay-3, Younkers-12)
+case(turmoil-16, because-13)
+mwe(because-13, of-14)
+amod(turmoil-16, recent-15)
+nmod:because_of(pay-3, turmoil-16)
+nmod:because_of(pay-3, turmoil-16')
+conj:and(turmoil-16, turmoil-16')
+case(markets-22, in-17)
+det(markets-22, the-18)
+compound(markets-22, bond-19)
+cc(bond-19, and-20)
+conj:and(bond-19, stock-21)
+compound(markets-22, stock-21)
+nmod:in(turmoil-16, markets-22)
+cc(turmoil-16, and-23)
+case(retailing-25, in-24)
+nmod:in(turmoil-16', retailing-25)
+
+----------
+[compound(%-5, 10-1), dep(%-5, %-2), dep(%-5, to-3), compound(%-5, 20-4), root(ROOT-0, %-5)]
+
+compound(%-5, 10-1)
+dep(%-5, %-2)
+dep(%-5, to-3)
+compound(%-5, 20-4)
+root(ROOT-0, %-5)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[compound(%-2, 12-1), root(ROOT-0, %-2)]
+
+compound(%-2, 12-1)
+root(ROOT-0, %-2)
+
+----------
+[nummod(years-2, 52-1), nmod:npmod(old-3, years-2), root(ROOT-0, old-3)]
+
+nummod(years-2, 52-1)
+nmod:npmod(old-3, years-2)
+root(ROOT-0, old-3)
+
+----------
+[root(ROOT-0, $-1), dep($-1, 45-a-share-2)]
+
+root(ROOT-0, $-1)
+dep($-1, 45-a-share-2)
+
+----------
+[advmod(diluted-2, fully-1), root(ROOT-0, diluted-2)]
+
+advmod(diluted-2, fully-1)
+root(ROOT-0, diluted-2)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[amod(Conn.based-3, Stamford-1), root(ROOT-0, Conn.based-3)]
+
+amod(Conn.based-3, Stamford-1)
+root(ROOT-0, Conn.based-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 2-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 2-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 7.5-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 7.5-2)
+nummod($-1, million-3)
+
+----------
+[advmod(better-2, somewhat-1), root(ROOT-0, better-2)]
+
+advmod(better-2, somewhat-1)
+root(ROOT-0, better-2)
+
+----------
+[root(ROOT-0, $-1), dep($-1, 120-a-share-2)]
+
+root(ROOT-0, $-1)
+dep($-1, 120-a-share-2)
+
+----------
+[compound(%-2, 70-1), root(ROOT-0, %-2)]
+
+compound(%-2, 70-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 3.18-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 3.18-2)
+nummod($-1, billion-3)
+
+----------
+[compound(%-2, 20-1), root(ROOT-0, %-2)]
+
+compound(%-2, 20-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(lower-4, significantly-2), root(ROOT-0, lower-4)]
+
+advmod(lower-4, significantly-2)
+root(ROOT-0, lower-4)
+
+----------
+[advmod(traded-2, publicly-1), root(ROOT-0, traded-2)]
+
+advmod(traded-2, publicly-1)
+root(ROOT-0, traded-2)
+
+----------
+[root(ROOT-0, adverse-1), cc(adverse-1, or-2), advmod(adverse-1, otherwise-3)]
+
+root(ROOT-0, adverse-1)
+cc(adverse-1, or-2)
+advmod(adverse-1, otherwise-3)
+
+----------
+[amod(Orleans-based-2, New-1), root(ROOT-0, Orleans-based-2)]
+
+amod(Orleans-based-2, New-1)
+root(ROOT-0, Orleans-based-2)
+
+----------
+[compound(cents-a-unit-2, 55-1), root(ROOT-0, cents-a-unit-2)]
+
+compound(cents-a-unit-2, 55-1)
+root(ROOT-0, cents-a-unit-2)
+
+----------
+[root(ROOT-0, equal-1), case(number-4, to-2), det(number-4, the-3), nmod:to(equal-1, number-4), case(units-6, of-5), nmod:of(number-4, units-6), amod(units-6, outstanding-7), advmod(million-11, about-9), compound(million-11, 108-10), dep(number-4, million-11), case(Sept.-13, on-12), nmod:on(million-11, Sept.-13), nummod(Sept.-13, 30-14)]
+
+root(ROOT-0, equal-1)
+case(number-4, to-2)
+det(number-4, the-3)
+nmod:to(equal-1, number-4)
+case(units-6, of-5)
+nmod:of(number-4, units-6)
+amod(units-6, outstanding-7)
+advmod(million-11, about-9)
+compound(million-11, 108-10)
+dep(number-4, million-11)
+case(Sept.-13, on-12)
+nmod:on(million-11, Sept.-13)
+nummod(Sept.-13, 30-14)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[root(ROOT-0, unchanged-1)]
+
+root(ROOT-0, unchanged-1)
+
+----------
+[root(ROOT-0, sharp-1), cc(sharp-1, and-2), conj:and(sharp-1, rapid-3)]
+
+root(ROOT-0, sharp-1)
+cc(sharp-1, and-2)
+conj:and(sharp-1, rapid-3)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[amod(York-based-2, New-1), root(ROOT-0, York-based-2)]
+
+amod(York-based-2, New-1)
+root(ROOT-0, York-based-2)
+
+----------
+[amod(Ohio-based-3, Fairlawn-1), root(ROOT-0, Ohio-based-3)]
+
+amod(Ohio-based-3, Fairlawn-1)
+root(ROOT-0, Ohio-based-3)
+
+----------
+[compound(%-2, 24-1), root(ROOT-0, %-2)]
+
+compound(%-2, 24-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 6-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 6-2)
+nummod($-1, million-3)
+
+----------
+[neg(more-2, no-1), root(ROOT-0, more-2)]
+
+neg(more-2, no-1)
+root(ROOT-0, more-2)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[amod(Ohio-based-3, Toledo-1), root(ROOT-0, Ohio-based-3)]
+
+amod(Ohio-based-3, Toledo-1)
+root(ROOT-0, Ohio-based-3)
+
+----------
+[compound(%-2, 11-1), root(ROOT-0, %-2)]
+
+compound(%-2, 11-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 89.9-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 89.9-2)
+nummod($-1, million-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 62-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 62-2)
+nummod($-1, million-3)
+
+----------
+[dep(record-2, near-1), root(ROOT-0, record-2)]
+
+dep(record-2, near-1)
+root(ROOT-0, record-2)
+
+----------
+[amod(Mich.-based-3, Kalamazoo-1), root(ROOT-0, Mich.-based-3)]
+
+amod(Mich.-based-3, Kalamazoo-1)
+root(ROOT-0, Mich.-based-3)
+
+----------
+[advmod(high-flying-2, once-1), root(ROOT-0, high-flying-2)]
+
+advmod(high-flying-2, once-1)
+root(ROOT-0, high-flying-2)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[root(ROOT-0, deplorable-1)]
+
+root(ROOT-0, deplorable-1)
+
+----------
+[amod(German-2, East-1), root(ROOT-0, German-2)]
+
+amod(German-2, East-1)
+root(ROOT-0, German-2)
+
+----------
+[advmod(weaker-2, significantly-1), root(ROOT-0, weaker-2), case(plan-7, than-3), det(president-5, the-4), nmod:poss(plan-7, president-5), case(president-5, 's-6), nmod:than(weaker-2, plan-7), mark(cut-9, to-8), acl(plan-7, cut-9), compound(emissions-11, utility-10), dobj(cut-9, emissions-11)]
+
+advmod(weaker-2, significantly-1)
+root(ROOT-0, weaker-2)
+case(plan-7, than-3)
+det(president-5, the-4)
+nmod:poss(plan-7, president-5)
+case(president-5, 's-6)
+nmod:than(weaker-2, plan-7)
+mark(cut-9, to-8)
+acl(plan-7, cut-9)
+compound(emissions-11, utility-10)
+dobj(cut-9, emissions-11)
+
+----------
+[amod(Arabian-2, Saudi-1), root(ROOT-0, Arabian-2)]
+
+amod(Arabian-2, Saudi-1)
+root(ROOT-0, Arabian-2)
+
+----------
+[nummod(votes-2, 12-1), nmod:npmod(short-3, votes-2), root(ROOT-0, short-3), case(majority-6, of-4), det(majority-6, a-5), nmod:of(short-3, majority-6), case(assembly-11, in-7), nmod:poss(assembly-11, Islamabad-8), case(Islamabad-8, 's-9), amod(assembly-11, 237-seat-10), nmod:in(majority-6, assembly-11)]
+
+nummod(votes-2, 12-1)
+nmod:npmod(short-3, votes-2)
+root(ROOT-0, short-3)
+case(majority-6, of-4)
+det(majority-6, a-5)
+nmod:of(short-3, majority-6)
+case(assembly-11, in-7)
+nmod:poss(assembly-11, Islamabad-8)
+case(Islamabad-8, 's-9)
+amod(assembly-11, 237-seat-10)
+nmod:in(majority-6, assembly-11)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[compound(%-2, 32-1), root(ROOT-0, %-2)]
+
+compound(%-2, 32-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, due-1), case(investment-5, to-2), amod(investment-5, increasing-3), compound(investment-5, capital-4), nmod:to(due-1, investment-5)]
+
+root(ROOT-0, due-1)
+case(investment-5, to-2)
+amod(investment-5, increasing-3)
+compound(investment-5, capital-4)
+nmod:to(due-1, investment-5)
+
+----------
+[root(ROOT-0, $-1), dep($-1, 55-a-share-2)]
+
+root(ROOT-0, $-1)
+dep($-1, 55-a-share-2)
+
+----------
+[root(ROOT-0, $-1), compound(billion-3, 12.7-2), nummod($-1, billion-3)]
+
+root(ROOT-0, $-1)
+compound(billion-3, 12.7-2)
+nummod($-1, billion-3)
+
+----------
+[advmod(traded-2, publicly-1), root(ROOT-0, traded-2)]
+
+advmod(traded-2, publicly-1)
+root(ROOT-0, traded-2)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[advmod(qualified-3, well-2), root(ROOT-0, qualified-3)]
+
+advmod(qualified-3, well-2)
+root(ROOT-0, qualified-3)
+
+----------
+[root(ROOT-0, familiar-1), case(Committee-6, with-2), det(Committee-6, the-3), compound(Committee-6, Senate-4), compound(Committee-6, Judiciary-5), nmod:with(familiar-1, Committee-6), nsubj(vote-10, which-8), aux(vote-10, will-9), acl:relcl(Committee-6, vote-10), case(nomination-13, on-11), det(nomination-13, the-12), nmod:on(vote-10, nomination-13)]
+
+root(ROOT-0, familiar-1)
+case(Committee-6, with-2)
+det(Committee-6, the-3)
+compound(Committee-6, Senate-4)
+compound(Committee-6, Judiciary-5)
+nmod:with(familiar-1, Committee-6)
+nsubj(vote-10, Committee-6)
+ref(Committee-6, which-8)
+aux(vote-10, will-9)
+acl:relcl(Committee-6, vote-10)
+case(nomination-13, on-11)
+det(nomination-13, the-12)
+nmod:on(vote-10, nomination-13)
+
+----------
+[advmod(divided-2, closely-1), root(ROOT-0, divided-2)]
+
+advmod(divided-2, closely-1)
+root(ROOT-0, divided-2)
+
+----------
+[root(ROOT-0, qualified-1)]
+
+root(ROOT-0, qualified-1)
+
+----------
+[advmod(qualified-2, well-1), root(ROOT-0, qualified-2)]
+
+advmod(qualified-2, well-1)
+root(ROOT-0, qualified-2)
+
+----------
+[amod(Germany-based-4, Frankfurt-1), amod(Germany-based-4, West-3), root(ROOT-0, Germany-based-4)]
+
+amod(Germany-based-4, Frankfurt-1)
+amod(Germany-based-4, West-3)
+root(ROOT-0, Germany-based-4)
+
+----------
+[root(ROOT-0, available-1), case(employees-4, to-2), compound(employees-4, Upjohn-3), nmod:to(available-1, employees-4), nummod(years-6, 55-5), nmod:npmod(old-7, years-6), amod(employees-4, old-7), cc(old-7, or-8), conj:or(old-7, older-9)]
+
+root(ROOT-0, available-1)
+case(employees-4, to-2)
+compound(employees-4, Upjohn-3)
+nmod:to(available-1, employees-4)
+nummod(years-6, 55-5)
+nmod:npmod(old-7, years-6)
+amod(employees-4, old-7)
+cc(old-7, or-8)
+amod(employees-4, older-9)
+conj:or(old-7, older-9)
+
+----------
+[root(ROOT-0, equal-1), case(months-4, to-2), nummod(months-4, six-3), nmod:to(equal-1, months-4), case(pay-7, of-5), compound(pay-7, base-6), nmod:of(months-4, pay-7)]
+
+root(ROOT-0, equal-1)
+case(months-4, to-2)
+nummod(months-4, six-3)
+nmod:to(equal-1, months-4)
+case(pay-7, of-5)
+compound(pay-7, base-6)
+nmod:of(months-4, pay-7)
+
+----------
+[dep(fashioned-2, old-1), root(ROOT-0, fashioned-2)]
+
+dep(fashioned-2, old-1)
+root(ROOT-0, fashioned-2)
+
+----------
+[advmod(connected-2, politically-1), root(ROOT-0, connected-2)]
+
+advmod(connected-2, politically-1)
+root(ROOT-0, connected-2)
+
+----------
+[root(ROOT-0, necessary-1)]
+
+root(ROOT-0, necessary-1)
+
+----------
+[root(ROOT-0, short-1), case(reading-4, of-2), amod(reading-4, gripping-3), nmod:of(short-1, reading-4)]
+
+root(ROOT-0, short-1)
+case(reading-4, of-2)
+amod(reading-4, gripping-3)
+nmod:of(short-1, reading-4)
+
+----------
+[advmod(intelligent-2, especially-1), root(ROOT-0, intelligent-2)]
+
+advmod(intelligent-2, especially-1)
+root(ROOT-0, intelligent-2)
+
+----------
+[advmod(somewhat-3, at-1), mwe(at-1, least-2), advmod(interesting-4, somewhat-3), root(ROOT-0, interesting-4)]
+
+advmod(somewhat-3, at-1)
+mwe(at-1, least-2)
+advmod(interesting-4, somewhat-3)
+root(ROOT-0, interesting-4)
+
+----------
+[advmod(held-2, closely-1), root(ROOT-0, held-2)]
+
+advmod(held-2, closely-1)
+root(ROOT-0, held-2)
+
+----------
+[compound(%-2, 47-1), root(ROOT-0, %-2)]
+
+compound(%-2, 47-1)
+root(ROOT-0, %-2)
+
+----------
+[compound(%-2, 13-1), root(ROOT-0, %-2)]
+
+compound(%-2, 13-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(different-2, substantially-1), root(ROOT-0, different-2), case(average-5, from-3), det(average-5, the-4), nmod:from(different-2, average-5), case(estimates-9, of-6), nmod:poss(estimates-9, analysts-7), case(analysts-7, '-8), nmod:of(average-5, estimates-9)]
+
+advmod(different-2, substantially-1)
+root(ROOT-0, different-2)
+case(average-5, from-3)
+det(average-5, the-4)
+nmod:from(different-2, average-5)
+case(estimates-9, of-6)
+nmod:poss(estimates-9, analysts-7)
+case(analysts-7, '-8)
+nmod:of(average-5, estimates-9)
+
+----------
+[root(ROOT-0, Estimated-1), cc(Estimated-1, and-2), conj:and(Estimated-1, actual-3)]
+
+root(ROOT-0, Estimated-1)
+cc(Estimated-1, and-2)
+conj:and(Estimated-1, actual-3)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 55.1-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 55.1-2)
+nummod($-1, million-3)
+
+----------
+[advmod(massive-2, so-1), root(ROOT-0, massive-2)]
+
+advmod(massive-2, so-1)
+root(ROOT-0, massive-2)
+
+----------
+[advmod(low-2, so-1), root(ROOT-0, low-2)]
+
+advmod(low-2, so-1)
+root(ROOT-0, low-2)
+
+----------
+[root(ROOT-0, normal-1)]
+
+root(ROOT-0, normal-1)
+
+----------
+[root(ROOT-0, normal-1)]
+
+root(ROOT-0, normal-1)
+
+----------
+[amod(German-2, West-1), root(ROOT-0, German-2)]
+
+amod(German-2, West-1)
+root(ROOT-0, German-2)
+
+----------
+[root(ROOT-0, particular-1)]
+
+root(ROOT-0, particular-1)
+
+----------
+[dep(defensive-2, more-1), root(ROOT-0, defensive-2)]
+
+dep(defensive-2, more-1)
+root(ROOT-0, defensive-2)
+
+----------
+[compound(%-2, 23-1), root(ROOT-0, %-2)]
+
+compound(%-2, 23-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, $-1), compound(million-3, 71-2), nummod($-1, million-3)]
+
+root(ROOT-0, $-1)
+compound(million-3, 71-2)
+nummod($-1, million-3)
+
+----------
+[advmod(strong-2, unusually-1), root(ROOT-0, strong-2)]
+
+advmod(strong-2, unusually-1)
+root(ROOT-0, strong-2)
+
+----------
+[advmod(severe-2, more-1), root(ROOT-0, severe-2)]
+
+advmod(severe-2, more-1)
+root(ROOT-0, severe-2)
+
+----------
+[compound(%-2, 54-1), root(ROOT-0, %-2)]
+
+compound(%-2, 54-1)
+root(ROOT-0, %-2)
+
+----------
+[advmod(great-2, as-1), root(ROOT-0, great-2)]
+
+advmod(great-2, as-1)
+root(ROOT-0, great-2)
+
+----------
+[advmod(profitable-2, more-1), root(ROOT-0, profitable-2)]
+
+advmod(profitable-2, more-1)
+root(ROOT-0, profitable-2)
+
+----------
+[compound(%-2, 15-1), root(ROOT-0, %-2)]
+
+compound(%-2, 15-1)
+root(ROOT-0, %-2)
+
+----------
+[root(ROOT-0, outstanding-1)]
+
+root(ROOT-0, outstanding-1)
+
+----------
+[root(ROOT-0, more-1)]
+
+root(ROOT-0, more-1)
+
+----------
