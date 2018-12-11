@@ -1,4 +1,0 @@
-python adjp_command.py adjp_output_deps.txt adjp_output.txt Output.txt
-arg[1] -> dependencies file
-arg[2] -> adjp file
-arg[3] -> output of rules
