@@ -1,0 +1,21 @@
+[dep(business-2, either-1), root(ROOT-0, business-2)]
+
+dep(business-2, either-1)
+root(ROOT-0, business-2)
+
+----------
+[advmod(entirely-2, almost-1), advmod(Western-3, entirely-2), root(ROOT-0, Western-3)]
+
+advmod(entirely-2, almost-1)
+advmod(Western-3, entirely-2)
+root(ROOT-0, Western-3)
+
+----------
+[root(ROOT-0, other-1), case(state-4, than-2), det(state-4, the-3), nmod:than(other-1, state-4)]
+
+root(ROOT-0, other-1)
+case(state-4, than-2)
+det(state-4, the-3)
+nmod:than(other-1, state-4)
+
+----------
