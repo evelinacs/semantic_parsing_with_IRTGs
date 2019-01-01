@@ -1,21 +1,104 @@
-[dep(business-2, either-1), root(ROOT-0, business-2)]
+[nummod(years-2, DIGITDIGIT-1), root(ROOT-0, years-2)]
 
-dep(business-2, either-1)
-root(ROOT-0, business-2)
-
-----------
-[advmod(entirely-2, almost-1), advmod(Western-3, entirely-2), root(ROOT-0, Western-3)]
-
-advmod(entirely-2, almost-1)
-advmod(Western-3, entirely-2)
-root(ROOT-0, Western-3)
+nummod(years-2, DIGITDIGIT-1)
+root(ROOT-0, years-2)
 
 ----------
-[root(ROOT-0, other-1), case(state-4, than-2), det(state-4, the-3), nmod:than(other-1, state-4)]
+[det(director-3, a-1), amod(director-3, nonexecutive-2), root(ROOT-0, director-3)]
 
-root(ROOT-0, other-1)
-case(state-4, than-2)
-det(state-4, the-3)
-nmod:than(other-1, state-4)
+det(director-3, a-1)
+amod(director-3, nonexecutive-2)
+root(ROOT-0, director-3)
+
+----------
+[det(form-2, A-1), root(ROOT-0, form-2), case(asbestos-4, of-3), nmod:of(form-2, asbestos-4)]
+
+det(form-2, A-1)
+root(ROOT-0, form-2)
+case(asbestos-4, of-3)
+nmod:of(form-2, asbestos-4)
+
+----------
+[advmod(DIGITDIGIT-3, more-1), mwe(more-1, than-2), nummod(years-4, DIGITDIGIT-3), root(ROOT-0, years-4)]
+
+advmod(DIGITDIGIT-3, more-1)
+mwe(more-1, than-2)
+nummod(years-4, DIGITDIGIT-3)
+root(ROOT-0, years-4)
+
+----------
+[neg(information-3, no-1), amod(information-3, useful-2), root(ROOT-0, information-3), mark(risk-9, on-4), mark(risk-9, whether-5), nsubj(risk-9, users-6), cop(risk-9, are-7), case(risk-9, at-8), acl(information-3, risk-9)]
+
+neg(information-3, no-1)
+amod(information-3, useful-2)
+root(ROOT-0, information-3)
+mark(risk-9, on-4)
+mark(risk-9, whether-5)
+nsubj(risk-9, users-6)
+cop(risk-9, are-7)
+case(risk-9, at-8)
+acl(information-3, risk-9)
+
+----------
+[root(ROOT-0, signs-1), mark(expect-5, that-2), compound(managers-4, portfolio-3), nsubj(expect-5, managers-4), ccomp(signs-1, expect-5), amod(declines-7, further-6), dobj(expect-5, declines-7), case(rates-10, in-8), compound(rates-10, interest-9), nmod:in(declines-7, rates-10)]
+
+root(ROOT-0, signs-1)
+mark(expect-5, that-2)
+compound(managers-4, portfolio-3)
+nsubj(expect-5, managers-4)
+ccomp(signs-1, expect-5)
+amod(declines-7, further-6)
+dobj(expect-5, declines-7)
+case(rates-10, in-8)
+compound(rates-10, interest-9)
+nmod:in(declines-7, rates-10)
+
+----------
+[amod(ads-2, new-1), root(ROOT-0, ads-2), acl(ads-2, featuring-3), compound(Coleman-5, MrPERIOD-4), nsubj(raising-7, Coleman-5), nmod:npmod(Coleman-5, himself-6), advcl(featuring-3, raising-7), dobj(raising-7, questions-8), case(sensitivity-13, about-9), compound(Wilder-11, MrPERIOD-10), nmod:poss(sensitivity-13, Wilder-11), case(Wilder-11, SQs-12), nmod:about(questions-8, sensitivity-13), case(victims-16, to-14), compound(victims-16, rape-15), nmod:to(sensitivity-13, victims-16)]
+
+amod(ads-2, new-1)
+root(ROOT-0, ads-2)
+acl(ads-2, featuring-3)
+compound(Coleman-5, MrPERIOD-4)
+nsubj(raising-7, Coleman-5)
+nmod:npmod(Coleman-5, himself-6)
+advcl(featuring-3, raising-7)
+dobj(raising-7, questions-8)
+case(sensitivity-13, about-9)
+compound(Wilder-11, MrPERIOD-10)
+nmod:poss(sensitivity-13, Wilder-11)
+case(Wilder-11, SQs-12)
+nmod:about(questions-8, sensitivity-13)
+case(victims-16, to-14)
+compound(victims-16, rape-15)
+nmod:to(sensitivity-13, victims-16)
+
+----------
+[root(ROOT-0, students-1), nmod(students-1, generally-2), case(kindergarten-4, from-3), nmod:from(generally-2, kindergarten-4), case(grade-7, through-5), amod(grade-7, eighth-6), nmod:through(generally-2, grade-7)]
+
+root(ROOT-0, students-1)
+nmod(students-1, generally-2)
+case(kindergarten-4, from-3)
+nmod:from(generally-2, kindergarten-4)
+case(grade-7, through-5)
+amod(grade-7, eighth-6)
+nmod:through(generally-2, grade-7)
+
+----------
+[nummod(million-2, DIGITDIGIT-1), root(ROOT-0, million-2), appos(million-2, Tuesday-3)]
+
+nummod(million-2, DIGITDIGIT-1)
+root(ROOT-0, million-2)
+appos(million-2, Tuesday-3)
+
+----------
+[root(ROOT-0, evidence-1), mark(remains-5, that-2), amod(growth-4, economic-3), nsubj(remains-5, growth-4), ccomp(evidence-1, remains-5), xcomp(remains-5, subdued-6)]
+
+root(ROOT-0, evidence-1)
+mark(remains-5, that-2)
+amod(growth-4, economic-3)
+nsubj(remains-5, growth-4)
+ccomp(evidence-1, remains-5)
+xcomp(remains-5, subdued-6)
 
 ----------

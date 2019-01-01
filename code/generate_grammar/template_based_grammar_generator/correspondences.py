@@ -15,7 +15,7 @@ ud_4lang_dict = {
     "obj": "2",
     "xcomp": "2",
 
-    "nmod:poss": "HAS",
+    "nmod_poss": "HAS",
 
     "case": "DOUBLE",
 
