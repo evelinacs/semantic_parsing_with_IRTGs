@@ -20,7 +20,7 @@ def read_dep(dep_file):
     """
     Reads all the dependencies for a single parsed tree
     """
-    dep_regex = re.compile(r"^([^(]+)\(([^-]+)-\d+, ([^-]+)-\d+\)") # for lines like this: dep(side-2, neither-1)
+    dep_regex = re.compile(r"^([^(]+)\(([^-]+-\d+'?), ([^-]+-\d+'?)\)") # for lines like this: dep(side-2, neither-1)
     dep_list = []
     dep_line = dep_file.readline()
     while dep_line != "----------\n": # lines like this mark the end of the dependencies for a tree
@@ -39,8 +39,12 @@ def find_dep_tree_correspondences(tree, dep, seen):
     seen_ternary_nodes = defaultdict(dict) # keeps track of ternary nodes in the tree to generate normal or merge rules for ternaries
    
     tree_dict = {} # index the tree by the words
+    word_index = 1
     for smallest_subtree in tree.subtrees(lambda t: 2 == t.height()): # finds the smallest subtrees, e.g. (NNS students)
-        tree_dict[smallest_subtree[0]] = smallest_subtree
+        index = "{}-{}".format(smallest_subtree[0], word_index)
+        smallest_subtree[0] = index
+        tree_dict[index] = smallest_subtree
+        word_index += 1
 
     for subtree in tree.subtrees(lambda t: len(t) == 1 and 2 < t.height()): # unary subtrees, e.g. (NP (NNS students))
         template_params = {"treenode": subtree.label()} # holds values used in the template files
@@ -55,6 +59,9 @@ def find_dep_tree_correspondences(tree, dep, seen):
     for current_dep in dep: # finds a corresponding tree structure for each dependency
         dep_list = re.split(r', ', current_dep)
         dep_list[0] = dep_list[0].replace(":", "_") # name of the dependency
+
+        if dep_list[1][-1] == "'" or dep_list[2][-1] == "'":
+            continue
 
         word1 = dep_list[1]
         word2 = dep_list[2]
@@ -101,17 +108,13 @@ def find_dep_tree_correspondences(tree, dep, seen):
             #NPs don't contain such edges, should be handled later
             if fourlang_edge_type == "CASE":
                 template_name += handle_4lang_case(template_params, dep, dep_list, ancestor_info["is_reverse"])
-
             elif fourlang_edge_type == "HAS":
                 template_name += "4langhas"
                 template_params["4lang_edge"] = "1"
                 template_params["4lang_edge2"] = "2"
-
             else:
                 template_name += "4langnormal"
                 template_params["4lang_edge"] = fourlang_edge_type
-
-
         else:
             # Checks if some nodes should be ignored in the 4lang interpretation
             if dep_list[0] in ["det", "punct"]: # this should be in a separate function later
@@ -173,6 +176,9 @@ def find_dep_tree_correspondences(tree, dep, seen):
             arg2=rtg_arg2
         )
 
+        if "_skip" in template_params:
+            continue
+
         if rtg_type not in seen:
             # print the rule if it was not created previously
             seen.add(rtg_type)
@@ -183,14 +189,16 @@ def handle_4lang_case(template_params, deps, current_dep, is_reverse):
     """
     Calculates information relating to the case dependency for the 4lang interpretation
     """
-    template_name = "4langnormal"
+    template_name = None #"4langnormal"
     case_head = current_dep[1]
     # Finds a relevant dependency connected to this case dependency (it never appears alone)
     for d in deps:
         dep_list = d.split(", ")
         # Cases where the head of the case dep is the dependent of the related dependeny
+        if len(deps) == 1 and dep_list[0] == "case":
+            template_params["_skip"] = True
         if case_head == dep_list[2]:
-            if dep_list[0] in ["nmod", "nmod:poss", "nmod:of"]: # cases where a node is not represented in 4lang
+            if dep_list[0] in ["nmod", "nmod:poss", "nmod:of", "nmod:including", "nmod:at", "nmod:on", "nmod:since", "nmod:from", "nmod:such_as", "nmod:but"]: # cases where a node is not represented in 4lang
                 template_name = "4langignore"
                 if is_reverse:
                     template_params["4langnode"] = "?2"
@@ -215,6 +223,9 @@ def handle_4lang_case(template_params, deps, current_dep, is_reverse):
                 else:
                     template_params["4lang_root"] = "?2"
                     template_params["4lang_dep"] = "?1"
+    if template_name is None:
+        template_params["_skip"] = True
+        template_name = "udnormal"
 
     return template_name
 

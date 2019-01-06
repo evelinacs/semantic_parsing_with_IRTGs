@@ -17,6 +17,13 @@ ud_4lang_dict = {
 
     "nmod_poss": "HAS",
     "nmod_of": "HAS",
+    "nmod_including": "HAS", #
+    "nmod_at": "HAS", #
+    "nmod_on": "HAS", #
+    "nmod_since": "HAS", #
+    "nmod_from": "HAS", #
+    "nmod_such_as": "HAS", #
+    "nmod_but": "HAS", #
 
     "case": "CASE",
 
