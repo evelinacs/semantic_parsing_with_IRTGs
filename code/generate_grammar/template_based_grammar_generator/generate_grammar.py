@@ -1,36 +1,79 @@
 import sys
 import re
 from collections import defaultdict
-from nltk.tree import ParentedTree
+
 from correspondences import ud_4lang_dict
-
-def read_tree(tree_file):
-    """
-    Reads a single tree (line) from the given file
-    """
-    tree_line = tree_file.readline()
-    if tree_line == "": # returns None when the end of the file is found
-        return None
-    else: # parses the line as a parented tree structure
-        tree = ParentedTree.fromstring(tree_line)
-        return tree
+from input_utils import basic_tree_dep_reader
 
 
-def read_dep(dep_file):
-    """
-    Reads all the dependencies for a single parsed tree
-    """
-    dep_regex = re.compile(r"^([^(]+)\(([^-]+-\d+'?), ([^-]+-\d+'?)\)") # for lines like this: dep(side-2, neither-1)
-    dep_list = []
-    dep_line = dep_file.readline()
-    while dep_line != "----------\n": # lines like this mark the end of the dependencies for a tree
-        if re.match(r"[a-zA-Z]", dep_line):
-            if not dep_line.startswith("root"): # there's no root node in a tree
-                dep_line = dep_regex.sub(r"\1, \2, \3", dep_line) # converts lines like this:  dep(side-2, neither-1) to dep, side, neither
-                dep_list.append(dep_line.strip())
-        dep_line = dep_file.readline()
-    return dep_list
+def generate_unary_rules(tree, seen):
+     for subtree in tree.subtrees(lambda t: len(t) == 1 and 2 < t.height()): # unary subtrees, e.g. (NP (NNS students))
+        template_params = {"treenode": subtree.label()} # holds values used in the template files
+        rtg_type = "{phrase} -> _{phrase}_unary_{arg}({arg})".format(
+            phrase=subtree.label(), # e.g. NP; left-hand side of the RTG rule
+            arg=subtree[0].label() # e.g. DT, NN; right-hand side of the RTG rule
+        )
+        if rtg_type not in seen: # to avoid duplicates
+            print_rule("unary", template_params, rtg_type)
+            seen.add(rtg_type) # seen in main
 
+def is_4lang_ignored(ud_edge):
+    return ud_edge in ["det", "punct"]
+
+def handle_4lang_ignore(ancestor_info, template_params):
+    if ancestor_info["child1"].label() in ["DT", "PUNCT"]: # various punct tags should be handled later
+        template_params["4langnode"] = "?1" if ancestor_info["is_reverse"] else "?2"
+    else:
+        template_params["4langnode"] = "?2" if ancestor_info["is_reverse"] else "?1"
+
+def handle_special_4lang(fourlang_edge_type, template_params, dep, dep_list, ancestor_info):
+    if fourlang_edge_type == "CASE":
+        template_name = handle_4lang_case(template_params, dep, dep_list, ancestor_info["is_reverse"])
+    elif fourlang_edge_type == "HAS":
+        template_name = "4langhas"
+        template_params["4lang_edge"] = "1"
+        template_params["4lang_edge2"] = "2"
+    else:
+        template_name = "4langnormal"
+        template_params["4lang_edge"] = fourlang_edge_type
+    return template_name
+
+def init_rtg_args(ancestor_info, template_params, seen_ternary_nodes):
+    replace_arg = None
+    # Performs a check whether an RTG argument has to be replaced with a technical node name when merging a ternary tree
+    if "ternary_arg" in ancestor_info: # happens when merging a ternary tree
+        ancestor_hash = get_tree_hash(ancestor_info["common_ancestor"])
+        # Decides which argument to replace based on which nodes were first connected by a dependency
+        if seen_ternary_nodes[ancestor_hash]["is_leading_merge"]:
+            replace_arg = 1
+        else:
+            replace_arg = 2
+            template_params["treechildren"] = "?2, ?1"
+
+    # set default rtg args
+    if ancestor_info["is_reverse"] == True:
+        rtg_arg1 = ancestor_info["child2"].label()
+        rtg_arg2 = ancestor_info["child1"].label()
+    else:
+        rtg_arg1 = ancestor_info["child1"].label()
+        rtg_arg2 = ancestor_info["child2"].label()
+    
+    # overwrite rtg args when merging a ternary tree
+    if replace_arg == 1:
+        rtg_arg1 = ancestor_info["ternary_arg"]
+    elif replace_arg == 2:
+        rtg_arg2 = ancestor_info["ternary_arg"]
+    return rtg_arg1, rtg_arg2
+
+
+def make_rtg_line(ancestor_info, rtg_phrase, ud_edge, rtg_arg1, rtg_arg2):
+    return "{phrase} -> _{treenode}_{dep}_{arg1}_{arg2}({arg1}, {arg2})".format(
+        treenode=ancestor_info["common_ancestor"].label() + str(ancestor_info["arity"]),
+        phrase=rtg_phrase,
+        dep=ud_edge,
+        arg1=rtg_arg1, 
+        arg2=rtg_arg2
+    )
 
 def find_dep_tree_correspondences(tree, dep, seen):
     """
@@ -46,15 +89,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
         tree_dict[index] = smallest_subtree
         word_index += 1
 
-    for subtree in tree.subtrees(lambda t: len(t) == 1 and 2 < t.height()): # unary subtrees, e.g. (NP (NNS students))
-        template_params = {"treenode": subtree.label()} # holds values used in the template files
-        rtg_type = "{phrase} -> _{phrase}_unary_{arg}({arg})".format(
-            phrase=subtree.label(), # e.g. NP; left-hand side of the RTG rule
-            arg=subtree[0].label() # e.g. DT, NN; right-hand side of the RTG rule
-        )
-        if rtg_type not in seen: # to avoid duplicates
-            print_rule("unary", template_params, rtg_type)
-            seen.add(rtg_type) # seen in main
+    generate_unary_rules(tree, seen)
 
     for current_dep in dep: # finds a corresponding tree structure for each dependency
         dep_list = re.split(r', ', current_dep)
@@ -70,9 +105,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
         subtree2 = tree_dict[word2]
 
         ancestor_info = find_common_ancestor(subtree1, subtree2)
-        if ancestor_info["arity"] == 3: 
-            find_first_adjacent_dep(ancestor_info["common_ancestor"], seen_ternary_nodes, dep) # for ternary nodes, finds which adjacent nodes are connected by a dependency first
-
+       
         template_params = {}
         template_params["treechildren"] = "?1, ?2" # overwritten later if not true (when merging ternaries)
         template_params["treenode"] = ancestor_info["common_ancestor"].label() + str(ancestor_info["arity"]) # the node name in the tree interpretation
@@ -82,54 +115,30 @@ def find_dep_tree_correspondences(tree, dep, seen):
         if ancestor_info["arity"] == 2: # binary and ternary subtrees
             template_name += "binary_"
         elif ancestor_info["arity"] == 3:
+            find_first_adjacent_dep(ancestor_info["common_ancestor"], seen_ternary_nodes, dep) # for ternary nodes, finds which adjacent nodes are connected by a dependency first
             template_name += handle_ternary(template_params, ancestor_info, seen_ternary_nodes)
         
         template_name += "udnormal_"
         # Set some default template params; they will be overwritten if needed
         template_params["ud_edge"] = dep_list[0]
-        # When the head of the dependency appears later in the tree than its dependent, the substituted arguments in the ud and 4lang interpretations must represent this difference in order
-        if ancestor_info["is_reverse"] == True:
-            template_params["ud_root"] = "?2"
-            template_params["ud_dep"] = "?1"
-            template_params["4lang_root"] = "?2"
-            template_params["4lang_dep"] = "?1"
-        else:
-            template_params["ud_root"] = "?1"
-            template_params["ud_dep"] = "?2"
-            template_params["4lang_root"] = "?1"
-            template_params["4lang_dep"] = "?2"
 
+        # When the head of the dependency appears later in the tree than its dependent, the substituted arguments in the ud and 4lang interpretations must represent this difference in order
+        argument_order = {True: ["?2", "?1"], False: ["?1", "?2"]}
+        template_params["ud_root"] = argument_order[ancestor_info["is_reverse"]][0]
+        template_params["ud_dep"] = argument_order[ancestor_info["is_reverse"]][1]
+        template_params["4lang_root"] = argument_order[ancestor_info["is_reverse"]][0]
+        template_params["4lang_dep"] = argument_order[ancestor_info["is_reverse"]][1]
 
         # Checks if the dependency needs a special 4lang interpretation (edge type, node configuration, etc.)
         if dep_list[0] in ud_4lang_dict:
             fourlang_edge_type = ud_4lang_dict[dep_list[0]]
-            #if fourlang_edge_type in ["0,0", "1,0"]:
-            #    template_name += ...
-            #NPs don't contain such edges, should be handled later
-            if fourlang_edge_type == "CASE":
-                template_name += handle_4lang_case(template_params, dep, dep_list, ancestor_info["is_reverse"])
-            elif fourlang_edge_type == "HAS":
-                template_name += "4langhas"
-                template_params["4lang_edge"] = "1"
-                template_params["4lang_edge2"] = "2"
-            else:
-                template_name += "4langnormal"
-                template_params["4lang_edge"] = fourlang_edge_type
+            template_name += handle_special_4lang(fourlang_edge_type, template_params, dep, dep_list, ancestor_info)
         else:
             # Checks if some nodes should be ignored in the 4lang interpretation
-            if dep_list[0] in ["det", "punct"]: # this should be in a separate function later
+            if is_4lang_ignored(dep_list[0]):
                 template_name += "4langignore"
-                if ancestor_info["child1"].label() in ["DT", "PUNCT"]: # various punct tags should be handled later
-                    if ancestor_info["is_reverse"]:
-                        template_params["4langnode"] = "?1"
-                    else:
-                        template_params["4langnode"] = "?2"
-                else:
-                    if ancestor_info["is_reverse"]:
-                        template_params["4langnode"] = "?2"
-                    else:
-                        template_params["4langnode"] = "?1"
-            else:
+                handle_4lang_ignore(ancestor_info, template_params)
+            else: # currently undefined ud-4lang correspondences are marked by an "_" edge
                 template_name += "4langnormal"
                 template_params["4lang_edge"] = "_"
 
@@ -141,40 +150,11 @@ def find_dep_tree_correspondences(tree, dep, seen):
             rtg_phrase = ancestor_info["ternary_phrase"]
         else:
             rtg_phrase = ancestor_info["common_ancestor"].label()
-        
-        replace_arg = None
-        # Performs a check whether an RTG argument has to be replaced with a technical node name when merging a ternary tree
-        if "ternary_arg" in ancestor_info: # happens when merging a ternary tree
-            ancestor_hash = get_tree_hash(ancestor_info["common_ancestor"])
-            # Decides which argument to replace based on which nodes were first connected by a dependency
-            if seen_ternary_nodes[ancestor_hash]["is_leading_merge"]:
-                replace_arg = 1
-            else:
-                replace_arg = 2
-                template_params["treechildren"] = "?2, ?1"
 
-        # set default rtg args
-        if ancestor_info["is_reverse"] == True:
-            rtg_arg1 = ancestor_info["child2"].label()
-            rtg_arg2 = ancestor_info["child1"].label()
-        else:
-            rtg_arg1 = ancestor_info["child1"].label()
-            rtg_arg2 = ancestor_info["child2"].label()
-        
-        # overwrite rtg args when merging a ternary tree
-        if replace_arg == 1:
-            rtg_arg1 = ancestor_info["ternary_arg"]
-        elif replace_arg == 2:
-            rtg_arg2 = ancestor_info["ternary_arg"]
+        rtg_arg1, rtg_arg2 = init_rtg_args(ancestor_info, template_params, seen_ternary_nodes)
         
         # Generate RTG rule line
-        rtg_type = "{phrase} -> _{treenode}_{dep}_{arg1}_{arg2}({arg1}, {arg2})".format(
-            treenode=ancestor_info["common_ancestor"].label() + str(ancestor_info["arity"]),
-            phrase=rtg_phrase,
-            dep=dep_list[0],
-            arg1=rtg_arg1, 
-            arg2=rtg_arg2
-        )
+        rtg_type = make_rtg_line(ancestor_info, rtg_phrase, dep_list[0], rtg_arg1, rtg_arg2)
 
         if "_skip" in template_params:
             continue
@@ -338,15 +318,15 @@ def print_rule(template_name, template_params, rtg_type):
         print(template.format(**template_params))
     
 
-
-def main(fn1, fn2):
-    seen = set() # keep track of rules to prevent duplicates
+def print_interpretation():
     # interpretation definitions
     print("interpretation string: de.up.ling.irtg.algebra.StringAlgebra")
     print("interpretation tree: de.up.ling.irtg.algebra.TagTreeAlgebra")
     print("interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra")
     print("interpretation fourlang: de.up.ling.irtg.algebra.graph.GraphAlgebra")
     print()
+
+def print_start_rule():
     # start rule for NPs
     print("S! -> sentence(NP)")
     print("[string] ?1")
@@ -354,16 +334,15 @@ def main(fn1, fn2):
     print("[ud] ?1")
     print("[fourlang] ?1")
     print()
+
+
+def main(fn1, fn2):
+    seen = set() # keep track of rules to prevent duplicates
+    print_interpretation()
+    print_start_rule()
     # iterates through trees and their corresponding dependencies
-    with open(fn1) as tree_file, open(fn2) as dep_file:
-        while True:
-            tree = read_tree(tree_file)
-            if tree == None:
-                break
-            dep = read_dep(dep_file) # reads dependencies for the next tree
-            find_dep_tree_correspondences(tree, dep, seen) 
+    for tree, dep in basic_tree_dep_reader(fn1, fn2):
+        find_dep_tree_correspondences(tree, dep, seen) 
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
-
-
