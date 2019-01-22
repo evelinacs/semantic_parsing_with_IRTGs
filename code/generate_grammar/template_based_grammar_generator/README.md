@@ -1,3 +1,8 @@
+# Prerequisites
+
+- python3
+- the `nltk` package
+
 # Usage
 
 ```shell
