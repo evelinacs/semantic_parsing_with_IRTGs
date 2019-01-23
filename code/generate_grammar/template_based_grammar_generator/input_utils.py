@@ -5,6 +5,7 @@ from nltk.tree import ParentedTree
 DEP_LINE_CHECK = re.compile(r"^[a-zA-Z]")
 DEP_LINE_REGEX = re.compile(r"^([^(]+)\(([^-]+-\d+'?), ([^-]+-\d+'?)\)") # for lines like this: dep(side-2, neither-1)
 
+
 def basic_read_tree(tree_file):
     """
     Reads a single tree (line) from the given file
@@ -20,10 +21,7 @@ def basic_read_tree(tree_file):
 def basic_read_dep(dep_file):
     """
     Reads all the dependencies for a single parsed tree
-    """
-    global DEP_LINE_CHECK
-    global DEP_LINE_REGEX
-    
+    """    
     dep_list = []
     dep_line = dep_file.readline()
     while dep_line != "----------\n": # lines like this mark the end of the dependencies for a tree
@@ -34,6 +32,7 @@ def basic_read_dep(dep_file):
                 dep_list.append(dep_line.strip())
         dep_line = dep_file.readline()
     return dep_list
+
 
 def basic_tree_dep_reader(tree_fn, dep_fn):
     with open(tree_fn) as tree_file, open(dep_fn) as dep_file:
