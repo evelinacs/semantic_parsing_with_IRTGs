@@ -19,7 +19,10 @@ def generate_unary_rules(tree, seen):
         )
         if rtg_type not in seen:  # to avoid duplicates
             print_rule("unary", template_params, rtg_type)
-            seen.add(rtg_type)  # seen in main
+            # seen.add(rtg_type)  # seen in main
+            seen[rtg_type] = 1
+        else:
+            seen[rtg_type] += 1
 
 
 def handle_special_4lang(
@@ -190,8 +193,11 @@ def find_dep_tree_correspondences(tree, dep, seen):
 
         if rtg_type not in seen:
             # print the rule if it was not created previously
-            seen.add(rtg_type)
+            # seen.add(rtg_type)
+            seen[rtg_type] = 1
             print_rule(template_name, template_params, rtg_type)
+        else:
+            seen[rtg_type] += 1
 
 
 def handle_4lang_case(template_params, deps, current_dep, is_reverse):
@@ -362,8 +368,8 @@ def print_rule(template_name, template_params, rtg_type):
     with open("templates/{}.tpl".format(template_name), "r") as tpl_file:
         template = tpl_file.read()
 
-        print(rtg_type)
-        print(template.format(**template_params))
+       # print(rtg_type)
+       # print(template.format(**template_params))
 
 
 def print_interpretation():
@@ -386,12 +392,17 @@ def print_start_rule():
 
 
 def main(fn1, fn2):
-    seen = set()  # keep track of rules to prevent duplicates
+    # seen = set()  # keep track of rules to prevent duplicates
+    seen = {}
     print_interpretation()
     print_start_rule()
     # iterates through trees and their corresponding dependencies
     for tree, dep in basic_tree_dep_reader(fn1, fn2):
         find_dep_tree_correspondences(tree, dep, seen)
+    sorted_by_value = sorted(seen.items(), key = lambda kv: kv[1])
+    for i in sorted_by_value:
+        print(i)
+    # print(sorted_by_value)
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
