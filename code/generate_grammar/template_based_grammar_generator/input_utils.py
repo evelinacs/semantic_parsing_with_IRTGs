@@ -27,11 +27,32 @@ def basic_read_dep(dep_file):
     while dep_line != "----------\n": # lines like this mark the end of the dependencies for a tree
         if DEP_LINE_CHECK.match(dep_line):
             if not dep_line.startswith("root"): # there's no root node in a tree
-                # converts lines like this:  dep(side-2, neither-1) to dep, side, neither
-                dep_line = DEP_LINE_REGEX.sub(r"\1, \2, \3", dep_line)
-                dep_list.append(dep_line.strip())
+                dependency = get_dep_from_line(dep_line)
+                normalize_dep_name(dependency)
+                if not is_self_referencing(dependency):
+                    dep_list.append(dependency)
         dep_line = dep_file.readline()
     return dep_list
+
+
+def is_self_referencing(dep):
+    """
+    Self-referencing dependencies have an ' as the last character.
+    """
+    return dep["root"][-1] == "'" or dep["dep"][-1] == "'"
+
+
+def get_dep_from_line(dep_line):
+    dep_match = DEP_LINE_REGEX.match(dep_line)
+    return {
+        "root": dep_match.group(2),
+        "dep": dep_match.group(3),
+        "name": dep_match.group(1),
+    }
+
+
+def normalize_dep_name(dep):
+    dep["name"] = dep["name"].replace(":", "_") # : causes an error in Alto
 
 
 def basic_tree_dep_reader(tree_fn, dep_fn):
