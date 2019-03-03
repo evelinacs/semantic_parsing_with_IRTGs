@@ -31,17 +31,16 @@ def handle_special_4lang(
     fourlang_edge_type, template, dep, dep_dict, argument_position
 ):
     if fourlang_edge_type == "CASE":
-        template.name = handle_4lang_case(
+        handle_4lang_case(
             template, dep, dep_dict, argument_position
         )
     elif fourlang_edge_type == "HAS":
-        template.name = "4langhas"
+        template.name += "4langhas"
         template.params["4lang_edge"] = "1"
         template.params["4lang_edge2"] = "2"
     else:
-        template.name = "4langnormal"
+        template.name += "4langnormal"
         template.params["4lang_edge"] = fourlang_edge_type
-    return template.name
 
 
 def init_rtg_args(ancestor_info, template, seen_ternary_nodes):
@@ -130,7 +129,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
             find_first_adjacent_dep(
                 ancestor_info["common_ancestor"], seen_ternary_nodes, dep
             )
-            template.name += handle_ternary(
+            handle_ternary(
                 template, ancestor_info, seen_ternary_nodes
             )
 
@@ -150,7 +149,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
         (edge type, node configuration, etc.)"""
         if current_dep["name"] in ud_4lang_dict:
             fourlang_edge_type = ud_4lang_dict[current_dep["name"]]
-            template.name += handle_special_4lang(
+            handle_special_4lang(
                 fourlang_edge_type, template, dep, current_dep,
                 argument_position
             )
@@ -199,7 +198,7 @@ def handle_4lang_case(template, dep_list, current_dep, is_reverse):
     4lang interpretation
     """
 
-    template.name = None  # "4langnormal"
+    should_skip = True 
     case_head = current_dep["root"]
 
 
@@ -218,26 +217,28 @@ def handle_4lang_case(template, dep_list, current_dep, is_reverse):
                 "nmod_on", "nmod_since", "nmod_from", "nmod_such_as",
                 "nmod_but"
             ]:
-                template.name = "4langignore"
+                should_skip = False
+                template.name += "4langignore"
                 template.params["4langnode"] = is_reverse[False]
             elif dep["name"] in ["obl", "nmod_in", "nmod_to"]:
-                template.name = set_template_params("2", template, is_reverse)
+                should_skip = False
+                set_template_params("2", template, is_reverse)
         elif case_head == dep["root"] and dep["name"] != "case" and dep["name"] == "nsubj":
             """Cases where the head of the case dep is the head of the related
             dependeny (case dependencies should be ignored)"""
-            template.name = set_template_params("1", template, is_reverse)
+            should_skip = False
+            set_template_params("1", template, is_reverse)
 
-    if not template.name:
+    if should_skip:
         template.params["_skip"] = True
-        template.name = "udnormal"
+        template.name += "udnormal"
 
-    return template.name
 
 def set_template_params(number, template, is_reverse):
     template.params["4lang_edge"] = number
     template.params["4lang_root"] = is_reverse[True]
     template.params["4lang_dep"] = is_reverse[False]
-    return "4langnormal"
+    template.name += "4langnormal"
 
 
 def handle_ternary(template, ancestor_info, seen_ternary_nodes):
@@ -263,7 +264,7 @@ def handle_ternary(template, ancestor_info, seen_ternary_nodes):
     if ancestor_info["is_adjacent"] and not is_ternary_node_seen:
         # mark this node as seen
         seen_ternary_nodes[ancestor_hash]["seen"] = True
-        template.name = "ternary_"
+        template.name += "ternary_"
         """in the ternary templates, the left-hand side phrase must be
         replaced with the technical node name"""
         ancestor_info["ternary_phrase"] = technical_node
@@ -271,14 +272,12 @@ def handle_ternary(template, ancestor_info, seen_ternary_nodes):
         # decide where to put the node in the ternary that will be merged later
         template.params["treechildren"] = "?1, ?2, *" if ancestor_info["is_leading_merge"] else "*, ?1, ?2"
     else:
-        template.name = "binary_"
+        template.name += "binary_"
         """in a merge rule, one of the RTG arguments must be replaced by
         this technical node"""
         ancestor_info["ternary_arg"] = technical_node
         # the treenode in the template must be replaced by the merge operation
         template.params["treenode"] = "@"
-
-    return template.name
 
 
 def find_first_adjacent_dep(treenode, seen_ternary_nodes, deps):
