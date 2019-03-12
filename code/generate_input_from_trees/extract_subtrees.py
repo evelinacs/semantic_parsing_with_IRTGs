@@ -14,7 +14,7 @@ args = parser.parse_args()
 
 
 def sanitize_label(tree): #sanitize labels which contain hyphens (e.g.NP-SBJ)
-    tree.set_label(tree.label().replace("-", "_").replace("$", "DOLLAR"))
+    tree.set_label(tree.label().replace("-", "_").replace("$", "DOLLAR").replace("=", "EQUAL"))
 
 def sanitize_pos(tree): #replace punctuation pos-tags
     tree_label = tree.label()
@@ -34,7 +34,6 @@ def sanitize_tree(tree):
         for subtree in tree:
             sanitize_tree(subtree)
 
-
 def main(phrase_level, sanitize):
     for n in range(1,200):
         tree_file = "wsj_{}.mrg".format(str(n).zfill(4))
@@ -44,7 +43,6 @@ def main(phrase_level, sanitize):
                 if sanitize == True:
                     sanitize_tree(subtree)
                 print(subtree.pformat(100000))
-                break
 
 if __name__ == "__main__":
     main(args.phrase_level, args.sanitize)
