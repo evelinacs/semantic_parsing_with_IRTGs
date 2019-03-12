@@ -21,10 +21,13 @@ def generate_unary_rules(tree, seen):
             arg=subtree[0].label()
         )
         rule = template.render()
-        if rule not in seen:  # to avoid duplicates
-            seen[rule] = 1
+        rtg = rule.split("\n")[0].strip()
+        if rtg not in seen:
+            seen[rtg]["rule"] = rule
+            seen[rtg]["count"] = 1
         else:
-            seen[rule] += 1
+            seen[rtg]["count"] += 1
+
 
 
 def handle_special_4lang(
@@ -71,7 +74,7 @@ def init_rtg_args(ancestor_info, template, seen_ternary_nodes):
     return rtg_arg1, rtg_arg2
 
 
-def make_rtg_line(ancestor_info, rtg_phrase, ud_edge, rtg_arg1, rtg_arg2):
+def make_rtg_line_old(ancestor_info, rtg_phrase, ud_edge, rtg_arg1, rtg_arg2):
     tpl = "{phrase} -> _{treenode}_{dep}_{arg1}_{arg2}({arg1}, {arg2})"
     treenode = ancestor_info["common_ancestor"].label() + str(
         ancestor_info["arity"]
@@ -83,6 +86,25 @@ def make_rtg_line(ancestor_info, rtg_phrase, ud_edge, rtg_arg1, rtg_arg2):
         arg1=rtg_arg1,
         arg2=rtg_arg2
     )
+
+
+
+def make_rtg_line(ancestor_info, seen_ternary_nodes, params):
+    tpl = "{phrase} -> _{treenode}_{dep}_{arg1}_{arg2}{postfix}({arg1}, {arg2})"
+    
+    params["treenode"] = ancestor_info["common_ancestor"].label() + str(
+        ancestor_info["arity"]
+    )
+    
+    params["postfix"] = ""
+    if "ternary_phrase" in ancestor_info:
+        ancestor_hash = get_tree_hash(ancestor_info["common_ancestor"])
+        if seen_ternary_nodes[ancestor_hash]["is_leading_merge"]:
+            params["postfix"] = "_leading"
+        else:
+            params["postfix"] = "_trailing"
+
+    return tpl.format(**params)
 
 
 def find_dep_tree_correspondences(tree, dep, seen):
@@ -101,7 +123,6 @@ def find_dep_tree_correspondences(tree, dep, seen):
     ):
         smallest_subtree[0] = "{}-{}".format(smallest_subtree[0], i + 1)
         tree_dict[smallest_subtree[0]] = smallest_subtree
-
     generate_unary_rules(tree, seen)
 
     # finds a corresponding tree structure for each dependency
@@ -123,6 +144,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
 
         if ancestor_info["arity"] == 2:  # binary and ternary subtrees
             template.name += "binary_"
+            # idáig még eljut
         elif ancestor_info["arity"] == 3:
             """for ternary nodes, finds which adjacent nodes are connected by
             a dependency first"""
@@ -164,7 +186,8 @@ def find_dep_tree_correspondences(tree, dep, seen):
                 by an "_" edge"""
                 template.name += "4langnormal"
                 template.params["4lang_edge"] = "_"
-
+        # print("idáig eljut?")
+        # print(template.params)
         # RTG rule generation
 
         """if ternary_phrase is set in ancestor_info, we have a ternary rule
@@ -179,17 +202,25 @@ def find_dep_tree_correspondences(tree, dep, seen):
         )
 
         # Generate RTG rule line
-        template.rtg_type = make_rtg_line(
-            ancestor_info, rtg_phrase, current_dep["name"], rtg_arg1, rtg_arg2
-        )
+        # template.rtg_type = make_rtg_line_old(
+        #     ancestor_info, rtg_phrase, current_dep["name"], rtg_arg1, rtg_arg2
+        # )
+        template.rtg_type = make_rtg_line(ancestor_info, seen_ternary_nodes, {
+            "phrase": rtg_phrase,
+            "dep": current_dep["name"],
+            "arg1": rtg_arg1,
+            "arg2": rtg_arg2,
+        })
 
         if "_skip" in template.params:
             continue
         rule = template.render()
-        if rule not in seen:
-            seen[rule] = 1
+        rtg = rule.split("\n")[0].strip()
+        if rtg not in seen:
+            seen[rtg]["rule"] = rule
+            seen[rtg]["count"] = 1
         else:
-            seen[rule] += 1
+            seen[rtg]["count"] += 1
 
 
 def handle_4lang_case(template, dep_list, current_dep, is_reverse):
@@ -295,7 +326,6 @@ def find_first_adjacent_dep(treenode, seen_ternary_nodes, deps):
     """iterate through all the dependecies in the tree and return as soon as
     the first link is found"""
     for d in deps:
-        # dep_list = d.split(", ")
         """there can only be an adjacent link if one of the dependecy words
         belong to the second child"""
         if d["root"] in child2_leaves or d["dep"] in child2_leaves:
@@ -376,14 +406,14 @@ def print_start_rule():
 
 
 def sort_by_value(dep_dict):
-    sorted_by_value = sorted(dep_dict.items(), key = lambda kv: -kv[1])
+    sorted_by_value = sorted(dep_dict.items(), key = lambda kv: -kv[1]["count"])
     for i in sorted_by_value:
-        print("// {}".format(i[1]))
-        print(i[0])
+        print("// {}".format(i[1]["count"]))
+        print(i[1]["rule"])
 
 
 def main(fn1, fn2):
-    seen = {}
+    seen = defaultdict(dict)
     print_interpretation()
     print_start_rule()
     # iterates through trees and their corresponding dependencies

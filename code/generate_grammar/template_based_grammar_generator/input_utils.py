@@ -1,4 +1,5 @@
 import re
+import pdb
 
 from nltk.tree import ParentedTree
 
@@ -69,7 +70,8 @@ def isi_read_dep(dep_file):
             # Advance the position in the graph
             pos += len(graph_end_match.group(0))
             continue
-    
+    # print(dep_list)
+    # pdb.set_trace()
     return dep_list
 
 def make_default_conllu_structure(graph_data, word_id):
@@ -162,9 +164,10 @@ def normalize_dep_name(dep):
 def basic_tree_dep_reader(tree_fn, dep_fn):
     with open(tree_fn) as tree_file, open(dep_fn) as dep_file:
         while True:
+
             tree = basic_read_tree(tree_file)
             if tree == None:
                 break
             dep = basic_read_dep(dep_file) # reads dependencies for the next tree
-            #dep = isi_read_dep(dep_file) # reads dependencies for the next tree
+            # dep = isi_read_dep(dep_file) # reads dependencies for the next tree
             yield tree, dep 
