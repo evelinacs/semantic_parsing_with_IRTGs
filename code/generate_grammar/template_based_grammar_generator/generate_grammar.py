@@ -1,5 +1,6 @@
 import sys
 import re
+import numpy as np
 from collections import defaultdict
 
 from correspondences import ud_4lang_dict
@@ -407,6 +408,13 @@ def print_start_rule():
 
 def sort_by_value(dep_dict):
     sorted_by_value = sorted(dep_dict.items(), key = lambda kv: -kv[1]["count"])
+    values = [value[1]["count"] for value in sorted_by_value]
+    values.reverse()
+
+    data_mean, data_std = np.mean(values), np.std(values)
+
+    q1, q3= np.percentile(values,[25,75])
+
     for i in sorted_by_value:
         print("// {}".format(i[1]["count"]))
         print(i[1]["rule"])
