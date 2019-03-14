@@ -187,8 +187,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
                 by an "_" edge"""
                 template.name += "4langnormal"
                 template.params["4lang_edge"] = "_"
-        # print("idáig eljut?")
-        # print(template.params)
+                
         # RTG rule generation
 
         """if ternary_phrase is set in ancestor_info, we have a ternary rule
@@ -203,15 +202,15 @@ def find_dep_tree_correspondences(tree, dep, seen):
         )
 
         # Generate RTG rule line
-        # template.rtg_type = make_rtg_line_old(
-        #     ancestor_info, rtg_phrase, current_dep["name"], rtg_arg1, rtg_arg2
-        # )
-        template.rtg_type = make_rtg_line(ancestor_info, seen_ternary_nodes, {
-            "phrase": rtg_phrase,
-            "dep": current_dep["name"],
-            "arg1": rtg_arg1,
-            "arg2": rtg_arg2,
-        })
+        template.rtg_type = make_rtg_line_old(
+            ancestor_info, rtg_phrase, current_dep["name"], rtg_arg1, rtg_arg2
+        )
+        # template.rtg_type = make_rtg_line(ancestor_info, seen_ternary_nodes, {
+        #    "phrase": rtg_phrase,
+        #    "dep": current_dep["name"],
+        #    "arg1": rtg_arg1,
+        #    "arg2": rtg_arg2,
+        # })
 
         if "_skip" in template.params:
             continue
