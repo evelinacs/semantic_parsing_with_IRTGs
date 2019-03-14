@@ -14,7 +14,18 @@ args = parser.parse_args()
 
 
 def sanitize_label(tree): #sanitize labels which contain hyphens (e.g.NP-SBJ)
-    tree.set_label(tree.label().replace("-", "_").replace("$", "DOLLAR").replace("=", "EQUAL"))
+    for key in REPLACE_MAP:
+        tree.set_label(tree.label().replace(key, REPLACE_MAP[key]))
+
+
+def sanitize_tree(tree):
+    sanitize_label(tree)
+    if tree.height() == 2: #word, pos
+        tree[0] = sanitize_word(tree[0]) #tree[0] == word
+    else:
+        for subtree in tree:
+            sanitize_tree(subtree)
+
 
 def sanitize_pos(tree): #replace punctuation pos-tags
     tree_label = tree.label()
@@ -25,14 +36,6 @@ def sanitize_pos(tree): #replace punctuation pos-tags
     if is_punct == True:
         tree.set_label("PUNCT")
 
-def sanitize_tree(tree):
-    sanitize_label(tree)
-    if tree.height() == 2: #word, pos
-        sanitize_pos(tree)
-        tree[0] = sanitize_word(tree[0]) #tree[0] == word
-    else:
-        for subtree in tree:
-            sanitize_tree(subtree)
 
 def main(phrase_level, sanitize):
     for n in range(1,200):
