@@ -70,7 +70,7 @@ def make_graph_string(graph_data, word_id, args):
 def sanitize_pos(pos):
     if pos == "HYPH":
         pos = "PUNCT"
-        
+
     is_punct = True
     for character in pos:
         if character not in REPLACE_MAP:
@@ -107,7 +107,7 @@ def main():
             fields = line.split("\t")
             word_id = fields[0]
             word = sanitize_word(fields[1])
-            tree_pos = sanitize_pos(fields[4])
+            tree_pos = sanitize_word(sanitize_pos(fields[4]))
             head = fields[6]
             ud_edge = fields[7]
 
