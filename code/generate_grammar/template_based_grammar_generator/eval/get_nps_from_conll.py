@@ -2,6 +2,7 @@ import sys
 import argparse
 
 from utils import sanitize_word
+from utils import REPLACE_MAP
 
 SEEN = set()
 TEMPLATE = (
@@ -66,6 +67,21 @@ def make_graph_string(graph_data, word_id, args):
     return graph_string
 
 
+def sanitize_pos(pos):
+    if pos == "HYPH":
+        pos = "PUNCT"
+        
+    is_punct = True
+    for character in pos:
+        if character not in REPLACE_MAP:
+            is_punct = False
+    
+    if is_punct == True:
+        return "PUNCT"
+    else:
+        return pos
+
+
 def exclude_edge(args, edge):
     exclude_list = ["case", "cc"]
     if args.strict and edge in exclude_list:
@@ -80,6 +96,8 @@ def main():
         graph_data = {}
         noun_list = []
         for line in conll_file:
+            if line.startswith("#"):
+                continue
             if line == "\n":
                 print_output(graph_data, noun_list, args)
                 graph_data = {}
@@ -89,7 +107,7 @@ def main():
             fields = line.split("\t")
             word_id = fields[0]
             word = sanitize_word(fields[1])
-            tree_pos = fields[4]
+            tree_pos = sanitize_pos(fields[4])
             head = fields[6]
             ud_edge = fields[7]
 
