@@ -414,9 +414,20 @@ def sort_by_value(dep_dict):
 
     q1, q3= np.percentile(values,[25,75])
 
+    counts = [c[1]["count"] for c in sorted_by_value]
+
+    max_count = sum(counts)
+
     for i in sorted_by_value:
-        print("// {}".format(i[1]["count"]))
-        print(i[1]["rule"])
+         #if i[1]["count"] >= 30:
+            print("// {}".format(i[1]["count"]))
+            split_i = i[1]["rule"].split("\n")
+            print(split_i[0] + " [" + str(i[1]["count"]/max_count) + "]")
+            print(split_i[1])
+            print(split_i[2])
+            print(split_i[3])
+            print(split_i[4])
+            print()
 
 
 def main(fn1, fn2):
