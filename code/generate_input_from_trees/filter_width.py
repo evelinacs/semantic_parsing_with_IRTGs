@@ -7,9 +7,14 @@ def filter_width():
     with open(sys.argv[1]) as np_doc:
         for line in np_doc:
             t = Tree.fromstring(line)
-            width = len(t)
-            if width <= 3:
+            maxlen = 0
+            for subtree in t.subtrees():
+                width = len(subtree)
+                if width > maxlen:
+                    maxlen = width
+            if maxlen <=3:
                 print(line, end = "")
-
+                
+                
 if __name__ == "__main__":
     filter_width()
