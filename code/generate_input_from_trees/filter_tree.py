@@ -13,18 +13,25 @@ def filter_trees():
             t = ParentedTree.fromstring(line)
             maxlen = 0
             found = False
+            treeposition = []
             for subtree in t.subtrees():
                 if subtree.label() == "-NONE-":
-                    treeposition = subtree.treeposition()
+                    treeposition.append(subtree.treeposition())
+                    parent = subtree.parent()
+                    if parent is not None:
+                        treeposition.append(parent.treeposition())
                     found = True
                 width = len(subtree)
                 if width > maxlen:
                     maxlen = width
             if found:
-                del t[treeposition]
-            
+                treeposition.sort(key=len)
+                
+                for position in treeposition[::-1]:
+                    del t[position]
+    
             if maxlen <=3:
-                print(t.pformat(1000000), end="")
+                print(t.pformat(10000000), end = "\n")
                 
                 
 if __name__ == "__main__":
