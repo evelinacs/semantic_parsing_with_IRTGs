@@ -16,9 +16,10 @@ def filter_trees():
             treeposition = []
             for subtree in t.subtrees():
                 if subtree.label() == "-NONE-":
-                    treeposition.append(subtree.treeposition())
                     parent = subtree.parent()
                     if parent is not None:
+                        treeposition.append(subtree.treeposition())   
+                    if parent.parent() is not None:
                         treeposition.append(parent.treeposition())
                     found = True
                 width = len(subtree)
@@ -31,7 +32,8 @@ def filter_trees():
                     del t[position]
     
             if maxlen <=3:
-                print(t.pformat(10000000), end = "\n")
+                if t.leaves():
+                    print(t.pformat(10000000), end = "\n")
                 
                 
 if __name__ == "__main__":
