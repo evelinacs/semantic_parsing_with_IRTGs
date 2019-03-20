@@ -28,4 +28,4 @@ def filter_trees():
                 
                 
 if __name__ == "__main__":
-    filter_width()
+    filter_trees()
