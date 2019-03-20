@@ -14,10 +14,10 @@ phrase_level="${1}"
 phrase_level_list="ADJP|ADVP|CONJP|FRAG|INTJ|LST|NAC|NP|NX|PP|PRN|PRT|QP|RRC|UCP|VP|WHADJP|WHAVP|WHNP|WHPP|X"
 
 python extract_subtrees.py -s "${phrase_level}" > "${TMP_STEP1_SUBTREE}"
-python filter_width.py "${TMP_STEP1_SUBTREE}" > "${TMP_STEP2_FILTERED}"
+python filter_tree.py "${TMP_STEP1_SUBTREE}" > "${TMP_STEP2_FILTERED}"
 bash sort.sh "${TMP_STEP2_FILTERED}" > "${TMP_STEP3_SORTED}"
 python format_tree.py "${TMP_STEP3_SORTED}" > "${TMP_STEP4_FORMATTED}"
-cat "${TMP_STEP4_FORMATTED}" | grep -v "_NONE_" | grep -v -E "((${phrase_level_list})[4-9]\()"
+cat "${TMP_STEP4_FORMATTED}" | grep -v -E "((${phrase_level_list})[4-9]\()"
 
 rm "${TMP_STEP1_SUBTREE}"
 rm "${TMP_STEP2_FILTERED}"
