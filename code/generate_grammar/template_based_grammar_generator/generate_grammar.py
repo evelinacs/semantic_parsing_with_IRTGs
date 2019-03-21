@@ -146,7 +146,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
         # overwritten later if not true (when merging ternaries)
         template.params = {"treechildren": "?1, ?2"}
         # the node name in the tree interpretation
-        template.params["treenode"] = ancestor_info["common_ancestor"].label() + str(ancestor_info["arity"])
+        template.params["treenode"] = ancestor_info["common_ancestor"].label() + "_" + str(ancestor_info["arity"])
 
         if ancestor_info["arity"] == 2:  # binary and ternary subtrees
             template.name += "binary_"
