@@ -129,8 +129,13 @@ def find_dep_tree_correspondences(tree, dep, seen):
     # finds a corresponding tree structure for each dependency
     for current_dep in dep:
         template = Template()
-        subtree1 = tree_dict[current_dep["root"]]  # smallest subtree for the word
-        subtree2 = tree_dict[current_dep["dep"]]
+
+        try:
+            subtree1 = tree_dict[current_dep["root"]]  # smallest subtree for the word
+            subtree2 = tree_dict[current_dep["dep"]]
+        except KeyError:
+            continue
+
 
         ancestor_info = find_common_ancestor(subtree1, subtree2)
         argument_position = {
@@ -196,10 +201,13 @@ def find_dep_tree_correspondences(tree, dep, seen):
         rtg_phrase = ancestor_info["common_ancestor"].label()
         if "ternary_phrase" in ancestor_info:
             rtg_phrase = ancestor_info["ternary_phrase"]
-
-        rtg_arg1, rtg_arg2 = init_rtg_args(
-            ancestor_info, template, seen_ternary_nodes
-        )
+        
+        try:
+            rtg_arg1, rtg_arg2 = init_rtg_args(
+                ancestor_info, template, seen_ternary_nodes
+            )
+        except KeyError:
+            continue
 
         # Generate RTG rule line
         template.rtg_type = make_rtg_line_old(
@@ -214,7 +222,12 @@ def find_dep_tree_correspondences(tree, dep, seen):
 
         if "_skip" in template.params:
             continue
-        rule = template.render()
+        
+        try:
+            rule = template.render()
+        except FileNotFoundError:
+            continue
+
         rtg = rule.split("\n")[0].strip()
         if rtg not in seen:
             seen[rtg]["rule"] = rule

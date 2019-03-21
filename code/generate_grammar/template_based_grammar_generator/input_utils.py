@@ -4,7 +4,7 @@ import pdb
 from nltk.tree import ParentedTree
 
 DEP_LINE_CHECK = re.compile(r"^[a-zA-Z]")
-DEP_LINE_REGEX = re.compile(r"^([^(]+)\(([^-]+-\d+'?), ([^-]+-\d+'?)\)") # for lines like this: dep(side-2, neither-1)
+DEP_LINE_REGEX = re.compile(r"^([^(]+)\(([^-]+-\d+'*), ([^-]+-\d+'*)\)") # for lines like this: dep(side-2, neither-1)
 
 RE_ISI_WORD = re.compile(r"\s*\(([^\s]+)\s+/\s+([^\s\)]+)")
 RE_ISI_DEP_NAME = re.compile(r"\s*:([^\s]+)")
