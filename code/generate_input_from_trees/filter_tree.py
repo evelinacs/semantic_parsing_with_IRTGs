@@ -15,7 +15,7 @@ def filter_trees():
             found = False
             treeposition = []
             for subtree in t.subtrees():
-                if subtree.label() == "-NONE-":
+                if subtree.label() == "HYPHENNONEHYPHEN":
                     parent = subtree.parent()
                     if parent is not None:
                         treeposition.append(subtree.treeposition())   
