@@ -15,15 +15,16 @@ ud_4lang_dict = {
     "obj": "2",
     "xcomp": "2",
 
-    "nmod_poss": "HAS",
-    "nmod_of": "HAS",
-    "nmod_including": "HAS", #
-    "nmod_at": "HAS", #
-    "nmod_on": "HAS", #
-    "nmod_since": "HAS", #
-    "nmod_from": "HAS", #
-    "nmod_such_as": "HAS", #
-    "nmod_but": "HAS", #
+    "nmod_poss": "#HAS / HAS",
+    "nmod_of": "#HAS / HAS",
+    "nmod_including": "#HAS / HAS", #
+    "nmod_at": "#AT / AT", 
+    "nmod_on": "#HAS / HAS", #
+    "nmod_since": "#HAS / HAS", #
+    "nmod_from": "#HAS / HAS", #
+    "nmod_such_as": "#HAS / HAS", #
+    "nmod_but": "#HAS / HAS", #
+    "nmod_tmod": "#AT / AT",
 
     "case": "CASE",
 

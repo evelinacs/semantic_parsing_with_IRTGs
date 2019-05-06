@@ -2,10 +2,37 @@ import sys
 import re
 import numpy as np
 from collections import defaultdict
+import logging
+import logging.handlers
 
 from correspondences import ud_4lang_dict
 from input_utils import basic_tree_dep_reader
 from template import Template
+
+
+logger = None
+LOG_FILE_NAME = "log/generate_grammar.log"
+
+
+def init_logger():
+    global logger
+    logger = logging.getLogger('generate_grammar')
+    # Levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+    logger.setLevel(logging.DEBUG)
+
+    # Add formatter
+    formatter = logging.Formatter(
+        "[{asctime}] {levelname}: {message}",
+        datefmt="%Y-%m-%d %H:%M:%S",
+        style="{"
+    )
+
+    # Add rotating file handler
+    handler = logging.handlers.RotatingFileHandler(
+        LOG_FILE_NAME, maxBytes=1024*1024*5, backupCount=4
+    )
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
 
 
 def generate_unary_rules(tree, seen):
@@ -38,10 +65,11 @@ def handle_special_4lang(
         handle_4lang_case(
             template, dep, dep_dict, argument_position
         )
-    elif fourlang_edge_type == "HAS":
+    elif fourlang_edge_type.startswith("#"):
         template.name += "4langhas"
         template.params["4lang_edge"] = "1"
         template.params["4lang_edge2"] = "2"
+        template.params["4langnode"] = fourlang_edge_type[1:]
     else:
         template.name += "4langnormal"
         template.params["4lang_edge"] = fourlang_edge_type
@@ -444,11 +472,13 @@ def sort_by_value(dep_dict):
 
 
 def main(fn1, fn2):
+    init_logger()
     seen = defaultdict(dict)
     print_interpretation()
     print_start_rule()
     # iterates through trees and their corresponding dependencies
     for tree, dep in basic_tree_dep_reader(fn1, fn2):
+        logger.debug("Processing tree: {}".format(tree.pformat(10000)))
         find_dep_tree_correspondences(tree, dep, seen)
     sort_by_value(seen)
     
