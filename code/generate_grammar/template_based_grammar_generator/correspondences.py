@@ -12,6 +12,7 @@ ud_4lang_dict = {
     "nsubj": "1,0",
 
     "ccomp": "2",
+    "dobj" : "2",
     "obj": "2",
     "xcomp": "2",
 
