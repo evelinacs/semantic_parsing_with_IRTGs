@@ -69,3 +69,9 @@ pip install -r requirements.txt
 ```shell
 deactivate
 ```
+
+# [Alto](https://github.com/coli-saar/alto) console usage
+
+``` shell 
+java -cp "<path to ALTO's jar>" de.up.ling.irtg.script.ParsingEvaluator "<path to input file>" -g "<path to the grammar file>" -I "<input format>" -O "<output format>" -o "<output file>"
+```
