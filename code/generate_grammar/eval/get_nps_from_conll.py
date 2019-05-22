@@ -19,6 +19,7 @@ def get_args():
     parser.add_argument("conll_file", type = str, help = "path to the CoNLL file")
     parser.add_argument("-s", "--strict", action = "store_true", help = "extract only NPs")
     parser.add_argument("-t", "--terminals", action = "store_true", help = "generate terminal nodes")
+    parser.add_argument("-w", "--words", action = "store_true", help = "extract raw text from CoNLL files")
     return parser.parse_args()
 
 
@@ -50,21 +51,50 @@ def print_output(graph_data, noun_list, args):
     for noun_id in noun_list:
         if args.terminals:
             print_all_terminals(graph_data, noun_id)
+        elif args.words:
+            get_text(graph_data, noun_id, noun_id, args)
         else:
-            print(make_graph_string(graph_data, noun_id, args))
+            print(make_graph_string(graph_data, noun_id, noun_id, args))
 
 
-def make_graph_string(graph_data, word_id, args):
+
+def make_graph_string(graph_data, graph_root_id, word_id, args):
     graph_string = "({0} / {0}".format(graph_data[word_id]["word"])
     for other_id in graph_data[word_id]["deps"]:
         edge = graph_data[word_id]["deps"][other_id]
-        if exclude_edge(args, edge):
+        if exclude_edge(args, edge, graph_data, graph_root_id, word_id, other_id):
             continue
 
         graph_string += ' :{0} '.format(edge.replace(':', '_'))
-        graph_string += make_graph_string(graph_data, other_id, args)
+        graph_string += make_graph_string(graph_data, graph_root_id, other_id, args)
     graph_string += ")"
     return graph_string
+
+# A make_graph_string() mintájára kell egy rekurzív függvény, ami nem stringet
+# állít elő, hanem egy listába gyűjti az argumentumként kapott word_id-ket.
+# Ez a lista így tartalmazni fogja a részgráfhoz tartozó szavak word_id-it.
+# A word_id-k a mondatbeli sorrendet tükrözik, így sorbarendezés után a
+# listán végigiterálva elő lehet állítani a részgráfhoz tartozó stringet.
+
+def get_id(graph_data, graph_root_id, word_id, args, word_id_list):
+    word_id_list.append(int(word_id))
+    for other_id in graph_data[word_id]["deps"]:
+        edge = graph_data[word_id]["deps"][other_id]
+        if exclude_edge(args, edge, graph_data, graph_root_id, word_id, other_id):
+            continue
+        
+        get_id(graph_data, graph_root_id, other_id, args, word_id_list)
+
+
+def get_text(graph_data, graph_root_id, word_id, args):
+    word_id_list = []
+    get_id(graph_data, graph_root_id, word_id, args, word_id_list)
+    word_id_list = sorted(word_id_list)
+    word_list = []
+    for word in word_id_list:
+        word_list.append(graph_data[str(word)]["word"])
+    print(" ".join(word_list))
+        
 
 
 def sanitize_pos(pos):
@@ -82,13 +112,20 @@ def sanitize_pos(pos):
         return pos
 
 
-def exclude_edge(args, edge):
-    exclude_list = ["case", "cc"]
-    if args.strict and edge in exclude_list:
-        return True
+def exclude_edge(args, edge, graph_data, graph_root_id, head_id, dep_id):
+    if args.strict:
+        return check_exclusion(args, edge, graph_data, graph_root_id, head_id, dep_id)
     else:
         return False
 
+def check_exclusion(args, edge, graph_data, graph_root_id, head_id, dep_id):
+    exclude_from_root = ["case", "cc", "mark", "aux", "auxpass", "parataxis", "conj", "cop", "discourse", "punct"]
+    exclude_from_all = []
+    
+    if graph_root_id == head_id:
+        return (edge in exclude_from_root) or (edge in exclude_from_all)
+    else:
+        return edge in exclude_from_all
 
 def main():
     args = get_args()
