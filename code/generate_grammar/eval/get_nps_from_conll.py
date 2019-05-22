@@ -70,11 +70,6 @@ def make_graph_string(graph_data, graph_root_id, word_id, args):
     graph_string += ")"
     return graph_string
 
-# A make_graph_string() mintájára kell egy rekurzív függvény, ami nem stringet
-# állít elő, hanem egy listába gyűjti az argumentumként kapott word_id-ket.
-# Ez a lista így tartalmazni fogja a részgráfhoz tartozó szavak word_id-it.
-# A word_id-k a mondatbeli sorrendet tükrözik, így sorbarendezés után a
-# listán végigiterálva elő lehet állítani a részgráfhoz tartozó stringet.
 
 def get_id(graph_data, graph_root_id, word_id, args, word_id_list):
     word_id_list.append(int(word_id))
