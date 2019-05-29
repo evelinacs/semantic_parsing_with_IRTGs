@@ -1,3 +1,4 @@
+import logging
 import re
 import pdb
 
@@ -10,11 +11,14 @@ RE_ISI_WORD = re.compile(r"\s*\(([^\s]+)\s+/\s+([^\s\)]+)")
 RE_ISI_DEP_NAME = re.compile(r"\s*:([^\s]+)")
 RE_ISI_SUBGRAPH_END = re.compile(r"\s*\)")
 
+logger = logging.getLogger("generate_grammar.input_utils")
+
 
 def basic_read_tree(tree_file):
     """
     Reads a single tree (line) from the given file
     """
+    logger.debug("Reading tree line")
     tree_line = tree_file.readline()
     if tree_line == "": # returns None when the end of the file is found
         return None
@@ -24,14 +28,15 @@ def basic_read_tree(tree_file):
 
 
 def isi_read_dep(dep_file):
+    logger.debug("Reading isi dependencies")
     dep_list = []
     dep_line = dep_file.readline().strip()
-    
+
     pos = 0
     max_pos = len(dep_line)
     word_stack = []  # keeps track of the current "root" word
     current_dep_name = None
-    
+
     while pos < max_pos:
         # Try to match a word eg: "(word / word"
         word_match = RE_ISI_WORD.match(dep_line, pos=pos)
@@ -50,7 +55,7 @@ def isi_read_dep(dep_file):
             # Mark the new word as the current root
             word_stack.append(word)
             continue
-        
+
         # Try to match a dependency name
         dep_name_match = RE_ISI_DEP_NAME.match(dep_line, pos=pos)
         if dep_name_match:
@@ -60,7 +65,7 @@ def isi_read_dep(dep_file):
             # Advance the position in the graph
             pos += len(dep_name_match.group(0))
             continue
-        
+
         # Try to match the end of a subgraph
         graph_end_match = RE_ISI_SUBGRAPH_END.match(dep_line, pos=pos)
         if graph_end_match:
@@ -82,28 +87,30 @@ def make_default_conllu_structure(graph_data, word_id):
         }
 
 def conllu_read_dep(dep_file):
+    logger.debug("Reading CONLL dependencies")
     dep_line = dep_file.readline()
     graph_data = {}
     while dep_line != '\n':
         fields = dep_line.split('\t')
-        word_id = fields[0]
-        dep_word = fields[1]
-        root_word_id = fields[6]
-        dep_name = fields[7]
+        if len(fields) > 1:
+            word_id = fields[0]
+            dep_word = fields[1]
+            root_word_id = fields[6]
+            dep_name = fields[7]
 
-        make_default_conllu_structure(graph_data, word_id)
-        graph_data[word_id]["word"] = dep_word
+            make_default_conllu_structure(graph_data, word_id)
+            graph_data[word_id]["word"] = dep_word
 
-        """
-        for the root; store the edges with the root of the dependency
-        """
-        # Ignore :root dependencies
-        if "0" != root_word_id:
-            make_default_conllu_structure(graph_data, root_word_id)
-            graph_data[root_word_id]["deps"][word_id] = dep_name
+            """
+            for the root; store the edges with the root of the dependency
+            """
+            # Ignore :root dependencies
+            if "0" != root_word_id:
+                make_default_conllu_structure(graph_data, root_word_id)
+                graph_data[root_word_id]["deps"][word_id] = dep_name
 
         dep_line = dep_file.readline()
-    
+
     dep_list = []
     for root_word_id in graph_data:
         root_word = graph_data[root_word_id]["word"]
@@ -120,14 +127,15 @@ def conllu_read_dep(dep_file):
             }
             normalize_dep_name(dependency)
             dep_list.append(dependency)
-    
+
     return dep_list
 
 
 def basic_read_dep(dep_file):
     """
     Reads all the dependencies for a single parsed tree
-    """    
+    """
+    logger.debug("Reading dependecies")
     dep_list = []
     dep_line = dep_file.readline()
     while dep_line != "----------\n": # lines like this mark the end of the dependencies for a tree
@@ -150,6 +158,8 @@ def is_self_referencing(dep):
 
 def get_dep_from_line(dep_line):
     dep_match = DEP_LINE_REGEX.match(dep_line)
+    if dep_match is None:
+        logger.debug("Dep line: {}".format(dep_line))
     return {
         "root": dep_match.group(2),
         "dep": dep_match.group(3),
@@ -161,13 +171,19 @@ def normalize_dep_name(dep):
     dep["name"] = dep["name"].replace(":", "_") # : causes an error in Alto
 
 
-def basic_tree_dep_reader(tree_fn, dep_fn):
+def basic_tree_dep_reader(tree_fn, dep_fn, dep_format):
+    dep_reader_dict = {
+        "basic": basic_read_dep,
+        "isi": isi_read_dep,
+        "conll": conllu_read_dep,
+    }
     with open(tree_fn) as tree_file, open(dep_fn) as dep_file:
         while True:
 
             tree = basic_read_tree(tree_file)
             if tree == None:
                 break
-            dep = basic_read_dep(dep_file) # reads dependencies for the next tree
-            # dep = isi_read_dep(dep_file) # reads dependencies for the next tree
-            yield tree, dep 
+
+            dep = dep_reader_dict[dep_format](dep_file)
+
+            yield tree, dep

@@ -4,14 +4,23 @@ import numpy as np
 from collections import defaultdict
 import logging
 import logging.handlers
+import argparse
 
 from correspondences import ud_4lang_dict
 from input_utils import basic_tree_dep_reader
 from template import Template
 
+parser = argparse.ArgumentParser(description = "Script for generating IRTG grammars from parallel data")
+parser.add_argument("-d", "--dep_format", choices = ["basic", "isi", "conll"], required = True, help = "format of the dependency file")
+parser.add_argument("-l", "--log_folder", default = "log" , help = "path to the log folder")
+parser.add_argument("-p", "--phrase", required = True, help = "the name of the phrase level at the root of the trees, e.g. NP, S")
+parser.add_argument("tree_file", help = "the file containing trees")
+parser.add_argument("dep_file", help = "the file containing dependency graphs")
+
+args = parser.parse_args()
 
 logger = None
-LOG_FILE_NAME = "log/generate_grammar.log"
+LOG_FILE_NAME = "{}/generate_grammar.log".format(args.log_folder)
 
 
 def init_logger():
@@ -120,11 +129,11 @@ def make_rtg_line_old(ancestor_info, rtg_phrase, ud_edge, rtg_arg1, rtg_arg2):
 
 def make_rtg_line(ancestor_info, seen_ternary_nodes, params):
     tpl = "{phrase} -> _{treenode}_{dep}_{arg1}_{arg2}{postfix}({arg1}, {arg2})"
-    
+
     params["treenode"] = ancestor_info["common_ancestor"].label() + str(
         ancestor_info["arity"]
     )
-    
+
     params["postfix"] = ""
     if "ternary_phrase" in ancestor_info:
         ancestor_hash = get_tree_hash(ancestor_info["common_ancestor"])
@@ -220,7 +229,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
                 by an "_" edge"""
                 template.name += "4langnormal"
                 template.params["4lang_edge"] = "_"
-                
+
         # RTG rule generation
 
         """if ternary_phrase is set in ancestor_info, we have a ternary rule
@@ -229,7 +238,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
         rtg_phrase = ancestor_info["common_ancestor"].label()
         if "ternary_phrase" in ancestor_info:
             rtg_phrase = ancestor_info["ternary_phrase"]
-        
+
         try:
             rtg_arg1, rtg_arg2 = init_rtg_args(
                 ancestor_info, template, seen_ternary_nodes
@@ -250,7 +259,7 @@ def find_dep_tree_correspondences(tree, dep, seen):
 
         if "_skip" in template.params:
             continue
-        
+
         try:
             rule = template.render()
         except FileNotFoundError:
@@ -270,7 +279,7 @@ def handle_4lang_case(template, dep_list, current_dep, is_reverse):
     4lang interpretation
     """
 
-    should_skip = True 
+    should_skip = True
     case_head = current_dep["root"]
 
 
@@ -438,7 +447,7 @@ def print_interpretation():
 
 def print_start_rule():
     # start rule for NPs
-    print("S! -> sentence(NP)")
+    print("S! -> sentence({})".format(args.phrase))
     print("[string] ?1")
     print("[tree] ?1")
     print("[ud] ?1")
@@ -477,11 +486,11 @@ def main(fn1, fn2):
     print_interpretation()
     print_start_rule()
     # iterates through trees and their corresponding dependencies
-    for tree, dep in basic_tree_dep_reader(fn1, fn2):
+    for tree, dep in basic_tree_dep_reader(fn1, fn2, args.dep_format):
         logger.debug("Processing tree: {}".format(tree.pformat(10000)))
         find_dep_tree_correspondences(tree, dep, seen)
     sort_by_value(seen)
-    
+
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(args.tree_file, args.dep_file)
