@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 
 import sys
+import argparse
 from nltk.tree import ParentedTree
+
+parser = argparse.ArgumentParser(description = "Extract subtrees from Penn Treebank")
+parser.add_argument("-s", "--sanitized", action = "store_true", help = "for sanitized input")
+
+args = parser.parse_args()
 
 def filter_trees():
     """
@@ -9,13 +15,18 @@ def filter_trees():
     Also removes trace subtrees.
     """
     with open(sys.argv[1]) as np_doc:
+        if args.sanitized:
+            trace_subtree_pos = "HYPHENNONEHYPHEN"
+        else:
+            trace_subtree_pos = "-NONE-"
+            
         for line in np_doc:
             t = ParentedTree.fromstring(line)
             maxlen = 0
             found = False
             treeposition = []
             for subtree in t.subtrees():
-                if subtree.label() == "HYPHENNONEHYPHEN":
+                if subtree.label() == trace_subtree_pos:
                     parent = subtree.parent()
                     if parent is not None:
                         treeposition.append(subtree.treeposition())   
