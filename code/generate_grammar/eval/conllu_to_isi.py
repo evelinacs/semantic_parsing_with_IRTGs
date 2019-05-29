@@ -1,14 +1,66 @@
 import sys
 import argparse
 
-from utils import sanitize_word
-
 SEEN = set()
 
+REPLACE_MAP = {
+    ":": "COLON",
+    ",": "COMMA",
+    ".": "PERIOD",
+    ";": "SEMICOLON",
+    "-": "HYPHEN",
+    "[": "LSB",
+    "]": "RSB",
+    "(": "LRB",
+    ")": "RRB",
+    "{": "LCB",
+    "}": "RCB",
+    "!": "EXC",
+    "?": "QUE",
+    "'": "SQ",
+    '"': "DQ",
+    "/": "PER",
+    "\\": "BSL",
+    "#": "HASHTAG",
+    "%": "PERCENT",
+    "&": "ET",
+    "@": "AT",
+    "$": "DOLLAR",
+    "*": "ASTERISK",
+    "^": "CAP",
+    "`": "IQ",
+    "+": "PLUS",
+    "|": "PIPE",
+    "~": "TILDE",
+    "<": "LESS",
+    ">": "MORE",
+    "=": "EQ"
+}
+
+KEYWORDS = set(["feature"])
+
+TEMPLATE = (
+    '{0} -> {1}_{0}\n' +
+    '[string] {1}\n' +
+    '[tree] {0}({1})\n' +
+    '[ud] "({1}<root> / {1})"\n' +
+    '[fourlang] "({1}<root> / {1})"\n'
+)
+
+
+def sanitize_word(word):
+    for pattern, target in REPLACE_MAP.items():
+        word = word.replace(pattern, target)
+    for digit in "0123456789":
+        word = word.replace(digit, "DIGIT")
+    if word in KEYWORDS:
+        word = word.upper()
+    return word
 
 def get_args():
     parser = argparse.ArgumentParser(description = "Convert conllu file to isi file")
     parser.add_argument("conll_file", type = str, help = "path to the CoNLL file")
+    parser.add_argument("-t", "--terminals", action = "store_true", help = "generate terminal nodes")
     return parser.parse_args()
 
 
@@ -20,8 +72,11 @@ def make_default_structure(graph_data, word_id):
         }
 
 
-def print_output(graph_data, graph_root):
-    print(make_graph_string(graph_data, graph_root))
+def print_output(graph_data, graph_root, args):
+    if args.terminals:
+        print_all_terminals(graph_data, graph_root)
+    else:        
+        print(make_graph_string(graph_data, graph_root))
 
 
 def make_graph_string(graph_data, word_id):
@@ -34,6 +89,37 @@ def make_graph_string(graph_data, word_id):
     return graph_string
 
 
+def print_terminal(graph_data, word_id):
+    word = graph_data[word_id]["word"]
+    tree_pos = graph_data[word_id]["tree_pos"]
+
+    signature = '{}_{}'.format(word, tree_pos)
+    if signature not in SEEN:
+        SEEN.add(signature)
+        print(TEMPLATE.format(tree_pos, word))
+
+
+def print_all_terminals(graph_data, word_id):
+    print_terminal(graph_data, word_id)
+    for other_id in  graph_data[word_id]["deps"]:
+        print_all_terminals(graph_data, other_id)
+
+
+def sanitize_pos(pos):
+    if pos == "HYPH":
+        pos = "PUNCT"
+
+    is_punct = True
+    for character in pos:
+        if character not in REPLACE_MAP:
+            is_punct = False
+    
+    if is_punct == True:
+        return "PUNCT"
+    else:
+        return pos
+
+
 def main():
     args = get_args()
     with open(args.conll_file) as conll_file:
@@ -41,7 +127,7 @@ def main():
         graph_root = "0"
         for line in conll_file:
             if line == "\n":
-                print_output(graph_data, graph_root)
+                print_output(graph_data, graph_root, args)
                 graph_data = {}
                 graph_root = "0"
                 continue
@@ -49,11 +135,13 @@ def main():
             fields = line.split("\t")
             dep_word_id = fields[0]
             dep_word = sanitize_word(fields[1])
+            tree_pos = sanitize_word(sanitize_pos(fields[4]))
             root_word_id = fields[6]
             ud_edge = fields[7]
 
             make_default_structure(graph_data, dep_word_id)
             graph_data[dep_word_id]["word"] = dep_word
+            graph_data[dep_word_id]["tree_pos"] = tree_pos
 
             """
             for the head; store the edges with the head of the dependency
