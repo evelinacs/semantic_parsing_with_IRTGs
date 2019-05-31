@@ -1,5 +1,6 @@
 import sys
 import argparse
+import re
 
 SEEN = set()
 
@@ -36,6 +37,7 @@ REPLACE_MAP = {
     ">": "MORE",
     "=": "EQ"
 }
+NON_ENGLISH_CHARACTERS = re.compile(r"[^a-zA-Z]")
 
 KEYWORDS = set(["feature"])
 
@@ -55,6 +57,8 @@ def sanitize_word(word):
         word = word.replace(digit, "DIGIT")
     if word in KEYWORDS:
         word = word.upper()
+    NON_ENGLISH_CHARACTERS.sub("SPECIALCHAR", word)
+
     return word
 
 def get_args():
@@ -75,12 +79,14 @@ def make_default_structure(graph_data, word_id):
 def print_output(graph_data, graph_root, args):
     if args.terminals:
         print_all_terminals(graph_data, graph_root)
-    else:        
+    else:
+        print("# IRTG unannotated corpus file, v1.0")
+        print("# interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra")
         print(make_graph_string(graph_data, graph_root))
 
 
 def make_graph_string(graph_data, word_id):
-    graph_string = "({0} / {0}-{1}".format(graph_data[word_id]["word"], word_id)
+    graph_string = "({0} / {0}".format(graph_data[word_id]["word"])
     for other_id in graph_data[word_id]["deps"]:
         edge = graph_data[word_id]["deps"][other_id]
         graph_string += ' :{0} '.format(edge.replace(':', '_'))
@@ -109,11 +115,14 @@ def sanitize_pos(pos):
     if pos == "HYPH":
         pos = "PUNCT"
 
+    pos = pos.replace("|", "PIPE")
+    pos = pos.replace("=", "EQUAL")
+
     is_punct = True
     for character in pos:
         if character not in REPLACE_MAP:
             is_punct = False
-    
+
     if is_punct == True:
         return "PUNCT"
     else:
