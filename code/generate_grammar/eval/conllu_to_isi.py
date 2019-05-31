@@ -80,8 +80,6 @@ def print_output(graph_data, graph_root, args):
     if args.terminals:
         print_all_terminals(graph_data, graph_root)
     else:
-        print("# IRTG unannotated corpus file, v1.0")
-        print("# interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra")
         print(make_graph_string(graph_data, graph_root))
 
 
@@ -131,6 +129,10 @@ def sanitize_pos(pos):
 
 def main():
     args = get_args()
+    if not args.terminals:
+        print("# IRTG unannotated corpus file, v1.0")
+        print("# interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra")
+
     with open(args.conll_file) as conll_file:
         graph_data = {}
         graph_root = "0"
