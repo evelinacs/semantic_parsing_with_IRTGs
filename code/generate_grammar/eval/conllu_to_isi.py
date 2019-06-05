@@ -64,7 +64,8 @@ def sanitize_word(word):
 def get_args():
     parser = argparse.ArgumentParser(description = "Convert conllu file to isi file")
     parser.add_argument("conll_file", type = str, help = "path to the CoNLL file")
-    parser.add_argument("-t", "--terminals", action = "store_true", help = "generate terminal nodes")
+    parser.add_argument("-t", "--terminals", action = "store_true", help = "generate Penn Treebank terminal nodes")
+    parser.add_argument("-u", "--ud_terminals", action = "store_true", help = "generate UD terminal nodes")
     return parser.parse_args()
 
 
@@ -77,8 +78,8 @@ def make_default_structure(graph_data, word_id):
 
 
 def print_output(graph_data, graph_root, args):
-    if args.terminals:
-        print_all_terminals(graph_data, graph_root)
+    if args.terminals or args.ud_terminals:
+        print_all_terminals(graph_data, graph_root, args)
     else:
         print(make_graph_string(graph_data, graph_root))
 
@@ -93,20 +94,23 @@ def make_graph_string(graph_data, word_id):
     return graph_string
 
 
-def print_terminal(graph_data, word_id):
+def print_terminal(graph_data, word_id, args):
     word = graph_data[word_id]["word"]
-    tree_pos = graph_data[word_id]["tree_pos"]
+    if args.ud_terminals:
+        pos = graph_data[word_id]["ud_pos"]
+    if args.terminals:
+        pos = graph_data[word_id]["tree_pos"]
 
-    signature = '{}_{}'.format(word, tree_pos)
+    signature = '{}_{}'.format(word, pos)
     if signature not in SEEN:
         SEEN.add(signature)
-        print(TEMPLATE.format(tree_pos, word))
+        print(TEMPLATE.format(pos, word))
 
 
-def print_all_terminals(graph_data, word_id):
-    print_terminal(graph_data, word_id)
+def print_all_terminals(graph_data, word_id, args):
+    print_terminal(graph_data, word_id, args)
     for other_id in  graph_data[word_id]["deps"]:
-        print_all_terminals(graph_data, other_id)
+        print_all_terminals(graph_data, other_id, args)
 
 
 def sanitize_pos(pos):
@@ -129,7 +133,7 @@ def sanitize_pos(pos):
 
 def main():
     args = get_args()
-    if not args.terminals:
+    if not args.terminals and not args.ud_terminals:
         print("# IRTG unannotated corpus file, v1.0")
         print("# interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra")
 
@@ -147,12 +151,14 @@ def main():
             dep_word_id = fields[0]
             dep_word = sanitize_word(fields[1])
             tree_pos = sanitize_word(sanitize_pos(fields[4]))
+            ud_pos = fields[3]
             root_word_id = fields[6]
             ud_edge = fields[7]
 
             make_default_structure(graph_data, dep_word_id)
             graph_data[dep_word_id]["word"] = dep_word
             graph_data[dep_word_id]["tree_pos"] = tree_pos
+            graph_data[dep_word_id]["ud_pos"] = ud_pos
 
             """
             for the head; store the edges with the head of the dependency
