@@ -83,6 +83,7 @@ def generate_graph_line(before_edges, after_edges):
         return
     for i in range(len(edges)):
         graph_line += "f_dep" + str(i) + "("
+    for i in range(len(edges)):
         graph_line += "merge("
     graph_line += "merge("
     graph_line += '?1,"(r<root> '
