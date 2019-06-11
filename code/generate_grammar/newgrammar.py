@@ -51,6 +51,8 @@ def print_rules(h, d_before, d_after, counter):
 
     print(rewrite_rule)
     generate_string_line(h, before_nodes, after_nodes)
+    generate_graph_line(before_edges, after_edges)
+
     #print("{} -> {}_{}_{}({}, {})".format(h, h, d, n, d, h))
     #print("[string] *(?1,?2)")
     #print('[ud] merge(f_dep(merge("(r<root> :{} (d<dep>))", r_dep(?1))),?2)'.format(n))
@@ -73,9 +75,31 @@ def generate_string_line(h, before_nodes, after_nodes):
     print(string_line)
 
 
-def generate_graph_line():
-
-
+def generate_graph_line(before_edges, after_edges):
+    graph_line = "[ud] "
+    edges = before_edges + after_edges
+    
+    if not edges:
+        return
+    for i in range(len(edges)):
+        graph_line += "f_dep" + str(i) + "("
+        graph_line += "merge("
+    graph_line += "merge("
+    graph_line += '?1,"(r<root> '
+    
+    for i, edge in enumerate(edges):
+        graph_line += ":" + edge + " " + "(d" + str(i+1) + "<dep" + str(i+1) + ">) "
+    graph_line = graph_line.strip()
+    graph_line += ')"), '
+    
+    for i, edge in enumerate(edges):
+        graph_line += "r_dep" + str(i+1) + "(?" + str(i+2) + ")), "
+    graph_line = graph_line.strip().strip(",")
+    
+    for i in range(len(edges)):
+        graph_line += ")"
+    print(graph_line)
+    
 def print_start_rule(s):
     for i in s:
         print("S! -> start_{}({})".format(i, i))
