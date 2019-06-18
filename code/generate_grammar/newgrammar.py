@@ -57,6 +57,8 @@ def generate_terminals(fn):
     with open(fn) as train_file:
         terminals = set()
         for line in train_file:
+            if line.startswith("#"):
+                continue
             if line.strip():
                 fields = line.split("\t")
                 word = sanitize_word(fields[1])
