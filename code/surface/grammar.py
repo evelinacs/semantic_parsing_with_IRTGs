@@ -149,7 +149,7 @@ def generate_string_line(h, before_nodes, after_nodes):
         nodes.append("?" + str(i + len(before_nodes) + 2))
 
     pairs = copy.deepcopy(nodes)
-    
+
     while len(pairs) != 2:
         copy_pairs = []
         if len(pairs) % 2 == 0:
@@ -158,7 +158,7 @@ def generate_string_line(h, before_nodes, after_nodes):
         elif len(pairs) % 2 == 1:
             for n in range(1, len(pairs), 2):
                 copy_pairs.append("*(" + str(pairs[n-1]) + "," + str(pairs[n]) + ")")
-            copy_pairs.append(nodes[-1])
+            copy_pairs.append(pairs[-1])
             
         pairs = copy_pairs
         
@@ -202,5 +202,10 @@ def print_start_rule(s):
         print()
 
 
-generate_grammar(sys.argv[1])
-generate_terminals(sys.argv[2])
+def main(fn_grammar, fn_terminals):
+    generate_grammar(fn_grammar)
+    generate_terminals(fn_terminals)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1], sys.argv[2])
