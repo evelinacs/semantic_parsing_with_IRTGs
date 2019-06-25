@@ -1,6 +1,7 @@
 import sys
 import re
 import copy
+from collections import defaultdict
 
 ENGLISH_WORD = re.compile("^[a-zA-Z0-9]*$")
 
@@ -52,34 +53,39 @@ def sanitize_word(word):
 
 
 def generate_terminals(fn):
-    TEMPLATE = ('{0} -> {1}_{0}\n[string] {1}\n[ud] "({1}<root> / {1})"\n')
+    TEMPLATE = ('{0} -> {1}_{2}_{0}\n[string] {1}\n[ud] "({1}_{2}<root> / {1}_{2})"\n')
 
     with open(fn) as train_file:
         terminals = set()
+        words = defaultdict(int)
         for line in train_file:
             if line.startswith("#"):
                 continue
             if line.strip():
                 fields = line.split("\t")
                 word = sanitize_word(fields[1])
+
                 if ENGLISH_WORD.match(word):
-                    terminals.add(word + "_" + fields[3])
-    
+                    terminals.add(word + "_" + str(words[word]) + "_" + fields[3])
+                    words[word] += 1
+            elif not line.strip():
+                words = defaultdict(int)
+
     for terminal in terminals:
         t_field = terminal.split("_")
-        print(TEMPLATE.format(t_field[1], t_field[0]))
-    
+        print(TEMPLATE.format(t_field[2], t_field[0], t_field[1]))
+
 
 def generate_grammar(fn):
     start_rule_set = set()
     print("interpretation string: de.up.ling.irtg.algebra.StringAlgebra")
     print("interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra")
     print("\n")
-    
+
     with open(fn) as count_file:
         frequencies = [int(line.split("\t")[3]) for line in count_file]
         freq_sums = sum(frequencies)
-        
+
     counter = 1
     with open(fn) as count_file:
         for line in count_file:
@@ -92,7 +98,8 @@ def generate_grammar(fn):
             #dep_name = fields[2].replace(":", "_")
             if head:
                 start_rule_set.add(head)
-            print_rules(head, dep_before, dep_after, counter, int(frequency)/freq_sums)
+            print_rules(head, dep_before, dep_after,
+                        counter, int(frequency)/freq_sums)
 
     print_start_rule(start_rule_set)
 
@@ -124,7 +131,7 @@ def print_rules(h, d_before, d_after, counter, freq):
     rewrite_rule = rewrite_rule.strip(",")
     rewrite_rule += ") "
     rewrite_rule += "[" + str(freq) + "]"
-    
+
     print(rewrite_rule)
     generate_string_line(h, before_nodes, after_nodes)
     generate_graph_line(before_edges, after_edges)
@@ -154,16 +161,18 @@ def generate_string_line(h, before_nodes, after_nodes):
         copy_pairs = []
         if len(pairs) % 2 == 0:
             for n in range(1, len(pairs), 2):
-                copy_pairs.append("*(" + str(pairs[n-1]) + "," + str(pairs[n]) + ")")
+                copy_pairs.append(
+                    "*(" + str(pairs[n-1]) + "," + str(pairs[n]) + ")")
         elif len(pairs) % 2 == 1:
             for n in range(1, len(pairs), 2):
-                copy_pairs.append("*(" + str(pairs[n-1]) + "," + str(pairs[n]) + ")")
+                copy_pairs.append(
+                    "*(" + str(pairs[n-1]) + "," + str(pairs[n]) + ")")
             copy_pairs.append(pairs[-1])
-            
+
         pairs = copy_pairs
-        
+
     string_line = string_temp.format(pairs[0] + "," + pairs[1])
-        
+
     print(string_line)
 
 
@@ -181,7 +190,8 @@ def generate_graph_line(before_edges, after_edges):
     graph_line += '?1,"(r<root> '
 
     for i, edge in enumerate(edges):
-        graph_line += ":" + edge + " " + "(d" + str(i + 1) + "<dep" + str(i + 1) + ">) "
+        graph_line += ":" + edge + " " + \
+            "(d" + str(i + 1) + "<dep" + str(i + 1) + ">) "
     graph_line = graph_line.strip()
     graph_line += ')"), '
 

@@ -1,6 +1,7 @@
 import sys
 import argparse
 import re
+from collections import defaultdict
 
 SEEN = set()
 
@@ -110,6 +111,7 @@ def sanitize_pos(pos):
 def convert(conll_file):
     sentences = []
     graphs = []
+    words = defaultdict(int)
     with open(conll_file) as conll_file:
         graph_data = {}
         graph_root = "0"
@@ -119,6 +121,7 @@ def convert(conll_file):
                 graphs.append(graph)
                 graph_data = {}
                 graph_root = "0"
+                words = defaultdict(int)
                 continue
             if line.startswith("# text ="):
                 sentence = line.split("=")[1]
@@ -129,14 +132,18 @@ def convert(conll_file):
 
             fields = line.split("\t")
             dep_word_id = fields[0]
+
             dep_word = sanitize_word(fields[1])
+            dep_word_unique = dep_word + "_" + str(words[dep_word])
+            words[dep_word] += 1
+
             tree_pos = sanitize_word(sanitize_pos(fields[4]))
             ud_pos = fields[3]
             root_word_id = fields[6]
             ud_edge = fields[7]
 
             make_default_structure(graph_data, dep_word_id)
-            graph_data[dep_word_id]["word"] = dep_word
+            graph_data[dep_word_id]["word"] = dep_word_unique
             graph_data[dep_word_id]["tree_pos"] = tree_pos
             graph_data[dep_word_id]["ud_pos"] = ud_pos
 
