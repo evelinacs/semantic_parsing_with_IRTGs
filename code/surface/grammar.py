@@ -53,7 +53,8 @@ def sanitize_word(word):
 
 
 def generate_terminals(fn):
-    TEMPLATE = ('{0} -> {1}_{2}_{0}\n[string] {1}\n[ud] "({1}_{2}<root> / {1}_{2})"\n')
+    TEMPLATE = (
+        '{0} -> {1}_{2}_{0}\n[string] {1}\n[ud] "({1}_{2}<root> / {1}_{2})"\n')
 
     with open(fn) as train_file:
         terminals = set()
@@ -66,7 +67,8 @@ def generate_terminals(fn):
                 word = sanitize_word(fields[1])
 
                 if ENGLISH_WORD.match(word):
-                    terminals.add(word + "_" + str(words[word]) + "_" + fields[3])
+                    terminals.add(
+                        word + "_" + str(words[word]) + "_" + fields[3])
                     words[word] += 1
             elif not line.strip():
                 words = defaultdict(int)
@@ -76,7 +78,7 @@ def generate_terminals(fn):
         print(TEMPLATE.format(t_field[2], t_field[0], t_field[1]))
 
 
-def generate_grammar(fn):
+def generate_grammar(fn, rules):
     start_rule_set = set()
     print("interpretation string: de.up.ling.irtg.algebra.StringAlgebra")
     print("interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra")
@@ -99,15 +101,43 @@ def generate_grammar(fn):
             if head:
                 start_rule_set.add(head)
             print_rules(head, dep_before, dep_after,
-                        counter, int(frequency)/freq_sums)
+                        counter, int(frequency), freq_sums, rules)
 
     print_start_rule(start_rule_set)
 
 
-def print_rules(h, d_before, d_after, counter, freq):
+def print_rules(h, d_before, d_after, counter, frequency, freq_sums, rules):
+    freq = frequency / freq_sums
     rewrite_rule = h + " -> rule_" + str(counter) + "(" + h + ","
     if not d_before and not d_after:
         return
+
+    id_to_graph = {}
+    id_to_edges = {}
+    id_to_nodes = {}
+    id_to_rules = {}
+    senid = 0
+
+    for graph in rules:
+        id_to_graph[senid] = graph
+
+        subgraph_nodes = []
+        subgraph_nodes.append(graph["root"])
+        subgraph_edges = []
+        subgraph_rules = []
+
+        for e in graph["graph"]:
+            subgraph_nodes.append(e["to"])
+            subgraph_edges.append(e["edge"])
+            if e['dir']:
+                subgraph_rules.append(
+                    {"root": graph["root"], "to": e["to"], "dir": e["dir"]})
+
+        id_to_nodes[senid] = sorted(subgraph_nodes)
+        id_to_edges[senid] = sorted(subgraph_edges)
+        id_to_rules[senid] = subgraph_rules
+        senid += 1
+
 
     before_nodes = []
     before_edges = []
@@ -128,6 +158,26 @@ def print_rules(h, d_before, d_after, counter, freq):
             after_nodes.append(n[0])
             after_edges.append(n[1])
 
+    conc_nodes = before_nodes + after_nodes
+    conc_nodes.append(h)
+    sorted_nodes = sorted(conc_nodes)
+    sorted_edges = sorted(before_edges + after_edges)
+
+    drop = False
+    found = False
+    for i in id_to_nodes:
+        if id_to_nodes[i] == sorted_nodes and id_to_edges[i] == sorted_edges:
+            found = True
+            for rule in id_to_rules[i]:
+                if rule["dir"] == "B" and rule["to"] not in before_nodes:
+                    drop = True
+                if rule["dir"] == "S" and rule["to"] not in after_nodes:
+                    drop = True
+    if not found:
+        return
+    if drop:
+        return
+
     rewrite_rule = rewrite_rule.strip(",")
     rewrite_rule += ") "
     rewrite_rule += "[" + str(freq) + "]"
@@ -136,12 +186,6 @@ def print_rules(h, d_before, d_after, counter, freq):
     generate_string_line(h, before_nodes, after_nodes)
     generate_graph_line(before_edges, after_edges)
     print()
-    #print("{} -> {}_{}_{}({}, {})".format(h, h, d, n, d, h))
-    #print("[string] *(?1,?2)")
-    #print('[ud] merge(f_dep(merge("(r<root> :{} (d<dep>))", r_dep(?1))),?2)'.format(n))
-    # print("\n")s
-
-# f_dep2(f_dep1(merge(merge(merge(?1,"(r<root> :compound (d1<dep1>) :punct (d2<dep2>))"), r_dep1(?2)), r_dep2(?3))))
 
 
 def generate_string_line(h, before_nodes, after_nodes):
