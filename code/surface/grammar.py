@@ -52,7 +52,7 @@ def sanitize_word(word):
     return word
 
 
-def generate_terminals(fn):
+def generate_terminals(fn, grammar_fn):
     TEMPLATE = (
         '{0} -> {1}_{2}_{0}\n[string] {1}\n[ud] "({1}_{2}<root> / {1}_{2})"\n')
 
@@ -75,14 +75,14 @@ def generate_terminals(fn):
 
     for terminal in terminals:
         t_field = terminal.split("_")
-        print(TEMPLATE.format(t_field[2], t_field[0], t_field[1]))
+        print(TEMPLATE.format(t_field[2], t_field[0], t_field[1]), file=grammar_fn)
 
 
-def generate_grammar(fn, rules):
+def generate_grammar(fn, rules, grammar_fn):
     start_rule_set = set()
-    print("interpretation string: de.up.ling.irtg.algebra.StringAlgebra")
-    print("interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra")
-    print("\n")
+    print("interpretation string: de.up.ling.irtg.algebra.StringAlgebra", file=grammar_fn)
+    print("interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra", file=grammar_fn)
+    print("\n", file=grammar_fn)
 
     with open(fn) as count_file:
         frequencies = [int(line.split("\t")[3]) for line in count_file]
@@ -100,13 +100,47 @@ def generate_grammar(fn, rules):
             #dep_name = fields[2].replace(":", "_")
             if head:
                 start_rule_set.add(head)
-            print_rules(head, dep_before, dep_after,
-                        counter, int(frequency), freq_sums, rules)
+            print_rules_constraint(head, dep_before, dep_after,
+                        counter, int(frequency), freq_sums, rules, grammar_fn)
 
-    print_start_rule(start_rule_set)
+    print_start_rule(start_rule_set, grammar_fn)
 
 
-def print_rules(h, d_before, d_after, counter, frequency, freq_sums, rules):
+def print_rules(h, d_before, d_after, counter, frequency, freq_sums, rules, grammar_fn):
+    freq = frequency / freq_sums
+    rewrite_rule = h + " -> rule_" + str(counter) + "(" + h + ","
+    if not d_before and not d_after:
+        return
+
+    before_nodes = []
+    before_edges = []
+    after_nodes = []
+    after_edges = []
+
+    if d_before:
+        for n in d_before.split("&"):
+            n = n.split("|")
+            rewrite_rule += n[0] + ","
+            before_nodes.append(n[0])
+            before_edges.append(n[1])
+
+    if d_after:
+        for n in d_after.split("&"):
+            n = n.split("|")
+            rewrite_rule += n[0] + ","
+            after_nodes.append(n[0])
+            after_edges.append(n[1])
+
+    rewrite_rule = rewrite_rule.strip(",")
+    rewrite_rule += ") "
+    rewrite_rule += "[" + str(freq) + "]"
+
+    print(rewrite_rule)
+    generate_string_line(h, before_nodes, after_nodes, grammar_fn)
+    generate_graph_line(before_edges, after_edges, grammar_fn)
+    print()
+
+def print_rules_constraint(h, d_before, d_after, counter, frequency, freq_sums, rules, grammar_fn):
     freq = frequency / freq_sums
     rewrite_rule = h + " -> rule_" + str(counter) + "(" + h + ","
     if not d_before and not d_after:
@@ -166,7 +200,8 @@ def print_rules(h, d_before, d_after, counter, frequency, freq_sums, rules):
     drop = False
     found = False
     for i in id_to_nodes:
-        if id_to_nodes[i] == sorted_nodes and id_to_edges[i] == sorted_edges:
+        if all(elem in id_to_nodes[i]  for elem in sorted_nodes) and all(elem in id_to_edges[i]  for elem in sorted_edges):
+        # if id_to_nodes[i] == sorted_nodes and id_to_edges[i] == sorted_edges:
             found = True
             for rule in id_to_rules[i]:
                 if rule["dir"] == "B" and rule["to"] not in before_nodes:
@@ -182,13 +217,13 @@ def print_rules(h, d_before, d_after, counter, frequency, freq_sums, rules):
     rewrite_rule += ") "
     rewrite_rule += "[" + str(freq) + "]"
 
-    print(rewrite_rule)
-    generate_string_line(h, before_nodes, after_nodes)
-    generate_graph_line(before_edges, after_edges)
-    print()
+    print(rewrite_rule, file=grammar_fn)
+    generate_string_line(h, before_nodes, after_nodes, grammar_fn)
+    generate_graph_line(before_edges, after_edges, grammar_fn)
+    print(file=grammar_fn)
 
 
-def generate_string_line(h, before_nodes, after_nodes):
+def generate_string_line(h, before_nodes, after_nodes, grammar_fn):
     string_temp = '[string] *({0})'
     nodes = []
     for i, node in enumerate(before_nodes):
@@ -217,10 +252,10 @@ def generate_string_line(h, before_nodes, after_nodes):
 
     string_line = string_temp.format(pairs[0] + "," + pairs[1])
 
-    print(string_line)
+    print(string_line, file=grammar_fn)
 
 
-def generate_graph_line(before_edges, after_edges):
+def generate_graph_line(before_edges, after_edges, grammar_fn):
     graph_line = "[ud] "
     edges = before_edges + after_edges
 
@@ -245,21 +280,14 @@ def generate_graph_line(before_edges, after_edges):
 
     for i in range(len(edges)):
         graph_line += ")"
-    print(graph_line)
+    print(graph_line, file=grammar_fn)
 
 
-def print_start_rule(s):
+def print_start_rule(s, grammar_fn):
     for i in s:
-        print("S! -> start_b_{}({}) [1.0]".format(i, i))
-        print("[string] ?1")
-        print("[ud] ?1")
-        print()
+        print("S! -> start_b_{}({}) [1.0]".format(i, i), file=grammar_fn)
+        print("[string] ?1", file=grammar_fn)
+        print("[ud] ?1", file=grammar_fn)
+        print(file=grammar_fn)
 
 
-def main(fn_grammar, fn_terminals):
-    generate_grammar(fn_grammar)
-    generate_terminals(fn_terminals)
-
-
-if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
