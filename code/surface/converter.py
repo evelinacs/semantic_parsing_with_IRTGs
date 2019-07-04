@@ -112,20 +112,26 @@ def convert(conll_file):
     sentences = []
     graphs = []
     words = defaultdict(int)
+    id_to_sentences = {}
+    id_to_graph = {}
     with open(conll_file) as conll_file:
         graph_data = {}
         graph_root = "0"
+        sen_id = 0
         for line in conll_file:
             if line == "\n":
                 graph = make_graph_string(graph_data, graph_root)
                 graphs.append(graph)
+                id_to_graph[sen_id] = graph
                 graph_data = {}
                 graph_root = "0"
                 words = defaultdict(int)
+                sen_id += 1
                 continue
             if line.startswith("# text ="):
                 sentence = line.split("=")[1]
                 graphs.append(line.strip())
+                id_to_sentences[sen_id] = line.strip()
                 continue
             elif line.startswith("#") or not line:
                 continue
@@ -165,6 +171,9 @@ def convert(conll_file):
     with open("ewt_sentences", "w") as f:
         for sentence in sentences:
             f.write(sentence + "\n")
+
+    return id_to_graph, id_to_sentences
+
 
 def main():
     args = get_args()

@@ -200,6 +200,11 @@ def print_rules_constraint(h, d_before, d_after, counter, frequency, freq_sums, 
     drop = False
     found = False
     for i in id_to_nodes:
+        if "nmod:poss" in sorted_edges:
+            print(id_to_nodes[i])
+            print(id_to_edges[i])
+            print(sorted_edges)
+            print(sorted_nodes)
         if all(elem in id_to_nodes[i]  for elem in sorted_nodes) and all(elem in id_to_edges[i]  for elem in sorted_edges):
         # if id_to_nodes[i] == sorted_nodes and id_to_edges[i] == sorted_edges:
             found = True
