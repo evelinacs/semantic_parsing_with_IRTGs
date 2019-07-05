@@ -75,13 +75,17 @@ def generate_terminals(fn, grammar_fn):
 
     for terminal in terminals:
         t_field = terminal.split("_")
-        print(TEMPLATE.format(t_field[2], t_field[0], t_field[1]), file=grammar_fn)
+        print(TEMPLATE.format(t_field[2],
+                              t_field[0], t_field[1]), file=grammar_fn)
 
 
 def generate_grammar(fn, rules, grammar_fn):
     start_rule_set = set()
-    print("interpretation string: de.up.ling.irtg.algebra.StringAlgebra", file=grammar_fn)
-    print("interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra", file=grammar_fn)
+    print("interpretation string: de.up.ling.irtg.algebra.StringAlgebra",
+          file=grammar_fn)
+    print(
+        "interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra",
+        file=grammar_fn)
     print("\n", file=grammar_fn)
 
     with open(fn) as count_file:
@@ -100,13 +104,28 @@ def generate_grammar(fn, rules, grammar_fn):
             #dep_name = fields[2].replace(":", "_")
             if head:
                 start_rule_set.add(head)
-            print_rules_constraint(head, dep_before, dep_after,
-                        counter, int(frequency), freq_sums, rules, grammar_fn)
+            print_rules_constraint(
+                head,
+                dep_before,
+                dep_after,
+                counter,
+                int(frequency),
+                freq_sums,
+                rules,
+                grammar_fn)
 
     print_start_rule(start_rule_set, grammar_fn)
 
 
-def print_rules(h, d_before, d_after, counter, frequency, freq_sums, rules, grammar_fn):
+def print_rules(
+        h,
+        d_before,
+        d_after,
+        counter,
+        frequency,
+        freq_sums,
+        rules,
+        grammar_fn):
     freq = frequency / freq_sums
     rewrite_rule = h + " -> rule_" + str(counter) + "(" + h + ","
     if not d_before and not d_after:
@@ -140,7 +159,16 @@ def print_rules(h, d_before, d_after, counter, frequency, freq_sums, rules, gram
     generate_graph_line(before_edges, after_edges, grammar_fn)
     print()
 
-def print_rules_constraint(h, d_before, d_after, counter, frequency, freq_sums, rules, grammar_fn):
+
+def print_rules_constraint(
+        h,
+        d_before,
+        d_after,
+        counter,
+        frequency,
+        freq_sums,
+        rules,
+        grammar_fn):
     freq = frequency / freq_sums
     rewrite_rule = h + " -> rule_" + str(counter) + "(" + h + ","
     if not d_before and not d_after:
@@ -172,7 +200,6 @@ def print_rules_constraint(h, d_before, d_after, counter, frequency, freq_sums, 
         id_to_rules[senid] = subgraph_rules
         senid += 1
 
-
     before_nodes = []
     before_edges = []
     after_nodes = []
@@ -197,16 +224,25 @@ def print_rules_constraint(h, d_before, d_after, counter, frequency, freq_sums, 
     sorted_nodes = sorted(conc_nodes)
     sorted_edges = sorted(before_edges + after_edges)
 
+    sorted_nodes_counter = defaultdict(int)
+
+    for node in sorted_nodes:
+        sorted_nodes_counter[node] += 1
+
     drop = False
     found = False
     for i in id_to_nodes:
-        if "nmod:poss" in sorted_edges:
-            print(id_to_nodes[i])
-            print(id_to_edges[i])
-            print(sorted_edges)
-            print(sorted_nodes)
-        if all(elem in id_to_nodes[i]  for elem in sorted_nodes) and all(elem in id_to_edges[i]  for elem in sorted_edges):
-        # if id_to_nodes[i] == sorted_nodes and id_to_edges[i] == sorted_edges:
+        rule_nodes_counter = defaultdict(int)
+        for elem in id_to_nodes[i]:
+            rule_nodes_counter[elem] += 1
+
+        if all(
+            elem in id_to_nodes[i] for elem in sorted_nodes) and all(
+            elem in id_to_edges[i] for elem in sorted_edges) and all(
+                rule_nodes_counter[elem] >= sorted_nodes_counter[elem] for elem in sorted_nodes):
+
+            # if id_to_nodes[i] == sorted_nodes and id_to_edges[i] ==
+            # sorted_edges:
             found = True
             for rule in id_to_rules[i]:
                 if rule["dir"] == "B" and rule["to"] not in before_nodes:
@@ -246,11 +282,11 @@ def generate_string_line(h, before_nodes, after_nodes, grammar_fn):
         if len(pairs) % 2 == 0:
             for n in range(1, len(pairs), 2):
                 copy_pairs.append(
-                    "*(" + str(pairs[n-1]) + "," + str(pairs[n]) + ")")
+                    "*(" + str(pairs[n - 1]) + "," + str(pairs[n]) + ")")
         elif len(pairs) % 2 == 1:
             for n in range(1, len(pairs), 2):
                 copy_pairs.append(
-                    "*(" + str(pairs[n-1]) + "," + str(pairs[n]) + ")")
+                    "*(" + str(pairs[n - 1]) + "," + str(pairs[n]) + ")")
             copy_pairs.append(pairs[-1])
 
         pairs = copy_pairs
@@ -294,5 +330,3 @@ def print_start_rule(s, grammar_fn):
         print("[string] ?1", file=grammar_fn)
         print("[ud] ?1", file=grammar_fn)
         print(file=grammar_fn)
-
-
