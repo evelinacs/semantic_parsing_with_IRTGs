@@ -219,6 +219,7 @@ def print_rules_constraint(
             after_nodes.append(n[0])
             after_edges.append(n[1])
 
+
     conc_nodes = before_nodes + after_nodes
     conc_nodes.append(h)
     sorted_nodes = sorted(conc_nodes)
@@ -244,11 +245,16 @@ def print_rules_constraint(
             # if id_to_nodes[i] == sorted_nodes and id_to_edges[i] ==
             # sorted_edges:
             found = True
+            drop = True
             for rule in id_to_rules[i]:
-                if rule["dir"] == "B" and rule["to"] not in before_nodes:
-                    drop = True
-                if rule["dir"] == "S" and rule["to"] not in after_nodes:
-                    drop = True
+                if rule["dir"] == "B":
+                    for ind, n in enumerate(before_nodes):
+                        if n == rule["to"] and before_edges[ind] == rule['edge']:
+                            drop = False
+                if rule["dir"] == "S":
+                     for ind, n in enumerate(after_nodes):
+                        if n == rule["to"] and after_edges[ind] == rule['edge']:
+                            drop = False
     if not found:
         return
     if drop:
