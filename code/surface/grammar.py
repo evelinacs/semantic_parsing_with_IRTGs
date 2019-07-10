@@ -193,7 +193,7 @@ def print_rules_constraint(
             subgraph_edges.append(e["edge"])
             if e['dir']:
                 subgraph_rules.append(
-                    {"root": graph["root"], "to": e["to"], "dir": e["dir"]})
+                        {"root": graph["root"], "to": e["to"], "dir": e["dir"], "edge": e["edge"]})
 
         id_to_nodes[senid] = sorted(subgraph_nodes)
         id_to_edges[senid] = sorted(subgraph_edges)
