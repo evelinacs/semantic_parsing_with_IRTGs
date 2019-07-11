@@ -230,7 +230,7 @@ def print_rules_constraint(
     for node in sorted_nodes:
         sorted_nodes_counter[node] += 1
 
-    drop = False
+    drop = True
     found = False
     for i in id_to_nodes:
         rule_nodes_counter = defaultdict(int)
@@ -245,7 +245,6 @@ def print_rules_constraint(
             # if id_to_nodes[i] == sorted_nodes and id_to_edges[i] ==
             # sorted_edges:
             found = True
-            drop = True
             for rule in id_to_rules[i]:
                 if rule["dir"] == "B":
                     for ind, n in enumerate(before_nodes):
