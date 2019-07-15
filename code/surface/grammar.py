@@ -160,6 +160,22 @@ def print_rules(
     print()
 
 
+def remove_bidirection(subgraphs):
+    graphs_with_dirs = {}
+    id_to_direction = {}
+
+    for i,graph in enumerate(subgraphs):
+        dict_key = tuple(sorted(graph.items()))[1:]
+        if dict_key not in graphs_with_dirs:
+            graphs_with_dirs[dict_key] = i
+            id_to_direction[i] = graph["dir"]
+        else:
+            graph_id = graphs_with_dirs[dict_key]
+            if id_to_direction[graph_id] != graph["dir"]:
+                graph["dir"] = None
+                subgraphs[graph_id]["dir"] = None
+
+
 def print_rules_constraint(
         h,
         d_before,
@@ -194,6 +210,8 @@ def print_rules_constraint(
             if e['dir']:
                 subgraph_rules.append(
                         {"root": graph["root"], "to": e["to"], "dir": e["dir"], "edge": e["edge"]})
+
+        remove_bidirection(subgraph_rules)
 
         id_to_nodes[senid] = sorted(subgraph_nodes)
         id_to_edges[senid] = sorted(subgraph_edges)
