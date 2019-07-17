@@ -11,6 +11,7 @@ REPLACE_MAP = {
     ".": "PERIOD",
     ";": "SEMICOLON",
     "-": "HYPHEN",
+    "_": "DASH"
     "[": "LSB",
     "]": "RSB",
     "(": "LRB",
@@ -65,7 +66,6 @@ def generate_terminals(fn, grammar_fn):
             if line.strip():
                 fields = line.split("\t")
                 word = sanitize_word(fields[1])
-
                 if ENGLISH_WORD.match(word):
                     terminals.add(
                         word + "_" + str(words[word]) + "_" + fields[3])
