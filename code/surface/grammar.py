@@ -11,7 +11,7 @@ REPLACE_MAP = {
     ".": "PERIOD",
     ";": "SEMICOLON",
     "-": "HYPHEN",
-    "_": "DASH"
+    "_": "DASH",
     "[": "LSB",
     "]": "RSB",
     "(": "LRB",
