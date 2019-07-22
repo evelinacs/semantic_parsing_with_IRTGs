@@ -53,6 +53,42 @@ def sanitize_word(word):
     return word
 
 
+def get_conll_from_file(fn):
+    id_to_conll = defaultdict(dict)
+
+    sentences = 0
+    with open(fn, "r") as f:
+        for line in f:
+            if line == "\n":
+                sentences += 1
+            if line.startswith("#"):
+                continue
+            if line != "\n":
+                fields = line.split("\t")
+                word_id = fields[0]
+                lemma = fields[1]
+                word = fields[2]
+                tree_pos = fields[3]
+                ud_pos = fields[4]
+                mor = fields[5]
+                head = fields[6]
+                ud_edge = fields[7]
+                comp_edge = fields[8]
+                space_after = fields[9]
+                
+                id_to_conll[sentences][word_id] = [lemma, word, tree_pos, ud_pos,  mor, head, ud_edge, comp_edge, space_after]
+
+    return id_to_conll
+
+
+def generate_terminal_ids(conll, grammar_fn):
+    TEMPLATE = (
+        '{0} -> {0}_{1}\n[string] {0}_{1}\n[ud] "({0}_{1}<root> / {0}_{1})"\n')
+
+    for w_id in conll:
+        print(TEMPLATE.format(conll[w_id][2], w_id), file=grammar_fn)
+
+
 def generate_terminals(fn, grammar_fn):
     TEMPLATE = (
         '{0} -> {1}_{2}_{0}\n[string] {1}\n[ud] "({1}_{2}<root> / {1}_{2})"\n')
@@ -160,20 +196,21 @@ def print_rules(
     print()
 
 
-def remove_bidirection(subgraphs):
+def remove_bidirection(id_to_rules):
     graphs_with_dirs = {}
     id_to_direction = {}
 
-    for i,graph in enumerate(subgraphs):
-        dict_key = tuple(sorted(graph.items()))[1:]
-        if dict_key not in graphs_with_dirs:
-            graphs_with_dirs[dict_key] = i
-            id_to_direction[i] = graph["dir"]
-        else:
-            graph_id = graphs_with_dirs[dict_key]
-            if id_to_direction[graph_id] != graph["dir"]:
-                graph["dir"] = None
-                subgraphs[graph_id]["dir"] = None
+    for ind in id_to_rules:
+        for i,graph in enumerate(id_to_rules[ind]):
+            dict_key = tuple(sorted(graph.items()))[1:]
+            if dict_key not in graphs_with_dirs:
+                graphs_with_dirs[dict_key] = (ind,i)
+                id_to_direction[(ind,i)] = graph["dir"]
+            else:
+                graph_id = graphs_with_dirs[dict_key]
+                if id_to_direction[graph_id] != graph["dir"]:
+                    id_to_rules[ind][i]["dir"] = None
+                    id_to_rules[graph_id[0]][graph_id[1]]["dir"] = None
 
 
 def print_rules_constraint(
@@ -211,12 +248,12 @@ def print_rules_constraint(
                 subgraph_rules.append(
                         {"root": graph["root"], "to": e["to"], "dir": e["dir"], "edge": e["edge"]})
 
-        remove_bidirection(subgraph_rules)
-
         id_to_nodes[senid] = sorted(subgraph_nodes)
         id_to_edges[senid] = sorted(subgraph_edges)
         id_to_rules[senid] = subgraph_rules
         senid += 1
+
+    remove_bidirection(id_to_rules)
 
     before_nodes = []
     before_edges = []

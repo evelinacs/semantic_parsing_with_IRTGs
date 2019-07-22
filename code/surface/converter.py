@@ -81,6 +81,16 @@ def print_output(graph_data, graph_root):
     print(make_graph_string(graph_data, graph_root))
 
 
+def make_id_graph(graph_data, word_id):
+    graph_string = "({1}_{0} / {1}_{0}".format(str(word_id), graph_data[word_id]["tree_pos"])
+    for other_id in graph_data[word_id]["deps"]:
+        edge = graph_data[word_id]["deps"][other_id]
+        graph_string += ' :{0} '.format(edge.replace(':', '_'))
+        graph_string += make_id_graph(graph_data, other_id)
+    graph_string += ")"
+    return graph_string
+
+
 def make_graph_string(graph_data, word_id):
     graph_string = "({0} / {0}".format(graph_data[word_id]["word"])
     for other_id in graph_data[word_id]["deps"]:
@@ -115,6 +125,7 @@ def convert(conll_file):
     words = defaultdict(int)
     id_to_sentences = {}
     id_to_graph = {}
+    id_to_idgraph = {}
     with open(conll_file) as conll_file:
         graph_data = {}
         graph_root = "0"
@@ -122,8 +133,10 @@ def convert(conll_file):
         for line in conll_file:
             if line == "\n":
                 graph = make_graph_string(graph_data, graph_root)
+                id_graph = make_id_graph(graph_data, graph_root)
                 graphs.append(graph)
                 id_to_graph[sen_id] = graph
+                id_to_idgraph[sen_id] = id_graph
                 graph_data = {}
                 graph_root = "0"
                 words = defaultdict(int)
@@ -144,8 +157,8 @@ def convert(conll_file):
             dep_word_unique = dep_word + "_" + str(words[dep_word])
             words[dep_word] += 1
 
-            tree_pos = sanitize_word(sanitize_pos(fields[4]))
-            ud_pos = fields[3]
+            tree_pos = sanitize_word(sanitize_pos(fields[3]))
+            ud_pos = fields[4]
             root_word_id = fields[6]
             ud_edge = fields[7]
 
@@ -164,6 +177,7 @@ def convert(conll_file):
                 graph_data[root_word_id]["deps"][dep_word_id] = ud_edge
             else:
                 graph_root = dep_word_id
+
     with open("ewt_graphs", "w") as f:
         f.write("# IRTG unannotated corpus file, v1.0\n")
         f.write("# interpretation ud: de.up.ling.irtg.algebra.graph.GraphAlgebra\n")
@@ -173,7 +187,7 @@ def convert(conll_file):
         for sentence in sentences:
             f.write(sentence + "\n")
 
-    return id_to_graph, id_to_sentences
+    return id_to_graph, id_to_sentences, id_to_idgraph
 
 
 def main():
