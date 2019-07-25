@@ -77,6 +77,70 @@ def make_default_structure(graph_data, word_id):
         }
 
 
+def extract_rules(dev):
+    graph_data = {}
+    noun_list = []
+    id_to_rules = defaultdict(list)
+    id_to_sentence = {}
+    sentences = 0
+    with open(dev, "r") as f:
+        for i,line in enumerate(f):            
+            if line == "\n":
+                words = []
+                for w in graph_data:
+                    words.append(graph_data[w]["word"])
+                    subgraphs = {"root": None, "graph": []}
+                    rules = []
+                    if "tree_pos" not in graph_data[w]:
+                        continue
+                    
+                    subgraphs["root"] = graph_data[w]["tree_pos"]
+                    
+                    for dep in graph_data[w]["deps"]:                        
+                        edge_dep = graph_data[w]["deps"][dep]
+                        to_pos = graph_data[dep]["tree_pos"]
+                        mor = graph_data[dep]["mor"]
+                            
+                        if "tree_pos" in graph_data[w]:
+                            if "lin=+" in mor:
+                                subgraphs["graph"].append({"to":to_pos, "edge":edge_dep.replace(":", "_"), "dir":"S"})
+                            elif "lin=-" in mor:
+                                subgraphs["graph"].append({"to":to_pos, "edge":edge_dep.replace(":", "_"), "dir":"B"})
+                            else:
+                                subgraphs["graph"].append({"to":to_pos, "edge":edge_dep.replace(":", "_"), "dir":None})
+
+                    id_to_rules[sentences].append(subgraphs)
+                graph_data = {}
+                noun_list = []
+                sentences += 1
+                continue
+            if line.startswith("# text"):
+                id_to_sentence[sentences] = line.strip()
+            if line.startswith("#"):
+                continue
+            if line != "\n":
+                fields = line.split("\t")
+                word_id = fields[0]
+                lemma = fields[1]
+                word = fields[2]
+                tree_pos = fields[3]
+                ud_pos = fields[4]
+                mor = fields[5]
+                head = fields[6]
+                ud_edge = fields[7]
+                comp_edge = fields[8]
+                space_after = fields[9]
+                
+                make_default_structure(graph_data, word_id)
+                graph_data[word_id]["word"] = lemma
+                graph_data[word_id]["tree_pos"] = tree_pos
+                graph_data[word_id]["mor"] = mor
+
+                make_default_structure(graph_data, head)
+                graph_data[head]["deps"][word_id] = ud_edge
+    return id_to_rules, id_to_sentence
+
+
 def print_output(graph_data, graph_root):
     print(make_graph_string(graph_data, graph_root))
 
