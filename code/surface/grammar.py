@@ -89,13 +89,14 @@ def add_unseen_rules(grammar, fn_dev):
                 word_id = fields[0]
                 word = fields[1]
                 tree_pos = fields[3]
+                ud_pos = fields[4]
                 mor = fields[5]
                 head = fields[6]
                 ud_edge = fields[7]
 
                 make_default_structure(graph_data, word_id)
                 graph_data[word_id]["word"] = word
-                graph_data[word_id]["tree_pos"] = tree_pos
+                graph_data[word_id]["tree_pos"] = sanitize_word(ud_pos)
                 graph_data[word_id]["mor"] = mor
 
                 make_default_structure(graph_data, head)
@@ -154,13 +155,14 @@ def train(fn_train, fn_dev):
                 word_id = fields[0]
                 word = fields[1]
                 tree_pos = fields[3]
-                mor = fields[4]
+                ud_pos = fields[4]
+                mor = fields[5]
                 head = fields[6]
                 ud_edge = fields[7]
 
                 make_default_structure(graph_data, word_id)
                 graph_data[word_id]["word"] = word
-                graph_data[word_id]["tree_pos"] = tree_pos
+                graph_data[word_id]["tree_pos"] = sanitize_word(ud_pos)
                 graph_data[word_id]["mor"] = mor
 
                 make_default_structure(graph_data, head)
@@ -220,7 +222,7 @@ def generate_terminal_ids(conll, grammar_fn):
         '{0} -> {0}_{1}\n[string] {0}_{1}\n[ud] "({0}_{1}<root> / {0}_{1})"\n')
 
     for w_id in conll:
-        print(TEMPLATE.format(conll[w_id][2], w_id), file=grammar_fn)
+        print(TEMPLATE.format(sanitize_word(conll[w_id][3]), w_id), file=grammar_fn)
 
 
 def generate_terminals(fn, grammar_fn):

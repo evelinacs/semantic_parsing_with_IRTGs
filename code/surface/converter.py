@@ -133,7 +133,7 @@ def extract_rules(dev):
                 
                 make_default_structure(graph_data, word_id)
                 graph_data[word_id]["word"] = lemma
-                graph_data[word_id]["tree_pos"] = tree_pos
+                graph_data[word_id]["tree_pos"] = sanitize_word(ud_pos)
                 graph_data[word_id]["mor"] = mor
 
                 make_default_structure(graph_data, head)
@@ -146,7 +146,7 @@ def print_output(graph_data, graph_root):
 
 
 def make_id_graph(graph_data, word_id):
-    graph_string = "({1}_{0} / {1}_{0}".format(str(word_id), graph_data[word_id]["tree_pos"])
+    graph_string = "({1}_{0} / {1}_{0}".format(str(word_id), graph_data[word_id]["ud_pos"])
     for other_id in graph_data[word_id]["deps"]:
         edge = graph_data[word_id]["deps"][other_id]
         graph_string += ' :{0} '.format(edge.replace(':', '_'))
@@ -229,7 +229,7 @@ def convert(conll_file):
             make_default_structure(graph_data, dep_word_id)
             graph_data[dep_word_id]["word"] = dep_word_unique
             graph_data[dep_word_id]["tree_pos"] = tree_pos
-            graph_data[dep_word_id]["ud_pos"] = ud_pos
+            graph_data[dep_word_id]["ud_pos"] = sanitize_word(ud_pos)
 
             """
             for the head; store the edges with the head of the dependency
