@@ -67,15 +67,20 @@ def add_unseen_rules(grammar, fn_dev):
                         if "tree_pos" in graph_data[w]:
                             line_key_before = graph_data[w]["tree_pos"] + ">" + to_pos + "|" + edge_dep + "&>"
                             line_key_after = graph_data[w]["tree_pos"] + ">>" + to_pos + "|" + edge_dep + "&"
-                            
+                           
+                            if "lin=+" in mor and line_key_after in grammar:
+                                grammar[line_key_after] += 1
+                            elif "lin=-" in mor and line_key_before in grammar:
+                                grammar[line_key_before] += 1
+
                             if line_key_before not in grammar and line_key_after not in grammar:
                                 if "lin=+" in mor:
                                     grammar[line_key_after] = 1
                                 elif "lin=-" in mor:
-                                    grammar[line_key_before] = 1
+                                    grammar[line_key_before] = 1                              
                                 else:
-                                    grammar[line_key_after] = 1
                                     grammar[line_key_before] = 1
+                                    grammar[line_key_after] = 1
                             elif line_key_before not in grammar:
                                 grammar[line_key_before] = 1
                             elif line_key_after not in grammar:
@@ -439,15 +444,15 @@ def print_rules_constraint(
             for rule in id_to_rules[i]:
                 if rule["dir"] == "B":
                     for ind, n in enumerate(after_nodes):
-                        if n == rule["to"] and after_edges[ind] == rule['edge']:
+                        if n == rule["to"] and h == rule['root'] and after_edges[ind] == rule['edge']:
                             drop = True
                 if rule["dir"] == "S":
                      for ind, n in enumerate(before_nodes):
-                        if n == rule["to"] and before_edges[ind] == rule['edge']:
+                        if n == rule["to"] and h == rule['root'] and before_edges[ind] == rule['edge']:
                             drop = True
-    if not found:
+    if not found and rules:
         return
-    if drop:
+    if drop and rules:
         return
 
     rewrite_rule = rewrite_rule.strip(",")
