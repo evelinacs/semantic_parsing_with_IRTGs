@@ -1,5 +1,6 @@
 import sys
 import argparse
+import os
 import re
 from collections import defaultdict
 
@@ -76,6 +77,37 @@ def make_default_structure(graph_data, word_id):
             "deps": {},
         }
 
+
+def to_tokenized_output(result_dir, output_dir):
+    for filename in os.listdir(result_dir):
+        result_filename = os.path.join(result_dir, filename)
+        output_filename = os.path.join(output_dir, filename)
+        sentences = []
+        current_sentence = []
+        with open(result_filename, "r") as f:
+            for i,line in enumerate(f):            
+                if line == "\n":
+                    sen = " ".join(current_sentence)
+                    current_sentence = []
+                    sentences.append(sen)
+                if line.startswith("#"):
+                    continue
+                if line != "\n":
+                    fields = line.split("\t")
+                    word_id = fields[0]
+                    word = fields[2]
+                    current_sentence.append(word)
+                    
+        with open(output_filename, "w") as f:
+            for i,sentence in enumerate(sentences):
+                #if i > 942:
+                    #f.write("#sent_id = " + str(i-943+1) + "\n")
+                    #f.write("# text = " + sentence + "\n")
+                    #f.write("\n")
+                f.write("#sent_id = " + str(i+1) + "\n")
+                f.write("# text = " + sentence + "\n")
+                f.write("\n")
+        
 
 def extract_rules(dev):
     graph_data = {}

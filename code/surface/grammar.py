@@ -108,7 +108,66 @@ def add_unseen_rules(grammar, fn_dev):
                 graph_data[head]["deps"][word_id] = ud_edge
 
 
-def train(fn_train, fn_dev):
+def train_edges(fn_train, fn_dev):
+    graph_data = {}
+    pos_to_count = defaultdict(lambda:1)
+
+    with open(fn_train, "r") as f:
+        for i,line in enumerate(f):
+            if line.startswith("#"):
+                continue
+            if line == "\n":
+                for w in graph_data:
+                    for dep in graph_data[w]["deps"]:
+                        if "tree_pos" in graph_data[w]:
+                            line_key = ""
+                            line_key += graph_data[w]["tree_pos"] + ">"
+                    
+                            if int(dep) < int(w):
+                                edge = graph_data[w]["deps"][dep]
+                                pos = graph_data[dep]["tree_pos"]
+                                line_key += pos + "|" + edge + "&"
+                                line_key += ">"
+                                pos_to_count[line_key] += 1
+                            elif int(dep) > int(w):
+                                edge = graph_data[w]["deps"][dep]
+                                pos = graph_data[dep]["tree_pos"]
+                                line_key += ">"
+                                line_key += pos + "|" + edge + "&"
+                                pos_to_count[line_key] += 1
+
+                graph_data = {}
+                continue
+            if line != "\n":
+                fields = line.split("\t")
+                word_id = fields[0]
+                word = fields[1]
+                tree_pos = fields[3]
+                ud_pos = fields[4]
+                mor = fields[5]
+                head = fields[6]
+                ud_edge = fields[7]
+
+                make_default_structure(graph_data, word_id)
+                graph_data[word_id]["word"] = word
+                graph_data[word_id]["tree_pos"] = sanitize_word(ud_pos)
+                graph_data[word_id]["mor"] = mor
+
+                make_default_structure(graph_data, head)
+                graph_data[head]["deps"][word_id] = ud_edge            
+                
+    sorted_x = sorted(pos_to_count.items(), key=operator.itemgetter(1), reverse=True)
+    sorted_dict = OrderedDict(sorted_x)
+    add_unseen_rules(sorted_dict, fn_dev)
+    with open("train_edges", "w") as out_f:
+        for pos in sorted_dict:
+            w_from = pos.split(">")[0]
+            w_before = pos.split(">")[1]
+            w_after = pos.split(">")[2]
+            out_f.write(w_from + "\t" + w_before.strip("&") + "\t" + w_after.strip("&") + "\t" + str(pos_to_count[pos]) + "\n")
+
+           
+def train_subgraphs(fn_train, fn_dev):
     graph_data = {}
     noun_list = []
     pos_to_count = defaultdict(lambda:1)
@@ -176,7 +235,7 @@ def train(fn_train, fn_dev):
     sorted_x = sorted(pos_to_count.items(), key=operator.itemgetter(1), reverse=True)
     sorted_dict = OrderedDict(sorted_x)
     add_unseen_rules(sorted_dict, fn_dev)
-    with open("train_grammar", "w") as out_f:
+    with open("train_subgraphs", "w") as out_f:
         for pos in sorted_dict:
             w_from = pos.split(">")[0]
             w_before = pos.split(">")[1]
