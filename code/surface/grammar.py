@@ -1,7 +1,8 @@
 import sys
 import re
 import copy
-from collections import defaultdict
+import operator
+from collections import defaultdict, OrderedDict
 
 ENGLISH_WORD = re.compile("^[a-zA-Z0-9]*$")
 
@@ -11,6 +12,7 @@ REPLACE_MAP = {
     ".": "PERIOD",
     ";": "SEMICOLON",
     "-": "HYPHEN",
+    "_": "DASH",
     "[": "LSB",
     "]": "RSB",
     "(": "LRB",
@@ -42,6 +44,205 @@ REPLACE_MAP = {
 KEYWORDS = set(["feature"])
 
 
+def make_default_structure(graph_data, word_id):
+    if word_id not in graph_data:
+        graph_data[word_id] = {
+            "word": "",
+            "deps": {},
+        }
+
+
+def add_unseen_rules(grammar, fn_dev):
+    graph_data = {}
+    noun_list = []
+    with open(fn_dev, "r") as f:
+        for i,line in enumerate(f):            
+            if line == "\n":
+                for w in graph_data:
+                    for dep in graph_data[w]["deps"]:
+                        edge_dep = graph_data[w]["deps"][dep]
+                        to_pos = graph_data[dep]["tree_pos"]
+                        mor = graph_data[dep]["mor"]
+                            
+                        if "tree_pos" in graph_data[w]:
+                            line_key_before = graph_data[w]["tree_pos"] + ">" + to_pos + "|" + edge_dep + "&>"
+                            line_key_after = graph_data[w]["tree_pos"] + ">>" + to_pos + "|" + edge_dep + "&"
+                           
+                            if "lin=+" in mor and line_key_after in grammar:
+                                grammar[line_key_after] += 1
+                            elif "lin=-" in mor and line_key_before in grammar:
+                                grammar[line_key_before] += 1
+
+                            if line_key_before not in grammar and line_key_after not in grammar:
+                                if "lin=+" in mor:
+                                    grammar[line_key_after] = 1
+                                elif "lin=-" in mor:
+                                    grammar[line_key_before] = 1                              
+                                else:
+                                    grammar[line_key_before] = 1
+                                    grammar[line_key_after] = 1
+                            elif line_key_before not in grammar:
+                                grammar[line_key_before] = 1
+                            elif line_key_after not in grammar:
+                                grammar[line_key_after] = 1
+
+                graph_data = {}
+                noun_list = []
+                continue
+            if line != "\n":
+                fields = line.split("\t")
+                word_id = fields[0]
+                word = fields[1]
+                tree_pos = fields[3]
+                ud_pos = fields[4]
+                mor = fields[5]
+                head = fields[6]
+                ud_edge = fields[7]
+
+                make_default_structure(graph_data, word_id)
+                graph_data[word_id]["word"] = word
+                graph_data[word_id]["tree_pos"] = sanitize_word(ud_pos)
+                graph_data[word_id]["mor"] = mor
+
+                make_default_structure(graph_data, head)
+                graph_data[head]["deps"][word_id] = ud_edge
+
+
+def train_edges(fn_train, fn_dev):
+    graph_data = {}
+    pos_to_count = defaultdict(lambda:1)
+
+    with open(fn_train, "r") as f:
+        for i,line in enumerate(f):
+            if line.startswith("#"):
+                continue
+            if line == "\n":
+                for w in graph_data:
+                    for dep in graph_data[w]["deps"]:
+                        if "tree_pos" in graph_data[w]:
+                            line_key = ""
+                            line_key += graph_data[w]["tree_pos"] + ">"
+                    
+                            if int(dep) < int(w):
+                                edge = graph_data[w]["deps"][dep]
+                                pos = graph_data[dep]["tree_pos"]
+                                line_key += pos + "|" + edge + "&"
+                                line_key += ">"
+                                pos_to_count[line_key] += 1
+                            elif int(dep) > int(w):
+                                edge = graph_data[w]["deps"][dep]
+                                pos = graph_data[dep]["tree_pos"]
+                                line_key += ">"
+                                line_key += pos + "|" + edge + "&"
+                                pos_to_count[line_key] += 1
+
+                graph_data = {}
+                continue
+            if line != "\n":
+                fields = line.split("\t")
+                word_id = fields[0]
+                word = fields[1]
+                tree_pos = fields[3]
+                ud_pos = fields[4]
+                mor = fields[5]
+                head = fields[6]
+                ud_edge = fields[7]
+
+                make_default_structure(graph_data, word_id)
+                graph_data[word_id]["word"] = word
+                graph_data[word_id]["tree_pos"] = sanitize_word(ud_pos)
+                graph_data[word_id]["mor"] = mor
+
+                make_default_structure(graph_data, head)
+                graph_data[head]["deps"][word_id] = ud_edge            
+                
+    sorted_x = sorted(pos_to_count.items(), key=operator.itemgetter(1), reverse=True)
+    sorted_dict = OrderedDict(sorted_x)
+    add_unseen_rules(sorted_dict, fn_dev)
+    with open("train_edges", "w") as out_f:
+        for pos in sorted_dict:
+            w_from = pos.split(">")[0]
+            w_before = pos.split(">")[1]
+            w_after = pos.split(">")[2]
+            out_f.write(w_from + "\t" + w_before.strip("&") + "\t" + w_after.strip("&") + "\t" + str(pos_to_count[pos]) + "\n")
+
+           
+def train_subgraphs(fn_train, fn_dev):
+    graph_data = {}
+    noun_list = []
+    pos_to_count = defaultdict(lambda:1)
+
+    with open(fn_train, "r") as f:
+        for i,line in enumerate(f):
+            if line.startswith("#"):
+                continue
+            if line == "\n":
+                for w in graph_data:
+                    nodes_before = []
+                    nodes_after = []
+                    for dep in graph_data[w]["deps"]:
+                        if "tree_pos" in graph_data[w]:
+                            if int(dep) < int(w):
+                                nodes_before.append(int(dep))
+                            elif int(dep) > int(w):
+                                nodes_after.append(int(dep))
+                    
+                    s_nodes_before = sorted(nodes_before)
+                    s_nodes_after = sorted(nodes_after)
+                    
+                    line_key = ""
+                    if "tree_pos" not in graph_data[w]:
+                        line_key += ">"
+                    else:
+                        line_key += graph_data[w]["tree_pos"] + ">"
+                    
+                    for n in s_nodes_before:
+                        n = str(n)
+                        edge = graph_data[w]["deps"][n]
+                        pos = graph_data[n]["tree_pos"]
+                        line_key += pos + "|" + edge + "&"
+                    line_key += ">"
+                    
+                    for n in s_nodes_after:
+                        n = str(n)
+                        edge = graph_data[w]["deps"][n]
+                        pos = graph_data[n]["tree_pos"]
+                        line_key += pos + "|" + edge + "&"
+                        
+                    pos_to_count[line_key] += 1
+                    
+                graph_data = {}
+                noun_list = []
+                continue
+            if line != "\n":
+                fields = line.split("\t")
+                word_id = fields[0]
+                word = fields[1]
+                tree_pos = fields[3]
+                ud_pos = fields[4]
+                mor = fields[5]
+                head = fields[6]
+                ud_edge = fields[7]
+
+                make_default_structure(graph_data, word_id)
+                graph_data[word_id]["word"] = word
+                graph_data[word_id]["tree_pos"] = sanitize_word(ud_pos)
+                graph_data[word_id]["mor"] = mor
+
+                make_default_structure(graph_data, head)
+                graph_data[head]["deps"][word_id] = ud_edge            
+                
+    sorted_x = sorted(pos_to_count.items(), key=operator.itemgetter(1), reverse=True)
+    sorted_dict = OrderedDict(sorted_x)
+    add_unseen_rules(sorted_dict, fn_dev)
+    with open("train_subgraphs", "w") as out_f:
+        for pos in sorted_dict:
+            w_from = pos.split(">")[0]
+            w_before = pos.split(">")[1]
+            w_after = pos.split(">")[2]
+            out_f.write(w_from + "\t" + w_before.strip("&") + "\t" + w_after.strip("&") + "\t" + str(pos_to_count[pos]) + "\n")
+
+
 def sanitize_word(word):
     for pattern, target in REPLACE_MAP.items():
         word = word.replace(pattern, target)
@@ -50,6 +251,42 @@ def sanitize_word(word):
     if word in KEYWORDS:
         word = word.upper()
     return word
+
+
+def get_conll_from_file(fn):
+    id_to_conll = defaultdict(dict)
+
+    sentences = 0
+    with open(fn, "r") as f:
+        for line in f:
+            if line == "\n":
+                sentences += 1
+            if line.startswith("#"):
+                continue
+            if line != "\n":
+                fields = line.split("\t")
+                word_id = fields[0]
+                lemma = fields[1]
+                word = fields[2]
+                tree_pos = fields[3]
+                ud_pos = fields[4]
+                mor = fields[5]
+                head = fields[6]
+                ud_edge = fields[7]
+                comp_edge = fields[8]
+                space_after = fields[9]
+                
+                id_to_conll[sentences][word_id] = [lemma, word, tree_pos, ud_pos,  mor, head, ud_edge, comp_edge, space_after]
+
+    return id_to_conll
+
+
+def generate_terminal_ids(conll, grammar_fn):
+    TEMPLATE = (
+        '{0} -> {0}_{1}\n[string] {0}_{1}\n[ud] "({0}_{1}<root> / {0}_{1})"\n')
+
+    for w_id in conll:
+        print(TEMPLATE.format(sanitize_word(conll[w_id][3]), w_id), file=grammar_fn)
 
 
 def generate_terminals(fn, grammar_fn):
@@ -65,7 +302,6 @@ def generate_terminals(fn, grammar_fn):
             if line.strip():
                 fields = line.split("\t")
                 word = sanitize_word(fields[1])
-
                 if ENGLISH_WORD.match(word):
                     terminals.add(
                         word + "_" + str(words[word]) + "_" + fields[3])
@@ -160,6 +396,23 @@ def print_rules(
     print()
 
 
+def remove_bidirection(id_to_rules):
+    graphs_with_dirs = {}
+    id_to_direction = {}
+
+    for ind in id_to_rules:
+        for i,graph in enumerate(id_to_rules[ind]):
+            dict_key = tuple(sorted(graph.items()))[1:]
+            if dict_key not in graphs_with_dirs:
+                graphs_with_dirs[dict_key] = (ind,i)
+                id_to_direction[(ind,i)] = graph["dir"]
+            else:
+                graph_id = graphs_with_dirs[dict_key]
+                if id_to_direction[graph_id] != graph["dir"]:
+                    id_to_rules[ind][i]["dir"] = None
+                    id_to_rules[graph_id[0]][graph_id[1]]["dir"] = None
+
+
 def print_rules_constraint(
         h,
         d_before,
@@ -193,12 +446,14 @@ def print_rules_constraint(
             subgraph_edges.append(e["edge"])
             if e['dir']:
                 subgraph_rules.append(
-                    {"root": graph["root"], "to": e["to"], "dir": e["dir"]})
+                        {"root": graph["root"], "to": e["to"], "dir": e["dir"], "edge": e["edge"]})
 
         id_to_nodes[senid] = sorted(subgraph_nodes)
         id_to_edges[senid] = sorted(subgraph_edges)
         id_to_rules[senid] = subgraph_rules
         senid += 1
+
+    remove_bidirection(id_to_rules)
 
     before_nodes = []
     before_edges = []
@@ -218,6 +473,7 @@ def print_rules_constraint(
             rewrite_rule += n[0] + ","
             after_nodes.append(n[0])
             after_edges.append(n[1])
+
 
     conc_nodes = before_nodes + after_nodes
     conc_nodes.append(h)
@@ -245,13 +501,17 @@ def print_rules_constraint(
             # sorted_edges:
             found = True
             for rule in id_to_rules[i]:
-                if rule["dir"] == "B" and rule["to"] not in before_nodes:
-                    drop = True
-                if rule["dir"] == "S" and rule["to"] not in after_nodes:
-                    drop = True
-    if not found:
+                if rule["dir"] == "B":
+                    for ind, n in enumerate(after_nodes):
+                        if n == rule["to"] and h == rule['root'] and after_edges[ind] == rule['edge']:
+                            drop = True
+                if rule["dir"] == "S":
+                     for ind, n in enumerate(before_nodes):
+                        if n == rule["to"] and h == rule['root'] and before_edges[ind] == rule['edge']:
+                            drop = True
+    if not found and rules:
         return
-    if drop:
+    if drop and rules:
         return
 
     rewrite_rule = rewrite_rule.strip(",")
